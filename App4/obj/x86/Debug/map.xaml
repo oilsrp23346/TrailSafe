@@ -1,0 +1,55 @@
+﻿<Page
+  
+    xmlns:bm="using:Bing.Maps"
+    IsTabStop="false"
+    x:Class="App4.map"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:App4"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <bm:Map x:ConnectionId='1' HorizontalAlignment="Center" VerticalAlignment="Center"
+              Credentials="ajwjsDSkpWHHEppidzQZ~J9eWa5Td92QnyfAqTW-ktA~AvebYYui9tmNyOpd7JicgmDBApPjjIgqQ0kpAHr3njmIdUeigrWl7c0RnTWN1FI5" x:Name="myMap" MapType="Aerial" ZoomLevel="20">
+            <!--your map-->
+            <bm:Map.Center>
+                <bm:Location Latitude="16.734522" Longitude="102.285402" />
+            </bm:Map.Center>
+            <bm:Map.Children>
+                <!--Center-->
+                <bm:Pushpin x:ConnectionId='2'                       >
+                    <bm:MapLayer.Position>
+                        <bm:Location Latitude="16.734522" Longitude="102.285402" /> 
+                    </bm:MapLayer.Position>
+                </bm:Pushpin>
+                <!--Node1-->
+                <bm:Pushpin x:ConnectionId='3'                            >
+                    <bm:MapLayer.Position>
+                        <bm:Location Latitude="16.764741" Longitude="102.304295" />
+                    </bm:MapLayer.Position>
+                </bm:Pushpin>
+                <!--Node2-->
+                <bm:Pushpin x:ConnectionId='4'                            >
+                    <bm:MapLayer.Position>
+                        <bm:Location Latitude="16.791274" Longitude="102.275468" />
+                    </bm:MapLayer.Position>
+                </bm:Pushpin>
+                <!--Node3-->
+                <bm:Pushpin x:ConnectionId='5'                            >
+                    <bm:MapLayer.Position>
+                        <bm:Location Latitude="16.831196" Longitude="102.244084" />
+                    </bm:MapLayer.Position>
+                </bm:Pushpin>
+                <!--Node4-->
+                <bm:Pushpin x:ConnectionId='6'                            >
+                    <bm:MapLayer.Position>
+                        <bm:Location Latitude="16.789774" Longitude="102.235653" />
+                    </bm:MapLayer.Position>
+                </bm:Pushpin>
+            </bm:Map.Children>
+        </bm:Map>
+    </Grid>
+</Page>
+

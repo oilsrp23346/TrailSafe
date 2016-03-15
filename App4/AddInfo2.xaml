@@ -1,0 +1,93 @@
+﻿<Page
+    x:Class="App4.AddInfo2"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:App4"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" Height="960" Width="689">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Margin="0,20,10,10" HorizontalAlignment="Right" Width="668">
+
+
+
+        <RelativePanel 
+            Margin="5,5,0,5" 
+            HorizontalAlignment="Left" 
+            Width="300" >
+
+            <TextBlock  
+                x:Name="textname"
+                Text="Name : "
+                Margin="0,5,10,10" FontSize="20"/>
+            <TextBox 
+                x:Name="name"
+                Margin="0,-5.333,0,-32.667" FontSize="18" HorizontalAlignment="Left"
+                RelativePanel.AlignBottomWith="textname" Width="300"/>
+
+            <TextBlock 
+                x:Name="textID"
+                Text="ID card number :"
+                Margin="0,86,-168,-73" FontSize="20" RenderTransformOrigin="0.458,3.788" HorizontalAlignment="Left" Width="192" 
+                RelativePanel.AlignBottomWith="name"/>
+            <TextBox 
+                x:Name="ID"
+                Margin="0,75.667,-10,-113.667" FontSize="18" HorizontalAlignment="Left"
+                RelativePanel.AlignBottomWith="textID" Width="300"/>
+
+            <TextBlock 
+                x:Name="textEmergency"
+                Text="Emergency Contact :"
+                Margin="0,165.333,-223,-152.667" FontSize="20" RenderTransformOrigin="0.458,3.788" HorizontalAlignment="Left" Width="247" 
+                RelativePanel.AlignBottomWith="ID"/>
+            <TextBox 
+                x:Name="EC"
+                Margin="0,157.667,-10,-195.667" FontSize="18" HorizontalAlignment="Left"
+                RelativePanel.AlignBottomWith="textEmergency" Width="300"/>
+
+            <TextBlock 
+                x:Name="textnameE"
+                Text="Name : "
+                Margin="43,246.667,-266,-234.667" FontSize="20" RenderTransformOrigin="0.458,3.788" HorizontalAlignment="Left" Width="247" 
+                RelativePanel.AlignBottomWith="EC"/>
+            <TextBox 
+                x:Name="nameE"
+                Margin="43,239.333,-10,-277.333" FontSize="18" HorizontalAlignment="Left"
+                RelativePanel.AlignBottomWith="textnameE" Width="257"/>
+
+            <TextBlock 
+                x:Name="textrelation"
+                Text="Relation : "
+                Margin="43,321,-266,-309.333" FontSize="20" RenderTransformOrigin="0.458,3.788" HorizontalAlignment="Left" Width="247" 
+                RelativePanel.AlignBottomWith="nameE"/>
+            <TextBox 
+                x:Name="relation"
+                Margin="43,314.333,-10,-352.333" FontSize="18" HorizontalAlignment="Left"
+                RelativePanel.AlignBottomWith="textrelation" Width="257"/>
+
+            <TextBlock 
+                x:Name="textTel"
+                Text="Tel. : "
+                Margin="43,395.667,-266,-384.333" FontSize="20" RenderTransformOrigin="0.458,3.788" HorizontalAlignment="Left" Width="247" 
+                RelativePanel.AlignBottomWith="relation"/>
+            <TextBox 
+                x:Name="tel"
+                Margin="43,389.333,-10,-427.333" FontSize="18" HorizontalAlignment="Left"
+                RelativePanel.AlignBottomWith="textTel" Width="257"/>
+
+            <TextBlock 
+                x:Name="textWhistband"
+                Text="Whistband ID :"
+                Margin="0,471,-223,-459.333" FontSize="20" RenderTransformOrigin="0.458,3.788" HorizontalAlignment="Left" Width="247" 
+                RelativePanel.AlignBottomWith="tel"/>
+            <TextBox 
+                x:Name="Whistband"
+                Margin="0,464.333,-10,-503.333" FontSize="18" HorizontalAlignment="Left"
+                RelativePanel.AlignBottomWith="textWhistband" Width="300"/>
+
+
+            <Button x:Name="submit" Content="Submit" Margin="0,550,0,-547.333" BorderBrush="White" Foreground="Gray" FontWeight="Bold" FontSize="18" Click="button_Click" RelativePanel.AlignHorizontalCenterWith="Whistband" Height="39" HorizontalAlignment="Right" Width="81"/>
+        </RelativePanel>
+
+    </Grid>
+</Page>
