@@ -9,8 +9,8 @@
     <SolutionConfiguration>Debug|x64</SolutionConfiguration>
     <PackageArchitecture>x64</PackageArchitecture>
     <PackageIdentityName>c33c4712-01e6-4dd8-b38c-61579eefc219</PackageIdentityName>
-    <IntermediateOutputPath>C:\Users\siriporn\documents\visual studio 2015\Projects\App4\App4\obj\x64\Debug\</IntermediateOutputPath>
-    <RegisteredManifestChecksum>44364ED37C09B76823B20DBBBC7CE23288DA19139DF741E1740109BD855F411E</RegisteredManifestChecksum>
+    <IntermediateOutputPath>C:\Users\siriporn\Documents\GitHub\App4\App4\obj\x64\Debug\</IntermediateOutputPath>
+    <RegisteredManifestChecksum>25988C991683CDA273724E6908D55F44BD4EEC965C60EF2FDDAD8CA3FF866CB8</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>c33c4712-01e6-4dd8-b38c-61579eefc219_1.0.0.0_x64__0bjmdyzm051g0</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>c33c4712-01e6-4dd8-b38c-61579eefc219_0bjmdyzm051g0!App</RegisteredUserModeAppID>
     <RegisteredPackageID>c33c4712-01e6-4dd8-b38c-61579eefc219</RegisteredPackageID>
@@ -19,20 +19,28 @@
     <JitOptimizationSuppressed>True</JitOptimizationSuppressed>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="C:\Users\siriporn\documents\visual studio 2015\Projects\App4\App4\bin\x64\Debug\Core\AppxManifest.xml">
+    <AppXManifest Include="C:\Users\siriporn\Documents\GitHub\App4\App4\bin\x64\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-03-14T17:14:17.937</Modified>
+      <Modified>2016-03-15T15:49:53.417</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="C:\Users\siriporn\documents\visual studio 2015\Projects\App4\App4\bin\x64\Debug\App4.exe">
+    <AppxPackagedFile Include="C:\Users\siriporn\Documents\GitHub\App4\App4\bin\x64\Debug\App4.exe">
       <PackagePath>entrypoint\App4.exe</PackagePath>
-      <Modified>2016-03-14T17:14:09.830</Modified>
+      <Modified>2016-03-15T15:49:52.646</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\siriporn\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\References\commonconfiguration\neutral\Bing.Maps.winmd">
       <PackagePath>Bing.Maps.winmd</PackagePath>
       <Modified>2016-03-02T12:48:16.089</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\BehaviorsXamlSDKManaged\12.0\References\CommonConfiguration\Neutral\Microsoft.Xaml.Interactions.dll">
+      <PackagePath>Microsoft.Xaml.Interactions.dll</PackagePath>
+      <Modified>2014-12-10T11:08:10.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\BehaviorsXamlSDKManaged\12.0\References\CommonConfiguration\Neutral\Microsoft.Xaml.Interactivity.dll">
+      <PackagePath>Microsoft.Xaml.Interactivity.dll</PackagePath>
+      <Modified>2014-12-10T11:08:10.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\siriporn\.nuget\packages\Microsoft.ApplicationInsights\1.0.0\lib\portable-win81+wpa81\Microsoft.ApplicationInsights.dll">
       <PackagePath>Microsoft.ApplicationInsights.dll</PackagePath>
@@ -762,148 +770,179 @@
       <PackagePath>Bing.Maps\UnifiedStyle.MapStyle</PackagePath>
       <Modified>2016-03-02T12:48:15.465</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\siriporn\documents\visual studio 2015\Projects\App4\App4\ApplicationInsights.config">
+    <AppxPackagedFile Include="C:\Users\siriporn\Documents\GitHub\App4\App4\ApplicationInsights.config">
       <PackagePath>ApplicationInsights.config</PackagePath>
       <Modified>2016-02-10T17:36:36.427</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\siriporn\documents\visual studio 2015\Projects\App4\App4\Assets\Logo.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\siriporn\Documents\GitHub\App4\App4\Assets\Logo.scale-100.png">
       <PackagePath>Assets\Logo.scale-100.png</PackagePath>
       <Modified>2016-03-11T14:02:06.969</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\siriporn\documents\visual studio 2015\Projects\App4\App4\Assets\placeholder-sdk.png">
+    <AppxPackagedFile Include="C:\Users\siriporn\Documents\GitHub\App4\App4\Assets\placeholder-sdk.png">
       <PackagePath>Assets\placeholder-sdk.png</PackagePath>
       <Modified>2016-03-07T15:43:41.676</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\siriporn\documents\visual studio 2015\Projects\App4\App4\Assets\SmallLogo.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\siriporn\Documents\GitHub\App4\App4\Assets\SmallLogo.scale-100.png">
       <PackagePath>Assets\SmallLogo.scale-100.png</PackagePath>
       <Modified>2016-03-11T14:05:11.459</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\siriporn\documents\visual studio 2015\Projects\App4\App4\Assets\SplashScreen.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\siriporn\Documents\GitHub\App4\App4\Assets\SplashScreen.scale-100.png">
       <PackagePath>Assets\SplashScreen.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2016-03-11T14:01:18.424</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\siriporn\documents\visual studio 2015\Projects\App4\App4\Assets\StoreLogo.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\siriporn\Documents\GitHub\App4\App4\Assets\StoreLogo.scale-100.png">
       <PackagePath>Assets\StoreLogo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2016-03-07T15:43:41.683</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\siriporn\documents\visual studio 2015\Projects\App4\App4\Assets\LockScreenLogo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\siriporn\Documents\GitHub\App4\App4\image\placeholder-sdk.png">
+      <PackagePath>image\placeholder-sdk.png</PackagePath>
+      <Modified>2016-03-15T15:47:40.670</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\siriporn\Documents\GitHub\App4\App4\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
       <Modified>2015-10-10T14:09:42.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\siriporn\documents\visual studio 2015\Projects\App4\App4\Assets\SplashScreen.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\siriporn\Documents\GitHub\App4\App4\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2015-10-10T14:09:42.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\siriporn\documents\visual studio 2015\Projects\App4\App4\Assets\Square150x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\siriporn\Documents\GitHub\App4\App4\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2015-10-10T14:09:42.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\siriporn\documents\visual studio 2015\Projects\App4\App4\Assets\Square44x44Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\siriporn\Documents\GitHub\App4\App4\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2015-10-10T14:09:42.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\siriporn\documents\visual studio 2015\Projects\App4\App4\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+    <AppxPackagedFile Include="C:\Users\siriporn\Documents\GitHub\App4\App4\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2015-10-10T14:09:42.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\siriporn\documents\visual studio 2015\Projects\App4\App4\Assets\StoreLogo.png">
+    <AppxPackagedFile Include="C:\Users\siriporn\Documents\GitHub\App4\App4\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2015-10-10T14:09:42.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\siriporn\documents\visual studio 2015\Projects\App4\App4\Assets\Wide310x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\siriporn\Documents\GitHub\App4\App4\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2015-10-10T14:09:42.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\siriporn\documents\visual studio 2015\Projects\App4\App4\image\1.jpg">
+    <AppxPackagedFile Include="C:\Users\siriporn\Documents\GitHub\App4\App4\image\1.jpg">
       <PackagePath>image\1.jpg</PackagePath>
       <Modified>2016-03-11T19:07:24.115</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\siriporn\documents\visual studio 2015\Projects\App4\App4\image\10.jpg">
+    <AppxPackagedFile Include="C:\Users\siriporn\Documents\GitHub\App4\App4\image\10.jpg">
       <PackagePath>image\10.jpg</PackagePath>
       <Modified>2016-03-11T19:07:23.911</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\siriporn\documents\visual studio 2015\Projects\App4\App4\image\11.jpg">
+    <AppxPackagedFile Include="C:\Users\siriporn\Documents\GitHub\App4\App4\image\11.jpg">
       <PackagePath>image\11.jpg</PackagePath>
       <Modified>2016-03-11T19:07:23.999</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\siriporn\documents\visual studio 2015\Projects\App4\App4\image\12.jpg">
+    <AppxPackagedFile Include="C:\Users\siriporn\Documents\GitHub\App4\App4\image\12.jpg">
       <PackagePath>image\12.jpg</PackagePath>
       <Modified>2016-03-11T19:07:24.046</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\siriporn\documents\visual studio 2015\Projects\App4\App4\image\13.jpg">
+    <AppxPackagedFile Include="C:\Users\siriporn\Documents\GitHub\App4\App4\image\13.jpg">
       <PackagePath>image\13.jpg</PackagePath>
       <Modified>2016-03-11T19:07:24.099</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\siriporn\documents\visual studio 2015\Projects\App4\App4\image\2.jpg">
+    <AppxPackagedFile Include="C:\Users\siriporn\Documents\GitHub\App4\App4\image\2.jpg">
       <PackagePath>image\2.jpg</PackagePath>
       <Modified>2016-03-11T19:07:24.125</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\siriporn\documents\visual studio 2015\Projects\App4\App4\image\3.jpg">
+    <AppxPackagedFile Include="C:\Users\siriporn\Documents\GitHub\App4\App4\image\3.jpg">
       <PackagePath>image\3.jpg</PackagePath>
       <Modified>2016-03-11T19:07:24.127</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\siriporn\documents\visual studio 2015\Projects\App4\App4\image\4.jpg">
+    <AppxPackagedFile Include="C:\Users\siriporn\Documents\GitHub\App4\App4\image\4.jpg">
       <PackagePath>image\4.jpg</PackagePath>
       <Modified>2016-03-11T19:07:24.142</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\siriporn\documents\visual studio 2015\Projects\App4\App4\image\5.jpg">
+    <AppxPackagedFile Include="C:\Users\siriporn\Documents\GitHub\App4\App4\image\5.jpg">
       <PackagePath>image\5.jpg</PackagePath>
       <Modified>2016-03-11T19:07:24.151</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\siriporn\documents\visual studio 2015\Projects\App4\App4\image\6.jpg">
+    <AppxPackagedFile Include="C:\Users\siriporn\Documents\GitHub\App4\App4\image\6.jpg">
       <PackagePath>image\6.jpg</PackagePath>
       <Modified>2016-03-11T19:07:24.167</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\siriporn\documents\visual studio 2015\Projects\App4\App4\image\7.jpg">
+    <AppxPackagedFile Include="C:\Users\siriporn\Documents\GitHub\App4\App4\image\7.jpg">
       <PackagePath>image\7.jpg</PackagePath>
       <Modified>2016-03-11T19:07:23.901</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\siriporn\documents\visual studio 2015\Projects\App4\App4\image\8.jpg">
+    <AppxPackagedFile Include="C:\Users\siriporn\Documents\GitHub\App4\App4\image\8.jpg">
       <PackagePath>image\8.jpg</PackagePath>
       <Modified>2016-03-11T19:07:23.903</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\siriporn\documents\visual studio 2015\Projects\App4\App4\image\9.jpg">
+    <AppxPackagedFile Include="C:\Users\siriporn\Documents\GitHub\App4\App4\image\9.jpg">
       <PackagePath>image\9.jpg</PackagePath>
       <Modified>2016-03-11T19:07:23.907</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\siriporn\documents\visual studio 2015\Projects\App4\App4\image\oil.jpg">
+    <AppxPackagedFile Include="C:\Users\siriporn\Documents\GitHub\App4\App4\image\oil.jpg">
       <PackagePath>image\oil.jpg</PackagePath>
       <Modified>2016-03-11T12:26:00.848</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\siriporn\documents\visual studio 2015\Projects\App4\App4\Properties\Default.rd.xml">
+    <AppxPackagedFile Include="C:\Users\siriporn\Documents\GitHub\App4\App4\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
       <Modified>2016-02-10T17:36:26.040</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\siriporn\documents\visual studio 2015\Projects\App4\App4\bin\x64\Debug\Bing.Maps\Themes\Generic.xbf">
+    <AppxPackagedFile Include="C:\Users\siriporn\Documents\GitHub\App4\App4\bin\x64\Debug\Bing.Maps\Themes\Generic.xbf">
       <PackagePath>Bing.Maps\Themes\Generic.xbf</PackagePath>
-      <Modified>2016-03-14T17:14:09.324</Modified>
+      <Modified>2016-03-15T15:49:52.230</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\siriporn\documents\visual studio 2015\Projects\App4\App4\bin\x64\Debug\App4.xr.xml">
+    <AppxPackagedFile Include="C:\Users\siriporn\Documents\GitHub\App4\App4\bin\x64\Debug\App4.xr.xml">
       <PackagePath>App4.xr.xml</PackagePath>
-      <Modified>2016-03-13T15:00:37.180</Modified>
+      <Modified>2016-03-15T15:46:04.759</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
-      <Modified>2016-02-03T00:56:13.655</Modified>
+      <Modified>2016-03-15T12:30:28.227</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\siriporn\documents\visual studio 2015\Projects\App4\App4\bin\x64\Debug\resources.pri">
+    <AppxPackagedFile Include="C:\Users\siriporn\Documents\GitHub\App4\App4\bin\x64\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2016-03-14T17:14:13.926</Modified>
+      <Modified>2016-03-15T15:48:46.638</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\siriporn\documents\visual studio 2015\Projects\App4\App4\bin\x64\Debug\Core\App4.exe">
+    <AppxPackagedFile Include="C:\Users\siriporn\Documents\GitHub\App4\App4\bin\x64\Debug\Core\App4.exe">
       <PackagePath>App4.exe</PackagePath>
-      <Modified>2016-03-14T17:14:17.926</Modified>
+      <Modified>2016-03-15T15:49:53.410</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
+    <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.NET.Native.Runtime.1.1\1.1\">
+      <Name>Microsoft.NET.Native.Runtime.1.1</Name>
+      <Version>1.1.23406.0</Version>
+      <Architecture>ARM</Architecture>
+      <FrameworkIdentity>Name = Microsoft.NET.Native.Runtime.1.1, MinVersion = 1.1.23406.0, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
+      <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.NET.Native.Runtime.1.1\1.1\.\AppX\ARM\Microsoft.NET.Native.Runtime.1.1.appx</AppxLocation>
+      <MoreInfo>
+      </MoreInfo>
+    </ResolvedSDKReference>
+    <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.NET.Native.Runtime.1.1\1.1\">
+      <Name>Microsoft.NET.Native.Runtime.1.1</Name>
+      <Version>1.1.23406.0</Version>
+      <Architecture>x64</Architecture>
+      <FrameworkIdentity>Name = Microsoft.NET.Native.Runtime.1.1, MinVersion = 1.1.23406.0, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
+      <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.NET.Native.Runtime.1.1\1.1\.\AppX\x64\Microsoft.NET.Native.Runtime.1.1.appx</AppxLocation>
+      <MoreInfo>
+      </MoreInfo>
+    </ResolvedSDKReference>
+    <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.NET.Native.Runtime.1.1\1.1\">
+      <Name>Microsoft.NET.Native.Runtime.1.1</Name>
+      <Version>1.1.23406.0</Version>
+      <Architecture>x86</Architecture>
+      <FrameworkIdentity>Name = Microsoft.NET.Native.Runtime.1.1, MinVersion = 1.1.23406.0, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
+      <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.NET.Native.Runtime.1.1\1.1\.\AppX\x86\Microsoft.NET.Native.Runtime.1.1.appx</AppxLocation>
+      <MoreInfo>
+      </MoreInfo>
+    </ResolvedSDKReference>
     <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.VCLibs\14.0\">
       <Name>Microsoft.VCLibs.140.00.Debug</Name>
       <Version>14.0.22929.0</Version>

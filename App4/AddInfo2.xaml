@@ -8,86 +8,35 @@
     mc:Ignorable="d" Height="960" Width="689">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Margin="0,20,10,10" HorizontalAlignment="Right" Width="668">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="86*"/>
+            <ColumnDefinition Width="85*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="160*"/>
+            <RowDefinition Height="787*"/>
+        </Grid.RowDefinitions>
+
+        <!--textbox-->
+        <TextBox x:Name="name" Margin="64,103,51,6" TextWrapping="Wrap" Text="" TextChanged="textBox_TextChanged" FontSize="16" Grid.ColumnSpan="2" RenderTransformOrigin="0.5,0.5"/>
+        <TextBox x:Name="ID" Margin="64,34,51,691" TextWrapping="Wrap" Text="" TextChanged="textBox_TextChanged" FontSize="16" Grid.ColumnSpan="2" RenderTransformOrigin="0.5,0.5" Grid.Row="1"/>
+        <TextBox x:Name="EC" Margin="64,114,51,611" TextWrapping="Wrap" Text="" TextChanged="textBox_TextChanged" FontSize="16" Grid.ColumnSpan="2" RenderTransformOrigin="0.5,0.5" Grid.Row="1"/>
+        <TextBox x:Name="nameE" Margin="136,199,51,526" TextWrapping="Wrap" Text="" TextChanged="textBox_TextChanged" FontSize="16" Grid.ColumnSpan="2" RenderTransformOrigin="0.5,0.5" Grid.Row="1"/>
+        <TextBox x:Name="relation" Margin="136,284,51,441" TextWrapping="Wrap" Text="" TextChanged="textBox_TextChanged" FontSize="16" Grid.ColumnSpan="2" RenderTransformOrigin="0.5,0.5" Grid.Row="1"/>
+        <TextBox x:Name="tel" Margin="136,359,51,366" TextWrapping="Wrap" Text="" TextChanged="textBox_TextChanged" FontSize="16" Grid.ColumnSpan="2" RenderTransformOrigin="0.5,0.5" Grid.Row="1"/>
+        <TextBox x:Name="Whistband" Margin="64,449,51,276" TextWrapping="Wrap" Text="" TextChanged="textBox_TextChanged" FontSize="16" Grid.ColumnSpan="2" RenderTransformOrigin="0.5,0.5" Grid.Row="1"/>
 
 
+        <!--topic-->
+        <TextBlock x:Name="textname" Margin="64,72,0,0" TextWrapping="Wrap" Text="Name :" SelectionChanged="textBlock_SelectionChanged" FontSize="20" Canvas.ZIndex="-2" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" />
+        <TextBlock x:Name="textID" Margin="64,156,26,0" TextWrapping="Wrap" Text="ID card number :" SelectionChanged="textBlock_SelectionChanged" FontSize="20" Canvas.ZIndex="-2" HorizontalAlignment="Center" VerticalAlignment="Top" FontWeight="Bold" Height="30" Width="246" Grid.RowSpan="2"/>
+        <TextBlock x:Name="textEmergency" Margin="64,82,79,0" TextWrapping="Wrap" Text="Emergency Contact :" SelectionChanged="textBlock_SelectionChanged" FontSize="20" Grid.Row="1" Canvas.ZIndex="-2" HorizontalAlignment="Center" VerticalAlignment="Top" FontWeight="Bold"/>
+        <TextBlock x:Name="textnameE" Margin="136,167,133,0" TextWrapping="Wrap" Text="Name :" SelectionChanged="textBlock_SelectionChanged" FontSize="20" Grid.Row="1" Canvas.ZIndex="-2" HorizontalAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="0.562,0.481"/>
+        <TextBlock x:Name="textrelation" Margin="137,252,79,0" TextWrapping="Wrap" Text="Relation :" SelectionChanged="textBlock_SelectionChanged" FontSize="20" Grid.Row="1" Canvas.ZIndex="-2" HorizontalAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="0.562,0.481" Width="120"/>
+        <TextBlock x:Name="textTel" Margin="136,332,80,0" TextWrapping="Wrap" Text="Tel :" SelectionChanged="textBlock_SelectionChanged" FontSize="20" Grid.Row="1" Canvas.ZIndex="-2" HorizontalAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="0.562,0.481" Width="120"/>
+        <TextBlock x:Name="textWhistband" Margin="64,417,132,0" TextWrapping="Wrap" Text="Whistband ID :" SelectionChanged="textBlock_SelectionChanged" FontSize="20" Grid.Row="1" Canvas.ZIndex="-2" HorizontalAlignment="Center" VerticalAlignment="Top" FontWeight="Bold"/>
 
-        <RelativePanel 
-            Margin="5,5,0,5" 
-            HorizontalAlignment="Left" 
-            Width="300" >
-
-            <TextBlock  
-                x:Name="textname"
-                Text="Name : "
-                Margin="0,5,10,10" FontSize="20"/>
-            <TextBox 
-                x:Name="name"
-                Margin="0,-5.333,0,-32.667" FontSize="18" HorizontalAlignment="Left"
-                RelativePanel.AlignBottomWith="textname" Width="300"/>
-
-            <TextBlock 
-                x:Name="textID"
-                Text="ID card number :"
-                Margin="0,86,-168,-73" FontSize="20" RenderTransformOrigin="0.458,3.788" HorizontalAlignment="Left" Width="192" 
-                RelativePanel.AlignBottomWith="name"/>
-            <TextBox 
-                x:Name="ID"
-                Margin="0,75.667,-10,-113.667" FontSize="18" HorizontalAlignment="Left"
-                RelativePanel.AlignBottomWith="textID" Width="300"/>
-
-            <TextBlock 
-                x:Name="textEmergency"
-                Text="Emergency Contact :"
-                Margin="0,165.333,-223,-152.667" FontSize="20" RenderTransformOrigin="0.458,3.788" HorizontalAlignment="Left" Width="247" 
-                RelativePanel.AlignBottomWith="ID"/>
-            <TextBox 
-                x:Name="EC"
-                Margin="0,157.667,-10,-195.667" FontSize="18" HorizontalAlignment="Left"
-                RelativePanel.AlignBottomWith="textEmergency" Width="300"/>
-
-            <TextBlock 
-                x:Name="textnameE"
-                Text="Name : "
-                Margin="43,246.667,-266,-234.667" FontSize="20" RenderTransformOrigin="0.458,3.788" HorizontalAlignment="Left" Width="247" 
-                RelativePanel.AlignBottomWith="EC"/>
-            <TextBox 
-                x:Name="nameE"
-                Margin="43,239.333,-10,-277.333" FontSize="18" HorizontalAlignment="Left"
-                RelativePanel.AlignBottomWith="textnameE" Width="257"/>
-
-            <TextBlock 
-                x:Name="textrelation"
-                Text="Relation : "
-                Margin="43,321,-266,-309.333" FontSize="20" RenderTransformOrigin="0.458,3.788" HorizontalAlignment="Left" Width="247" 
-                RelativePanel.AlignBottomWith="nameE"/>
-            <TextBox 
-                x:Name="relation"
-                Margin="43,314.333,-10,-352.333" FontSize="18" HorizontalAlignment="Left"
-                RelativePanel.AlignBottomWith="textrelation" Width="257"/>
-
-            <TextBlock 
-                x:Name="textTel"
-                Text="Tel. : "
-                Margin="43,395.667,-266,-384.333" FontSize="20" RenderTransformOrigin="0.458,3.788" HorizontalAlignment="Left" Width="247" 
-                RelativePanel.AlignBottomWith="relation"/>
-            <TextBox 
-                x:Name="tel"
-                Margin="43,389.333,-10,-427.333" FontSize="18" HorizontalAlignment="Left"
-                RelativePanel.AlignBottomWith="textTel" Width="257"/>
-
-            <TextBlock 
-                x:Name="textWhistband"
-                Text="Whistband ID :"
-                Margin="0,471,-223,-459.333" FontSize="20" RenderTransformOrigin="0.458,3.788" HorizontalAlignment="Left" Width="247" 
-                RelativePanel.AlignBottomWith="tel"/>
-            <TextBox 
-                x:Name="Whistband"
-                Margin="0,464.333,-10,-503.333" FontSize="18" HorizontalAlignment="Left"
-                RelativePanel.AlignBottomWith="textWhistband" Width="300"/>
-
-
-            <Button x:Name="submit" Content="Submit" Margin="0,550,0,-547.333" BorderBrush="White" Foreground="Gray" FontWeight="Bold" FontSize="18" Click="button_Click" RelativePanel.AlignHorizontalCenterWith="Whistband" Height="39" HorizontalAlignment="Right" Width="81"/>
-        </RelativePanel>
+        <Button x:Name="submit" Content="Submit" HorizontalAlignment="Stretch" Margin="138,10,51,78" VerticalAlignment="Stretch" BorderBrush="White" Foreground="Black" FontWeight="Bold" FontSize="18" Grid.Column="1" Click="button_Click"/>
 
     </Grid>
 </Page>

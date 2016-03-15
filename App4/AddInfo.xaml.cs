@@ -36,6 +36,7 @@ namespace App4
         }
 
 
+
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
 
@@ -58,6 +59,7 @@ namespace App4
                     }
                     CapturedPhoto.Source = bitmapImage;
                     ResetButton.Visibility = Visibility.Visible;
+
                 }
                 else
                 {
@@ -69,8 +71,10 @@ namespace App4
             {
                 var dialog1 = new MessageDialog("Error!");
                 dialog1.ShowAsync();
+
             }
         }
+
 
         private void Reset_Click(object sender, RoutedEventArgs e)
         {

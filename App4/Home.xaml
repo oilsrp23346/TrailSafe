@@ -5,10 +5,56 @@
     xmlns:local="using:App4"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
+    mc:Ignorable="d"
+    d:DesignHeight="300"
+    d:DesignWidth="400">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Image x:Name="Logo" HorizontalAlignment="Center" Height="180" VerticalAlignment="Center" Width="180" Margin="85,210,95,250" Source="image/oil.jpg"/>
+    <Grid Name="MainPanel" Background="White" Margin="10" Height="275" Width="200" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
 
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState x:Name="NarrowLayout">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="MainPanel.Width" Value="200" />
+                        <Setter Target="MainPanel.Height" Value="275" />
+                        <Setter Target="HeadlineTextBlock.FontSize" Value="18" />
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="WideLayout">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="900" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="MainPanel.Width" Value="400" />
+                        <Setter Target="MainPanel.Height" Value="400" />
+                        <Setter Target="HeadlineTextBlock.FontSize" Value="26" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+        <Image Name="MyImage" Source="{x:Bind Book.pic}" />
+        <RelativePanel Grid.Row="1" Margin="10">
+            <TextBlock Text="{x:Bind Book.Name}"
+                       Name="HeadlineTextBlock"
+                       RelativePanel.AlignTopWithPanel="True" 
+                       FontSize="16" 
+                       TextWrapping="Wrap" />
+            <TextBlock Text="{x:Bind Book.WhistbandId}"
+                       Name="HeadlineTextBlock2"
+                       RelativePanel.Below="HeadlineTextBlock" 
+                       TextWrapping="Wrap" />
+            <TextBlock Text="{x:Bind Book.Idcard}" 
+                       Name="HeadlineTextBlock3"
+                       RelativePanel.Below="HeadlineTextBlock2" 
+                       TextWrapping="Wrap" />
+        </RelativePanel>
     </Grid>
-</Page>
+    </Page>

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -12,7 +11,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-using Windows.UI.Xaml.Media.Imaging;
+
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -23,9 +22,11 @@ namespace App4
     /// </summary>
     public sealed partial class Home : Page
     {
+       public Model.Book Book { get { return this.DataContext as Model.Book; } }
         public Home()
         {
             this.InitializeComponent();
+           this.DataContextChanged += (s, e) => Bindings.Update();
         }
     }
 }

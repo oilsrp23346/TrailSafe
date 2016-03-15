@@ -16,9 +16,6 @@
                     <StackPanel Margin="20,20,0,0">
                         <TextBlock x:ConnectionId='4'                      HorizontalAlignment="Left" FontSize="16" />
                         <TextBlock x:ConnectionId='5'                       HorizontalAlignment="Left" FontSize="10" />
-                        <Button x:ConnectionId='6' x:Name="delItem"                      Background="Transparent" >
-                            <SymbolIcon Symbol="Delete"/>
-                        </Button>
                     </StackPanel>
                 </StackPanel>
             </Grid>
@@ -32,45 +29,43 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="100" />
         </Grid.RowDefinitions>
-        <TextBlock x:ConnectionId='7' Grid.Row="1" 
+        <TextBlock x:ConnectionId='6' Grid.Row="1" 
                    Name="ResultTextBlock" 
                    FontSize="24" 
                    Foreground="Green" 
                    FontWeight="Bold" 
                    Margin="20,20,0,0" />
        
-        <ListView x:ConnectionId='8'                              
+        <ListView x:ConnectionId='7'                              
                                                  
                   IsItemClickEnabled="True" 
-                  ItemTemplate="{StaticResource BookListDataTemplate}" HorizontalAlignment="Left" Width="360" />
-        <!--SelectionChanged="ListView_SelectionChanged"-->
+                  ItemTemplate="{StaticResource BookListDataTemplate}" HorizontalAlignment="Left" Width="360"/>
         <RelativePanel Grid.RowSpan="2">
-            <TextBlock x:ConnectionId='9' x:Name="textname" 
+            <TextBlock x:ConnectionId='8' x:Name="textname" 
                    Margin="400,70,0,0" 
                    Text=""
                    FontWeight="Bold"/>
-            <TextBlock x:ConnectionId='10' x:Name="textID" 
+            <TextBlock x:ConnectionId='9' x:Name="textID" 
                    Margin="400,140,0,0" 
                    Text=""
                    FontWeight="Bold"/>
-            <TextBlock x:ConnectionId='11' x:Name="textEmergency" 
+            <TextBlock x:ConnectionId='10' x:Name="textEmergency" 
                    Margin="400,210,0,0" 
                    Text=""
                    FontWeight="Bold"/>
-            <TextBlock x:ConnectionId='12' x:Name="textnameE" 
+            <TextBlock x:ConnectionId='11' x:Name="textnameE" 
                    Margin="450,280,0,0" 
                    Text=""/>
-            <TextBlock x:ConnectionId='13' x:Name="textrelation" 
+            <TextBlock x:ConnectionId='12' x:Name="textrelation" 
                    Margin="450,350,0,0" 
                    Text=""/>
-            <TextBlock x:ConnectionId='14' x:Name="textTel" 
+            <TextBlock x:ConnectionId='13' x:Name="textTel" 
                    Margin="450,420,0,0" 
                    Text=""/>
-            <TextBlock x:ConnectionId='15' x:Name="textWhistband" 
+            <TextBlock x:ConnectionId='14' x:Name="textWhistband" 
                    Margin="450,490,0,0" 
                    Text=""
                    FontWeight="Bold"/>
-            
         </RelativePanel>
     </Grid>
 </Page>

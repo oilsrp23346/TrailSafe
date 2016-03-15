@@ -19,7 +19,7 @@
             <Button x:Name="NextButton"  Content="Next" Margin="0,0,10,0" Click="Next_Click"/>
         </StackPanel>
 
-        <Grid x:Name="Output" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Row="1" Margin="50,50">
+        <Grid x:Name="Output" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Margin="100,50">
             <!--intial image-->
             <Image x:Name="CapturedPhoto"  Source="Assets/placeholder-sdk.png" Stretch="Uniform" />
         </Grid>
