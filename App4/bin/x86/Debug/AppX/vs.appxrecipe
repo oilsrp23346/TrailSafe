@@ -9,8 +9,8 @@
     <SolutionConfiguration>Debug|x86</SolutionConfiguration>
     <PackageArchitecture>x86</PackageArchitecture>
     <PackageIdentityName>c33c4712-01e6-4dd8-b38c-61579eefc219</PackageIdentityName>
-    <IntermediateOutputPath>C:\Users\siriporn\Documents\GitHub\App4\App4\obj\x86\Debug\</IntermediateOutputPath>
-    <RegisteredManifestChecksum>D99A75891B19ECADE9AADECF215B5CD01E2267B945F8D70D3E69570940E68299</RegisteredManifestChecksum>
+    <IntermediateOutputPath>C:\Users\siriporn\Documents\GitHub\Trail Safe\TrailSafe\App4\obj\x86\Debug\</IntermediateOutputPath>
+    <RegisteredManifestChecksum>94C02A456FDC960CAC190EFBDC8EA80DBDF726E1623F693DF8F5C9BE69BCE878</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>c33c4712-01e6-4dd8-b38c-61579eefc219_1.0.0.0_x86__0bjmdyzm051g0</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>c33c4712-01e6-4dd8-b38c-61579eefc219_0bjmdyzm051g0!App</RegisteredUserModeAppID>
     <RegisteredPackageID>c33c4712-01e6-4dd8-b38c-61579eefc219</RegisteredPackageID>
@@ -19,28 +19,20 @@
     <JitOptimizationSuppressed>True</JitOptimizationSuppressed>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="C:\Users\siriporn\Documents\GitHub\App4\App4\bin\x86\Debug\Core\AppxManifest.xml">
+    <AppXManifest Include="C:\Users\siriporn\Documents\GitHub\Trail Safe\TrailSafe\App4\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-03-15T16:51:12.477</Modified>
+      <Modified>2016-03-15T18:59:53.221</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="C:\Users\siriporn\Documents\GitHub\App4\App4\bin\x86\Debug\App4.exe">
+    <AppxPackagedFile Include="C:\Users\siriporn\Documents\GitHub\Trail Safe\TrailSafe\App4\bin\x86\Debug\App4.exe">
       <PackagePath>entrypoint\App4.exe</PackagePath>
-      <Modified>2016-03-15T16:51:08.976</Modified>
+      <Modified>2016-03-15T18:59:47.973</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\siriporn\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\References\commonconfiguration\neutral\Bing.Maps.winmd">
       <PackagePath>Bing.Maps.winmd</PackagePath>
       <Modified>2016-03-02T12:48:16.089</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\BehaviorsXamlSDKManaged\12.0\References\CommonConfiguration\Neutral\Microsoft.Xaml.Interactions.dll">
-      <PackagePath>Microsoft.Xaml.Interactions.dll</PackagePath>
-      <Modified>2014-12-10T11:08:10.000</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\BehaviorsXamlSDKManaged\12.0\References\CommonConfiguration\Neutral\Microsoft.Xaml.Interactivity.dll">
-      <PackagePath>Microsoft.Xaml.Interactivity.dll</PackagePath>
-      <Modified>2014-12-10T11:08:10.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\siriporn\.nuget\packages\Microsoft.ApplicationInsights\1.0.0\lib\portable-win81+wpa81\Microsoft.ApplicationInsights.dll">
       <PackagePath>Microsoft.ApplicationInsights.dll</PackagePath>
@@ -770,93 +762,93 @@
       <PackagePath>Bing.Maps\UnifiedStyle.MapStyle</PackagePath>
       <Modified>2016-03-02T12:48:15.465</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\siriporn\Documents\GitHub\App4\App4\ApplicationInsights.config">
+    <AppxPackagedFile Include="C:\Users\siriporn\Documents\GitHub\Trail Safe\TrailSafe\App4\ApplicationInsights.config">
       <PackagePath>ApplicationInsights.config</PackagePath>
       <Modified>2016-02-10T17:36:36.427</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\siriporn\Documents\GitHub\App4\App4\Assets\Logo.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\siriporn\Documents\GitHub\Trail Safe\TrailSafe\App4\Assets\Logo.scale-100.png">
       <PackagePath>Assets\Logo.scale-100.png</PackagePath>
       <Modified>2016-03-11T14:02:06.969</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\siriporn\Documents\GitHub\App4\App4\Assets\placeholder-sdk.png">
+    <AppxPackagedFile Include="C:\Users\siriporn\Documents\GitHub\Trail Safe\TrailSafe\App4\Assets\placeholder-sdk.png">
       <PackagePath>Assets\placeholder-sdk.png</PackagePath>
       <Modified>2016-03-07T15:43:41.676</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\siriporn\Documents\GitHub\App4\App4\Assets\SmallLogo.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\siriporn\Documents\GitHub\Trail Safe\TrailSafe\App4\Assets\SmallLogo.scale-100.png">
       <PackagePath>Assets\SmallLogo.scale-100.png</PackagePath>
       <Modified>2016-03-11T14:05:11.459</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\siriporn\Documents\GitHub\App4\App4\Assets\SplashScreen.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\siriporn\Documents\GitHub\Trail Safe\TrailSafe\App4\Assets\SplashScreen.scale-100.png">
       <PackagePath>Assets\SplashScreen.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2016-03-11T14:01:18.424</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\siriporn\Documents\GitHub\App4\App4\Assets\StoreLogo.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\siriporn\Documents\GitHub\Trail Safe\TrailSafe\App4\Assets\StoreLogo.scale-100.png">
       <PackagePath>Assets\StoreLogo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2016-03-07T15:43:41.683</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\siriporn\Documents\GitHub\App4\App4\image\placeholder-sdk.png">
+    <AppxPackagedFile Include="C:\Users\siriporn\Documents\GitHub\Trail Safe\TrailSafe\App4\image\placeholder-sdk.png">
       <PackagePath>image\placeholder-sdk.png</PackagePath>
       <Modified>2016-03-15T15:47:40.670</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\siriporn\Documents\GitHub\App4\App4\Assets\LockScreenLogo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\siriporn\Documents\GitHub\Trail Safe\TrailSafe\App4\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
       <Modified>2015-10-10T14:09:42.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\siriporn\Documents\GitHub\App4\App4\Assets\SplashScreen.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\siriporn\Documents\GitHub\Trail Safe\TrailSafe\App4\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2015-10-10T14:09:42.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\siriporn\Documents\GitHub\App4\App4\Assets\Square150x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\siriporn\Documents\GitHub\Trail Safe\TrailSafe\App4\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2015-10-10T14:09:42.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\siriporn\Documents\GitHub\App4\App4\Assets\Square44x44Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\siriporn\Documents\GitHub\Trail Safe\TrailSafe\App4\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2015-10-10T14:09:42.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\siriporn\Documents\GitHub\App4\App4\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+    <AppxPackagedFile Include="C:\Users\siriporn\Documents\GitHub\Trail Safe\TrailSafe\App4\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2015-10-10T14:09:42.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\siriporn\Documents\GitHub\App4\App4\Assets\StoreLogo.png">
+    <AppxPackagedFile Include="C:\Users\siriporn\Documents\GitHub\Trail Safe\TrailSafe\App4\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2015-10-10T14:09:42.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\siriporn\Documents\GitHub\App4\App4\Assets\Wide310x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\siriporn\Documents\GitHub\Trail Safe\TrailSafe\App4\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2015-10-10T14:09:42.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\siriporn\Documents\GitHub\App4\App4\Properties\Default.rd.xml">
+    <AppxPackagedFile Include="C:\Users\siriporn\Documents\GitHub\Trail Safe\TrailSafe\App4\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
       <Modified>2016-02-10T17:36:26.040</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\siriporn\Documents\GitHub\App4\App4\bin\x86\Debug\Bing.Maps\Themes\Generic.xbf">
+    <AppxPackagedFile Include="C:\Users\siriporn\Documents\GitHub\Trail Safe\TrailSafe\App4\bin\x86\Debug\Bing.Maps\Themes\Generic.xbf">
       <PackagePath>Bing.Maps\Themes\Generic.xbf</PackagePath>
-      <Modified>2016-03-15T16:51:08.568</Modified>
+      <Modified>2016-03-15T18:59:47.460</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\siriporn\Documents\GitHub\App4\App4\bin\x86\Debug\App4.xr.xml">
+    <AppxPackagedFile Include="C:\Users\siriporn\Documents\GitHub\Trail Safe\TrailSafe\App4\bin\x86\Debug\App4.xr.xml">
       <PackagePath>App4.xr.xml</PackagePath>
-      <Modified>2016-03-15T16:51:08.003</Modified>
+      <Modified>2016-03-15T18:19:46.728</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
       <Modified>2016-03-15T12:30:28.227</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\siriporn\Documents\GitHub\App4\App4\bin\x86\Debug\resources.pri">
+    <AppxPackagedFile Include="C:\Users\siriporn\Documents\GitHub\Trail Safe\TrailSafe\App4\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2016-03-15T16:51:10.243</Modified>
+      <Modified>2016-03-15T18:59:50.391</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\siriporn\Documents\GitHub\App4\App4\bin\x86\Debug\Core\App4.exe">
+    <AppxPackagedFile Include="C:\Users\siriporn\Documents\GitHub\Trail Safe\TrailSafe\App4\bin\x86\Debug\Core\App4.exe">
       <PackagePath>App4.exe</PackagePath>
-      <Modified>2016-03-15T16:51:12.470</Modified>
+      <Modified>2016-03-15T18:59:53.212</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

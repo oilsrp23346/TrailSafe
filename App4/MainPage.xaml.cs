@@ -28,7 +28,7 @@ namespace App4
         public MainPage()
         {
             this.InitializeComponent();
-            BooksItems = new ObservableCollection<Book>();
+
         }
 
         private void HambergerButton_Click(object sender, RoutedEventArgs e)
@@ -40,13 +40,13 @@ namespace App4
         {
             if (home.IsSelected)
             {
-                BooksManager.GetBooks("Tourist", BooksItems);
-                TitleTextBlock.Text = "Tourist";
+                MyFrame.Navigate(typeof(Home));
+                TitleTextBlock.Text = "Home";
             }
             else if (addTourist.IsSelected)
             {
-                
-                TitleTextBlock.Text = "Add Tourist";
+                MyFrame.Navigate(typeof(AddInfo));
+                TitleTextBlock.Text = "AddInfo";
             }
         }
 

@@ -107,17 +107,7 @@
             </SplitView.Pane>
 
             <SplitView.Content>
-                <GridView x:ConnectionId='9' Name="NewsItemGrid"
-                    Background="LightGray"
-                                                           
-                          HorizontalAlignment="Stretch"
-                          Margin="10,0,0,0">
-                    <GridView.ItemTemplate>
-                        <DataTemplate xmlns:DataType="data:Book">
-                            <local:Home />
-                        </DataTemplate>
-                    </GridView.ItemTemplate>
-                </GridView>
+                <Frame x:ConnectionId='9' Name ="MyFrame"></Frame>
             </SplitView.Content>
         </SplitView>
     </Grid>
