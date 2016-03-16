@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -12,22 +13,18 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-
-// The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
+// The User Control item template is documented at http://go.microsoft.com/fwlink/?LinkId=234236
 
 namespace App4
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
-    public sealed partial class Home : Page
+    public sealed partial class Home : UserControl
     {
-       public Model.Book Book { get { return this.DataContext as Model.Book; } }
+        public Model.Book Book { get { return this.DataContext as Model.Book; } }
 
         public Home()
         {
             this.InitializeComponent();
-           this.DataContextChanged += (s, e) => Bindings.Update();
+            this.DataContextChanged += (s, e) => Bindings.Update();
         }
     }
 }

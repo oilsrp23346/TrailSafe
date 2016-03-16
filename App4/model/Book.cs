@@ -22,9 +22,11 @@ namespace App4.Model
         {
             var allItems = getBooksItems();
 
-            var filteredNewsItems = allItems.Where(p => p.Topic == topic).ToList();
-
-            booksItems.Clear();
+           var filteredNewsItems = allItems.Where(p => p.Topic == topic).ToList();
+            
+                booksItems.Clear();
+            
+           
 
             filteredNewsItems.ForEach(p => booksItems.Add(p));
         }

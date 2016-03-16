@@ -24,11 +24,9 @@ namespace App4
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        private ObservableCollection<Book> BooksItems;
         public MainPage()
         {
             this.InitializeComponent();
-
         }
 
         private void HambergerButton_Click(object sender, RoutedEventArgs e)
@@ -38,13 +36,11 @@ namespace App4
 
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (home.IsSelected)
-            {
-                MyFrame.Navigate(typeof(Home));
-                TitleTextBlock.Text = "Home";
+            if (home.IsSelected) {
+                MyFrame.Navigate(typeof(Tourist));
+                TitleTextBlock.Text = "Tourist";
             }
-            else if (addTourist.IsSelected)
-            {
+            else if (addTourist.IsSelected) {
                 MyFrame.Navigate(typeof(AddInfo));
                 TitleTextBlock.Text = "AddInfo";
             }
