@@ -36,7 +36,7 @@
         <TextBlock x:Name="textTel" Margin="136,332,80,0" TextWrapping="Wrap" Text="Tel :" SelectionChanged="textBlock_SelectionChanged" FontSize="20" Grid.Row="1" Canvas.ZIndex="-2" HorizontalAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="0.562,0.481" Width="120"/>
         <TextBlock x:Name="textWhistband" Margin="64,417,132,0" TextWrapping="Wrap" Text="Whistband ID :" SelectionChanged="textBlock_SelectionChanged" FontSize="20" Grid.Row="1" Canvas.ZIndex="-2" HorizontalAlignment="Center" VerticalAlignment="Top" FontWeight="Bold"/>
 
-        <Button x:Name="submit" Content="Submit" HorizontalAlignment="Stretch" Margin="138,10,51,78" VerticalAlignment="Stretch" BorderBrush="White" Foreground="Black" FontWeight="Bold" FontSize="18" Grid.Column="1" Click="button_Click"/>
+        <Button x:Name="submit" Content="Submit" HorizontalAlignment="Stretch" Margin="138,10,51,78" VerticalAlignment="Stretch" BorderBrush="White" Foreground="Black" FontWeight="Bold" FontSize="18" Grid.Column="1" Click="submit_Click"/>
 
     </Grid>
 </Page>
