@@ -1,6 +1,7 @@
 ﻿<Page
-  
-    xmlns:bm="using:Bing.Maps"
+    
+     xmlns:bm="using:Bing.Maps"
+
     IsTabStop="false"
     
     x:Class="App4.map"
