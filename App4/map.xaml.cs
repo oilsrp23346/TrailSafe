@@ -17,6 +17,8 @@ using Windows.UI.Popups;
 using Bing.Maps;
 using Windows.UI.Xaml.Controls.Maps;
 using Windows.UI.Xaml.Shapes;
+using Windows.Storage.Streams;
+using Windows.Devices.Geolocation;
 
 
 
@@ -29,51 +31,34 @@ namespace App4
     /// </summary>
     public sealed partial class map : Page
     {
+        RandomAccessStreamReference mapIconStreamReference;
         public map()
-            {
+        { 
             this.InitializeComponent();
-            InitializeMap();
+            myMap.Loaded += MyMap_Loaded;
+            mapIconStreamReference = RandomAccessStreamReference.CreateFromUri(new Uri("ms-appx:///image/Pin.png"));
+        }
+        private void MyMap_Loaded(object sender, RoutedEventArgs e)
+        {
+            myMap.Center =
+               new Geopoint(new BasicGeoposition()
+               {
+                   //Geopoint for Seattle 
+                   Latitude = 16.734522,
+                   Longitude = 102.285402
+               });
+            myMap.ZoomLevel = 13;
+            //////////////Seattle/////////////
+            this.myMap.Style = MapStyle.AerialWithRoads;
 
-        }
+            MapIcon mapIcon1 = new MapIcon();
+            mapIcon1.Location = myMap.Center;
+            // mapIcon1.NormalizedAnchorPoint = new Point(0.5, 1.0);
+            mapIcon1.Title = "Center";
+            mapIcon1.Image = mapIconStreamReference;
+            mapIcon1.ZIndex = 0;
+            myMap.MapElements.Add(mapIcon1);
 
-        void InitializeMap()
-        {
-            myMap.Center = new Location(16.785264, 102.270741); 
-            myMap.ZoomLevel = 12;
-            myMap.MapType = MapType.Aerial;
-            myMap.Width = 800;
-            myMap.Height = 800;
-
-        }
-        protected override void OnNavigatedTo(NavigationEventArgs e)
-        {
-
-        }
-
-        private async void pushpinTapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
-        {
-            MessageDialog dialog = new MessageDialog("Nation Center");
-            await dialog.ShowAsync();
-        }
-        private async void pushpinTappedNode1(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
-        {
-            MessageDialog dialog = new MessageDialog("<!--Node1-->");
-            await dialog.ShowAsync();
-        }
-        private async void pushpinTappedNode2(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
-        {
-            MessageDialog dialog = new MessageDialog("<!--Node2-->");
-            await dialog.ShowAsync();
-        }
-        private async void pushpinTappedNode3(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
-        {
-            MessageDialog dialog = new MessageDialog("<!--Node3-->");
-            await dialog.ShowAsync();
-        }
-        private async void pushpinTappedNode4(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
-        {
-            MessageDialog dialog = new MessageDialog("<!--Node4-->");
-            await dialog.ShowAsync();
         }
     }
 }

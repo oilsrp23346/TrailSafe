@@ -1,6 +1,6 @@
 ﻿<Page
     
-     xmlns:bm="using:Bing.Maps"
+     xmlns:bm="using:Windows.UI.Xaml.Controls.Maps"
 
     IsTabStop="false"
     
@@ -13,44 +13,13 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <bm:Map HorizontalAlignment="Center" VerticalAlignment="Center"
-              Credentials="ajwjsDSkpWHHEppidzQZ~J9eWa5Td92QnyfAqTW-ktA~AvebYYui9tmNyOpd7JicgmDBApPjjIgqQ0kpAHr3njmIdUeigrWl7c0RnTWN1FI5" x:Name="myMap" MapType="Aerial" ZoomLevel="20">
-            <!--your map-->
-            <bm:Map.Center>
-                <bm:Location Latitude="16.734522" Longitude="102.285402" />
-            </bm:Map.Center>
-            <bm:Map.Children>
-                <!--Center-->
-                <bm:Pushpin Tapped="pushpinTapped">
-                    <bm:MapLayer.Position>
-                        <bm:Location Latitude="16.734522" Longitude="102.285402" /> 
-                    </bm:MapLayer.Position>
-                </bm:Pushpin>
-                <!--Node1-->
-                <bm:Pushpin Tapped="pushpinTappedNode1">
-                    <bm:MapLayer.Position>
-                        <bm:Location Latitude="16.764741" Longitude="102.304295" />
-                    </bm:MapLayer.Position>
-                </bm:Pushpin>
-                <!--Node2-->
-                <bm:Pushpin Tapped="pushpinTappedNode2">
-                    <bm:MapLayer.Position>
-                        <bm:Location Latitude="16.791274" Longitude="102.275468" />
-                    </bm:MapLayer.Position>
-                </bm:Pushpin>
-                <!--Node3-->
-                <bm:Pushpin Tapped="pushpinTappedNode3">
-                    <bm:MapLayer.Position>
-                        <bm:Location Latitude="16.831196" Longitude="102.244084" />
-                    </bm:MapLayer.Position>
-                </bm:Pushpin>
-                <!--Node4-->
-                <bm:Pushpin Tapped="pushpinTappedNode4">
-                    <bm:MapLayer.Position>
-                        <bm:Location Latitude="16.789774" Longitude="102.235653" />
-                    </bm:MapLayer.Position>
-                </bm:Pushpin>
-            </bm:Map.Children>
-        </bm:Map>
+        <bm:MapControl  x:Name="myMap" 
+                        MapServiceToken="P8aJ8tLXR2dCFzo5CiPs~I-TDElv6aDbXLjP4kBsCeA~An08oNFJbXQ-yJ9RI-ehVXveuCkZ7L671vvWtpfvFcWtfrP8fO2n-u_obHTV6bFo"
+                        ZoomInteractionMode="GestureAndControl"
+                        LandmarksVisible="True"
+                        IsRightTapEnabled="true">
+           
+        </bm:MapControl>
+        
     </Grid>
 </Page>

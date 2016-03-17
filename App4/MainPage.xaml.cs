@@ -40,6 +40,11 @@ namespace App4
                 MyFrame.Navigate(typeof(Tourist));
                 TitleTextBlock.Text = "Tourist";
             }
+            else if (node.IsSelected)
+            {
+                MyFrame.Navigate(typeof(ShowNode));
+                TitleTextBlock.Text = "Node Information";
+            }
             else if (addTourist.IsSelected) {
                 MyFrame.Navigate(typeof(AddInfo));
                 TitleTextBlock.Text = "Tourist Information";
