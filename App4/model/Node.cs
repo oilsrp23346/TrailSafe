@@ -34,10 +34,10 @@ namespace App4.Model
         {
             var nodes = new List<Node>();
 
-            nodes.Add(new Node { Topic = "Node", id = 1, node_type = "Aek", online_status = 0, latitude = "1.45737" ,longitude = "1.45737"  });
-            nodes.Add(new Node { Topic = "Node", id = 2, node_type = "Dong", online_status = 1, latitude = "1.45737", longitude = "1.45737" });
-            nodes.Add(new Node { Topic = "Node", id = 3, node_type = "Jo", online_status =1 , latitude = "1.45737", longitude = "1.45737" });
-            nodes.Add(new Node { Topic = "Node", id = 4, node_type = "Pipe", online_status = 0, latitude = "1.45737",longitude = "1.45737"});
+            nodes.Add(new Node { Topic = "Node", id = 0, node_type = "INTERNAL", online_status = 0, latitude = "1.45737" ,longitude = "1.45737"  });
+            nodes.Add(new Node { Topic = "Node", id = 1, node_type = "INTERNAL", online_status = 1, latitude = "1.45737", longitude = "1.45737" });
+            nodes.Add(new Node { Topic = "Node", id = 2, node_type = "INTERNAL", online_status =1, latitude = "1.45737", longitude = "1.45737" });
+            nodes.Add(new Node { Topic = "Node", id = 3, node_type = "INTERNAL", online_status = 0, latitude = "1.45737",longitude = "1.45737"});
            
             return nodes;
         }

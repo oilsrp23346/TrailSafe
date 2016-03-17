@@ -138,6 +138,7 @@
     <Content Include="Assets\SmallLogo.scale-100.png" />
     <Content Include="Assets\SplashScreen.scale-100.png" />
     <Content Include="Assets\StoreLogo.scale-100.png" />
+    <Content Include="image\feature-buttons-system-status.png" />
     <Content Include="image\mappin.png" />
     <Content Include="image\Pin.png" />
     <Content Include="image\placeholder-sdk.png" />

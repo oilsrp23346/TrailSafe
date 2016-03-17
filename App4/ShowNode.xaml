@@ -12,7 +12,7 @@
         <SplitView Name="MySplitView" 
                    Grid.Row="1" 
                    DisplayMode="CompactOverlay" 
-                   OpenPaneLength="150" 
+                   OpenPaneLength="50" 
                    CompactPaneLength="45" >
             <SplitView.Content>
                 <GridView Name="NewsItemGrid"
