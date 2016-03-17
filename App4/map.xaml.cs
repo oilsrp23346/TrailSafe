@@ -12,8 +12,13 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-using Bing.Maps;
 using Windows.UI.Popups;
+
+using Bing.Maps;
+using Windows.UI.Xaml.Controls.Maps;
+using Windows.UI.Xaml.Shapes;
+
+
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 

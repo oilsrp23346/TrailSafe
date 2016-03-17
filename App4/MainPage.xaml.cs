@@ -42,7 +42,12 @@ namespace App4
             }
             else if (addTourist.IsSelected) {
                 MyFrame.Navigate(typeof(AddInfo));
-                TitleTextBlock.Text = "AddInfo";
+                TitleTextBlock.Text = "Tourist Information";
+            }
+            else if (map.IsSelected)
+            {
+                MyFrame.Navigate(typeof(map));
+                TitleTextBlock.Text = "Map";
             }
         }
 
