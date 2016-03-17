@@ -35,15 +35,10 @@ namespace App4
         {
 
         }
-
         private void button_Click(object sender, RoutedEventArgs e)
         {
             String xname = name.Text;
             String xID = ID.Text;
-            String xEC = EC.Text;
-            String xnameE = nameE.Text;
-            String xrelation = relation.Text;
-            String xtel = tel.Text;
             String xwhistband = Whistband.Text;
         }
     }
