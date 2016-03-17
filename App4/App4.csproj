@@ -118,6 +118,7 @@
     <Compile Include="Tourist.xaml.cs">
       <DependentUpon>Tourist.xaml</DependentUpon>
     </Compile>
+    <Compile Include="User.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">

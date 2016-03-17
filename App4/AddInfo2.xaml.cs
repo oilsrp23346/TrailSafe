@@ -36,15 +36,11 @@ namespace App4
 
         }
 
-        private void button_Click(object sender, RoutedEventArgs e)
+        private void submit_Click(object sender, RoutedEventArgs e)
         {
-            String xname = name.Text;
-            String xID = ID.Text;
-            String xEC = EC.Text;
-            String xnameE = nameE.Text;
-            String xrelation = relation.Text;
-            String xtel = tel.Text;
-            String xwhistband = Whistband.Text;
+            User user = new User(name.Text,Int32.Parse(ID.Text),111,Int32.Parse(Whistband.Text));
+            user.save();
+
         }
     }
 }
