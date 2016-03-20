@@ -13,6 +13,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Windows.UI.Popups;
+using App4.model;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -48,7 +49,9 @@ namespace App4
         {
             if(name.Text == "" || wristband.Text == "" || identifier.Text == "")
             {
-                MessageDialog ms = new MessageDialog("Please fill the box below.");
+                Node[] node = Node.getAllNode();
+                //MessageDialog ms = new MessageDialog("Please fill the box below.");
+                MessageDialog ms = new MessageDialog(node.ToString());
                 await ms.ShowAsync();
                 clearForm();
             }

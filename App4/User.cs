@@ -10,7 +10,6 @@ namespace App4
 {
     class User
     {
-        private int id { get; set; }
         private string name { get; set; }
         private int identifier { get; set; }
         private int profilePic { get; set; }
@@ -19,21 +18,19 @@ namespace App4
 
         public User()
         {
-            this.id = 0;
             this.name = null;
             this.identifier = 0;
             this.profilePic = 0;
-            this.status = 0;
-            this.wristbandID = 0;
+            this.status = 1;
+            this.wristbandID = -1;
         }
 
-        public User(int id, string name, int identifier, int profilePic, int status, int wristbandID)
+        public User(string name, int identifier, int profilePic, int wristbandID)
         {
-            this.id = id;
             this.name = name;
             this.identifier = identifier;
             this.profilePic = profilePic;
-            this.status = status;
+            this.status = 1;
             this.wristbandID = wristbandID;
         }
 
@@ -43,12 +40,10 @@ namespace App4
             HttpClient client = new HttpClient();
             string message = "";
             HttpResponseMessage response = await client.GetAsync(geturi);
-            if(response.IsSuccessStatusCode)
-            {
+            if(response.IsSuccessStatusCode) {
                 message = "Complete!";
             }
-            else
-            {
+            else {
                 message = "Cannot save to database.";
             }
             var messageDialog = new MessageDialog(message);

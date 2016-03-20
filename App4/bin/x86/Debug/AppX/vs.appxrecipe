@@ -9,20 +9,26 @@
     <SolutionConfiguration>Debug|x86</SolutionConfiguration>
     <PackageArchitecture>x86</PackageArchitecture>
     <PackageIdentityName>c33c4712-01e6-4dd8-b38c-61579eefc219</PackageIdentityName>
-    <IntermediateOutputPath>Z:\TrailSafe\App4\obj\x86\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\oat_vm\Desktop\TrailSafe\App4\obj\x86\Debug\</IntermediateOutputPath>
     <RegisteredManifestChecksum>0CC5B511996E3A73881F0D50724EC84EC4FD7D0AF0AC5250F6359FD7E17C031B</RegisteredManifestChecksum>
+    <RegisteredPackageMoniker>c33c4712-01e6-4dd8-b38c-61579eefc219_1.0.0.0_x86__0bjmdyzm051g0</RegisteredPackageMoniker>
+    <RegisteredUserModeAppID>c33c4712-01e6-4dd8-b38c-61579eefc219_0bjmdyzm051g0!App</RegisteredUserModeAppID>
+    <RegisteredPackageID>c33c4712-01e6-4dd8-b38c-61579eefc219</RegisteredPackageID>
+    <RegisteredPackagePublisher>CN=siriporn</RegisteredPackagePublisher>
+    <RegisteredVersion>1.0.0.0</RegisteredVersion>
+    <JitOptimizationSuppressed>True</JitOptimizationSuppressed>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="Z:\TrailSafe\App4\bin\x86\Debug\Core\AppxManifest.xml">
+    <AppXManifest Include="C:\Users\oat_vm\Desktop\TrailSafe\App4\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-03-17T10:34:15.036</Modified>
+      <Modified>2016-03-20T19:30:34.574</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="Z:\TrailSafe\App4\bin\x86\Debug\App4.exe">
+    <AppxPackagedFile Include="C:\Users\oat_vm\Desktop\TrailSafe\App4\bin\x86\Debug\App4.exe">
       <PackagePath>entrypoint\App4.exe</PackagePath>
-      <Modified>2016-03-17T10:34:12.388</Modified>
+      <Modified>2016-03-20T19:30:33.455</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\oat_vm\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\References\commonconfiguration\neutral\Bing.Maps.winmd">
       <PackagePath>Bing.Maps.winmd</PackagePath>
@@ -756,79 +762,79 @@
       <PackagePath>Bing.Maps\UnifiedStyle.MapStyle</PackagePath>
       <Modified>2016-03-16T10:24:35.602</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="Z:\TrailSafe\App4\ApplicationInsights.config">
+    <AppxPackagedFile Include="C:\Users\oat_vm\Desktop\TrailSafe\App4\ApplicationInsights.config">
       <PackagePath>ApplicationInsights.config</PackagePath>
       <Modified>2016-02-10T17:36:38.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="Z:\TrailSafe\App4\Assets\Logo.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\oat_vm\Desktop\TrailSafe\App4\Assets\Logo.scale-100.png">
       <PackagePath>Assets\Logo.scale-100.png</PackagePath>
       <Modified>2016-03-11T14:02:08.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="Z:\TrailSafe\App4\Assets\placeholder-sdk.png">
+    <AppxPackagedFile Include="C:\Users\oat_vm\Desktop\TrailSafe\App4\Assets\placeholder-sdk.png">
       <PackagePath>Assets\placeholder-sdk.png</PackagePath>
       <Modified>2016-03-07T15:43:42.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="Z:\TrailSafe\App4\Assets\SmallLogo.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\oat_vm\Desktop\TrailSafe\App4\Assets\SmallLogo.scale-100.png">
       <PackagePath>Assets\SmallLogo.scale-100.png</PackagePath>
       <Modified>2016-03-11T14:05:12.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="Z:\TrailSafe\App4\Assets\SplashScreen.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\oat_vm\Desktop\TrailSafe\App4\Assets\SplashScreen.scale-100.png">
       <PackagePath>Assets\SplashScreen.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2016-03-11T14:01:20.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="Z:\TrailSafe\App4\Assets\StoreLogo.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\oat_vm\Desktop\TrailSafe\App4\Assets\StoreLogo.scale-100.png">
       <PackagePath>Assets\StoreLogo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2016-03-07T15:43:42.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="Z:\TrailSafe\App4\image\placeholder-sdk.png">
+    <AppxPackagedFile Include="C:\Users\oat_vm\Desktop\TrailSafe\App4\image\placeholder-sdk.png">
       <PackagePath>image\placeholder-sdk.png</PackagePath>
       <Modified>2016-03-15T15:47:42.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="Z:\TrailSafe\App4\Assets\LockScreenLogo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\oat_vm\Desktop\TrailSafe\App4\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
       <Modified>2015-10-10T14:09:42.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="Z:\TrailSafe\App4\Assets\SplashScreen.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\oat_vm\Desktop\TrailSafe\App4\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2015-10-10T14:09:42.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="Z:\TrailSafe\App4\Assets\Square150x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\oat_vm\Desktop\TrailSafe\App4\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2015-10-10T14:09:42.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="Z:\TrailSafe\App4\Assets\Square44x44Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\oat_vm\Desktop\TrailSafe\App4\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2015-10-10T14:09:42.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="Z:\TrailSafe\App4\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+    <AppxPackagedFile Include="C:\Users\oat_vm\Desktop\TrailSafe\App4\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2015-10-10T14:09:42.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="Z:\TrailSafe\App4\Assets\StoreLogo.png">
+    <AppxPackagedFile Include="C:\Users\oat_vm\Desktop\TrailSafe\App4\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2015-10-10T14:09:42.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="Z:\TrailSafe\App4\Assets\Wide310x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\oat_vm\Desktop\TrailSafe\App4\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2015-10-10T14:09:42.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="Z:\TrailSafe\App4\Properties\Default.rd.xml">
+    <AppxPackagedFile Include="C:\Users\oat_vm\Desktop\TrailSafe\App4\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
       <Modified>2016-02-10T17:36:28.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="Z:\TrailSafe\App4\bin\x86\Debug\Bing.Maps\Themes\Generic.xbf">
+    <AppxPackagedFile Include="C:\Users\oat_vm\Desktop\TrailSafe\App4\bin\x86\Debug\Bing.Maps\Themes\Generic.xbf">
       <PackagePath>Bing.Maps\Themes\Generic.xbf</PackagePath>
-      <Modified>2016-03-17T10:34:11.811</Modified>
+      <Modified>2016-03-20T19:30:32.903</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="Z:\TrailSafe\App4\bin\x86\Debug\App4.xr.xml">
+    <AppxPackagedFile Include="C:\Users\oat_vm\Desktop\TrailSafe\App4\bin\x86\Debug\App4.xr.xml">
       <PackagePath>App4.xr.xml</PackagePath>
       <Modified>2016-03-17T01:11:44.000</Modified>
     </AppxPackagedFile>
@@ -836,13 +842,13 @@
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
       <Modified>2016-03-16T06:26:57.197</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="Z:\TrailSafe\App4\bin\x86\Debug\resources.pri">
+    <AppxPackagedFile Include="C:\Users\oat_vm\Desktop\TrailSafe\App4\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2016-03-17T10:34:10.410</Modified>
+      <Modified>2016-03-20T18:44:27.889</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="Z:\TrailSafe\App4\bin\x86\Debug\Core\App4.exe">
+    <AppxPackagedFile Include="C:\Users\oat_vm\Desktop\TrailSafe\App4\bin\x86\Debug\Core\App4.exe">
       <PackagePath>App4.exe</PackagePath>
-      <Modified>2016-03-17T10:34:15.017</Modified>
+      <Modified>2016-03-20T19:30:34.564</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

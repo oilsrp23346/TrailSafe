@@ -114,6 +114,7 @@
       <DependentUpon>map.xaml</DependentUpon>
     </Compile>
     <Compile Include="model\Book.cs" />
+    <Compile Include="model\Node.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tourist.xaml.cs">
       <DependentUpon>Tourist.xaml</DependentUpon>
