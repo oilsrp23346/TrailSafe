@@ -9,16 +9,16 @@
     <SolutionConfiguration>Debug|x86</SolutionConfiguration>
     <PackageArchitecture>x86</PackageArchitecture>
     <PackageIdentityName>c33c4712-01e6-4dd8-b38c-61579eefc219</PackageIdentityName>
-    <IntermediateOutputPath>C:\Users\oat_vm\Desktop\TrailSafe\App4\obj\x86\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>Z:\TrailSafe\App4\obj\x86\Debug\</IntermediateOutputPath>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="C:\Users\oat_vm\Desktop\TrailSafe\App4\bin\x86\Debug\Core\AppxManifest.xml">
+    <AppXManifest Include="Z:\TrailSafe\App4\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="C:\Users\oat_vm\Desktop\TrailSafe\App4\bin\x86\Debug\App4.exe">
+    <AppxPackagedFile Include="Z:\TrailSafe\App4\bin\x86\Debug\App4.exe">
       <PackagePath>entrypoint\App4.exe</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\oat_vm\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\References\commonconfiguration\neutral\Bing.Maps.winmd">
@@ -570,72 +570,72 @@
     <AppxPackagedFile Include="C:\Users\oat_vm\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\UnifiedStyle.MapStyle">
       <PackagePath>Bing.Maps\UnifiedStyle.MapStyle</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\oat_vm\Desktop\TrailSafe\App4\ApplicationInsights.config">
+    <AppxPackagedFile Include="Z:\TrailSafe\App4\ApplicationInsights.config">
       <PackagePath>ApplicationInsights.config</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\oat_vm\Desktop\TrailSafe\App4\Assets\Logo.scale-100.png">
+    <AppxPackagedFile Include="Z:\TrailSafe\App4\Assets\Logo.scale-100.png">
       <PackagePath>Assets\Logo.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\oat_vm\Desktop\TrailSafe\App4\Assets\placeholder-sdk.png">
+    <AppxPackagedFile Include="Z:\TrailSafe\App4\Assets\placeholder-sdk.png">
       <PackagePath>Assets\placeholder-sdk.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\oat_vm\Desktop\TrailSafe\App4\Assets\SmallLogo.scale-100.png">
+    <AppxPackagedFile Include="Z:\TrailSafe\App4\Assets\SmallLogo.scale-100.png">
       <PackagePath>Assets\SmallLogo.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\oat_vm\Desktop\TrailSafe\App4\Assets\SplashScreen.scale-100.png">
+    <AppxPackagedFile Include="Z:\TrailSafe\App4\Assets\SplashScreen.scale-100.png">
       <PackagePath>Assets\SplashScreen.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\oat_vm\Desktop\TrailSafe\App4\Assets\StoreLogo.scale-100.png">
+    <AppxPackagedFile Include="Z:\TrailSafe\App4\Assets\StoreLogo.scale-100.png">
       <PackagePath>Assets\StoreLogo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\oat_vm\Desktop\TrailSafe\App4\image\placeholder-sdk.png">
+    <AppxPackagedFile Include="Z:\TrailSafe\App4\image\placeholder-sdk.png">
       <PackagePath>image\placeholder-sdk.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\oat_vm\Desktop\TrailSafe\App4\Assets\LockScreenLogo.scale-200.png">
+    <AppxPackagedFile Include="Z:\TrailSafe\App4\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\oat_vm\Desktop\TrailSafe\App4\Assets\SplashScreen.scale-200.png">
+    <AppxPackagedFile Include="Z:\TrailSafe\App4\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\oat_vm\Desktop\TrailSafe\App4\Assets\Square150x150Logo.scale-200.png">
+    <AppxPackagedFile Include="Z:\TrailSafe\App4\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\oat_vm\Desktop\TrailSafe\App4\Assets\Square44x44Logo.scale-200.png">
+    <AppxPackagedFile Include="Z:\TrailSafe\App4\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\oat_vm\Desktop\TrailSafe\App4\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+    <AppxPackagedFile Include="Z:\TrailSafe\App4\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\oat_vm\Desktop\TrailSafe\App4\Assets\StoreLogo.png">
+    <AppxPackagedFile Include="Z:\TrailSafe\App4\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\oat_vm\Desktop\TrailSafe\App4\Assets\Wide310x150Logo.scale-200.png">
+    <AppxPackagedFile Include="Z:\TrailSafe\App4\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\oat_vm\Desktop\TrailSafe\App4\Properties\Default.rd.xml">
+    <AppxPackagedFile Include="Z:\TrailSafe\App4\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\oat_vm\Desktop\TrailSafe\App4\bin\x86\Debug\Bing.Maps\Themes\Generic.xbf">
+    <AppxPackagedFile Include="Z:\TrailSafe\App4\bin\x86\Debug\Bing.Maps\Themes\Generic.xbf">
       <PackagePath>Bing.Maps\Themes\Generic.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\oat_vm\Desktop\TrailSafe\App4\bin\x86\Debug\App4.xr.xml">
+    <AppxPackagedFile Include="Z:\TrailSafe\App4\bin\x86\Debug\App4.xr.xml">
       <PackagePath>App4.xr.xml</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files\Windows Kits\10\UnionMetadata\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\oat_vm\Desktop\TrailSafe\App4\bin\x86\Debug\resources.pri">
+    <AppxPackagedFile Include="Z:\TrailSafe\App4\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\oat_vm\Desktop\TrailSafe\App4\bin\x86\Debug\Core\App4.exe">
+    <AppxPackagedFile Include="Z:\TrailSafe\App4\bin\x86\Debug\Core\App4.exe">
       <PackagePath>App4.exe</PackagePath>
     </AppxPackagedFile>
   </ItemGroup>
