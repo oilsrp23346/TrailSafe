@@ -59,7 +59,7 @@ namespace App4
        public static User[] getAllUser()
         {
             ArrayList userArr = new ArrayList();
-            Uri uri = new Uri("http://207.46.230.196/node/get_all_user");
+            Uri uri = new Uri("http://207.46.230.196/user/get_all_user");
             HttpClient client = new HttpClient();
             HttpResponseMessage response = client.GetAsync(uri).Result;
             JsonArray jsonArr = JsonValue.Parse(response.Content.ReadAsStringAsync().Result.ToString()).GetArray();
@@ -77,12 +77,12 @@ namespace App4
                     name = jsonArr.GetObjectAt(i).GetNamedString("name");
                 if(jsonArr.GetObjectAt(i)["identifier"].ValueType != JsonValueType.Null)
                     identifier = Int32.Parse(jsonArr.GetObjectAt(i).GetNamedString("identifier"));
-                if(jsonArr.GetObjectAt(i)["profile-picture"].ValueType != JsonValueType.Null)
-                    profilePic = Int32.Parse(jsonArr.GetObjectAt(i).GetNamedString("profile-picture"));
+                if(jsonArr.GetObjectAt(i)["profile_pic"].ValueType != JsonValueType.Null)
+                    profilePic = Int32.Parse(jsonArr.GetObjectAt(i).GetNamedString("profile_pic"));
                 if(jsonArr.GetObjectAt(i)["status"].ValueType != JsonValueType.Null)
                     status = Int32.Parse(jsonArr.GetObjectAt(i).GetNamedString("status"));
-                if (jsonArr.GetObjectAt(i)["wristband-id"].ValueType != JsonValueType.Null)
-                    wristbandID = Int32.Parse(jsonArr.GetObjectAt(i).GetNamedString("wristband-id"));
+                if (jsonArr.GetObjectAt(i)["wristband_id"].ValueType != JsonValueType.Null)
+                    wristbandID = Int32.Parse(jsonArr.GetObjectAt(i).GetNamedString("wristband_id"));
                 User user = new User(id, name, identifier, profilePic, status, wristbandID);
                 userArr.Add(user);
             }
