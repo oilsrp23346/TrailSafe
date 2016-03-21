@@ -1,10 +1,12 @@
-﻿using System;
+﻿using App4.Model;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -35,11 +37,27 @@ namespace App4
         {
 
         }
-        private void button_Click(object sender, RoutedEventArgs e)
+        public void clearForm()
         {
-            String xname = name.Text;
-            String xID = ID.Text;
-            String xwhistband = Whistband.Text;
+            name.Text = "";
+            ID.Text = "";
+            Whistband.Text = "";
+        }
+
+        private async void save_Click(object sender, RoutedEventArgs e)
+        {
+            if (name.Text == "" || Whistband.Text == "" || ID.Text == "")
+            {
+                MessageDialog ms = new MessageDialog("Please fill the box below.");
+                await ms.ShowAsync();
+                clearForm();
+            }
+            else
+            {
+                User user = new User(name.Text, Int32.Parse(ID.Text), Int32.Parse(Whistband.Text));
+                user.save();
+                clearForm();
+            }
         }
     }
 }

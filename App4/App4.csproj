@@ -115,6 +115,7 @@
     </Compile>
     <Compile Include="model\Book.cs" />
     <Compile Include="model\Node.cs" />
+    <Compile Include="model\User.cs" />
     <Compile Include="Node_form.xaml.cs">
       <DependentUpon>Node_form.xaml</DependentUpon>
     </Compile>

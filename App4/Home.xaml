@@ -40,18 +40,18 @@
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
 
-        <Image Name="MyImage" Source="{x:Bind Book.pic}" />
+        <!--<Image Name="MyImage" Source="{x:Bind User.profilePic}" />-->
         <RelativePanel Grid.Row="1" Margin="10">
-            <TextBlock Text="{x:Bind Book.Name}"
+            <TextBlock Text="{x:Bind User.name}"
                        Name="HeadlineTextBlock"
                        RelativePanel.AlignTopWithPanel="True" 
                        FontSize="16" 
                        TextWrapping="Wrap" />
-            <TextBlock Text="{x:Bind Book.WhistbandId}"
+            <TextBlock Text="{x:Bind User.wristbandID}"
                        Name="HeadlineTextBlock2"
                        RelativePanel.Below="HeadlineTextBlock" 
                        TextWrapping="Wrap" />
-            <TextBlock Text="{x:Bind Book.Idcard}" 
+            <TextBlock Text="{x:Bind User.identifier}" 
                        Name="HeadlineTextBlock3"
                        RelativePanel.Below="HeadlineTextBlock2" 
                        TextWrapping="Wrap" />

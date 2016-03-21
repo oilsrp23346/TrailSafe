@@ -17,11 +17,11 @@
             <SplitView.Content>
                 <GridView Name="NewsItemGrid"
                           Background="LightGray"
-                          ItemsSource="{x:Bind booksItems}"
+                          ItemsSource="{x:Bind usersItems}"
                           HorizontalAlignment="Stretch"
                           Margin="10,0,0,0">
                     <GridView.ItemTemplate>
-                        <DataTemplate x:DataType="data:Book">
+                        <DataTemplate x:DataType="data:User">
                             <local:Home/>
                         </DataTemplate>
                     </GridView.ItemTemplate>

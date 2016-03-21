@@ -25,14 +25,22 @@ namespace App4
     public sealed partial class Tourist : Page
     {
 
-        private ObservableCollection<Book> booksItems;
+         private ObservableCollection<User> usersItems;
 
-        public Tourist() 
+         public Tourist() 
+         {
+             this.InitializeComponent();
+             usersItems = new ObservableCollection<User>();
+             User.add("Tourist", usersItems);
+         }
+        /*private ObservableCollection<Book> booksItems;
+
+        public Tourist()
         {
             this.InitializeComponent();
             booksItems = new ObservableCollection<Book>();
             BooksManager.GetBooks("Tourist", booksItems);
-        }
+        }*/
 
     }
 }

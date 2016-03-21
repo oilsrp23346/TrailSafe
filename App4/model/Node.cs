@@ -15,7 +15,6 @@ namespace App4.Model
         public int online_status { get; set; }
         public string latitude { get; set; }
         public string longitude { get; set; }
-
     }
 
     public class NodesManager
