@@ -26,7 +26,6 @@ namespace App4
     {
 
          private ObservableCollection<User> usersItems;
-
          public Tourist() 
          {
              this.InitializeComponent();
