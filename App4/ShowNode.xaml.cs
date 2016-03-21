@@ -31,7 +31,7 @@ namespace App4
         {
             this.InitializeComponent();
             nodesItems = new ObservableCollection<Node>();
-            NodesManager.GetNodes("Node", nodesItems);
+            Node.GetNodes("Node", nodesItems);
         }
     }
 }

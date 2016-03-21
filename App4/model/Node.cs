@@ -37,7 +37,7 @@ namespace App4.Model
             this.longitude = longitude;
         }
 
-
+/*
         public static Node[] getAllNode()
         {
             ArrayList nodeArr = new ArrayList();
@@ -74,7 +74,7 @@ namespace App4.Model
             return nodeReturn;
         }
 
-
+*/
         public static void GetNodes(string topic, ObservableCollection<Node> nodesItems)
         {
             var allItems = getNodesItems();
