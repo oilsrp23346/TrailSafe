@@ -1,15 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Collections;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Net.Http;
 using Windows.UI.Popups;
+using Windows.Data.Json;
 
 namespace App4
 {
     class User
     {
+        private int id { get; set; }
         private string name { get; set; }
         private int identifier { get; set; }
         private int profilePic { get; set; }
@@ -18,19 +20,21 @@ namespace App4
 
         public User()
         {
+            this.id = 0;
             this.name = null;
             this.identifier = 0;
             this.profilePic = 0;
-            this.status = 1;
-            this.wristbandID = -1;
+            this.status = 0;
+            this.wristbandID = 0;
         }
 
-        public User(string name, int identifier, int profilePic, int wristbandID)
+        public User(int id, string name, int identifier, int profilePic, int status, int wristbandID)
         {
+            this.id = id;
             this.name = name;
             this.identifier = identifier;
             this.profilePic = profilePic;
-            this.status = 1;
+            this.status = status;
             this.wristbandID = wristbandID;
         }
 
@@ -40,14 +44,55 @@ namespace App4
             HttpClient client = new HttpClient();
             string message = "";
             HttpResponseMessage response = await client.GetAsync(geturi);
-            if(response.IsSuccessStatusCode) {
+            if(response.IsSuccessStatusCode)
+            {
                 message = "Complete!";
             }
-            else {
+            else
+            {
                 message = "Cannot save to database.";
             }
             var messageDialog = new MessageDialog(message);
             await messageDialog.ShowAsync();
+        }
+
+       public static User[] getAllUser()
+        {
+            ArrayList userArr = new ArrayList();
+            Uri uri = new Uri("http://207.46.230.196/node/get_all_user");
+            HttpClient client = new HttpClient();
+            HttpResponseMessage response = client.GetAsync(uri).Result;
+            JsonArray jsonArr = JsonValue.Parse(response.Content.ReadAsStringAsync().Result.ToString()).GetArray();
+            for(uint i = 0;i < jsonArr.Count;i++)
+            {
+                int id = -1;
+                string name = "";
+                int identifier = -1;
+                int profilePic = -1;
+                int status = -1;
+                int wristbandID = -1;
+                if(jsonArr.GetObjectAt(i)["id"].ValueType != JsonValueType.Null)
+                    id = Int32.Parse(jsonArr.GetObjectAt(i).GetNamedString("id"));
+                if(jsonArr.GetObjectAt(i)["name"].ValueType != JsonValueType.Null)
+                    name = jsonArr.GetObjectAt(i).GetNamedString("name");
+                if(jsonArr.GetObjectAt(i)["identifier"].ValueType != JsonValueType.Null)
+                    identifier = Int32.Parse(jsonArr.GetObjectAt(i).GetNamedString("identifier"));
+                if(jsonArr.GetObjectAt(i)["profile-picture"].ValueType != JsonValueType.Null)
+                    profilePic = Int32.Parse(jsonArr.GetObjectAt(i).GetNamedString("profile-picture"));
+                if(jsonArr.GetObjectAt(i)["status"].ValueType != JsonValueType.Null)
+                    status = Int32.Parse(jsonArr.GetObjectAt(i).GetNamedString("status"));
+                if (jsonArr.GetObjectAt(i)["wristband-id"].ValueType != JsonValueType.Null)
+                    wristbandID = Int32.Parse(jsonArr.GetObjectAt(i).GetNamedString("wristband-id"));
+                User user = new User(id, name, identifier, profilePic, status, wristbandID);
+                userArr.Add(user);
+            }
+            User[] userReturn = new User[userArr.Count];
+            int index = 0;
+            foreach(User user in userArr)
+            {
+                userReturn[index++] = user;
+            }
+            return userReturn;
         }
     }
 }
