@@ -38,7 +38,7 @@ namespace App4
             this.wristbandID = wristbandID;
         }
 
-        public async void save()
+        public async void registerUser()
         {
             Uri geturi = new Uri("http://207.46.230.196/user/register?name=" + this.name + "&identifier=" + this.identifier + "&profile-picture=" + this.profilePic + "&wristband-id=" + this.wristbandID); 
             HttpClient client = new HttpClient();
@@ -46,11 +46,11 @@ namespace App4
             HttpResponseMessage response = await client.GetAsync(geturi);
             if(response.IsSuccessStatusCode)
             {
-                message = "Complete!";
+                message = "Register complete!.";
             }
             else
             {
-                message = "Cannot save to database.";
+                message = "Failed to register!.";
             }
             var messageDialog = new MessageDialog(message);
             await messageDialog.ShowAsync();
@@ -120,6 +120,23 @@ namespace App4
                 wristbandID = Int32.Parse(json.GetObject().GetNamedString("wristband_id"));
             User user = new User(id_pri, name, identifier, profilePic, status, wristbandID);
             return user;
+        }
+        public static async void unRegisterUser(int id)
+        {
+            Uri uri = new Uri("http://207.46.230.196/user/unregister?user-id=" + id);
+            HttpClient client = new HttpClient();
+            HttpResponseMessage response = await client.GetAsync(uri);
+            string message = "";
+            if (response.IsSuccessStatusCode)
+            {
+                message = "Successful unregister user!";
+            }
+            else
+            {
+                message = "Failed unregister user!";
+            }
+            var messageDialog = new MessageDialog(message);
+            await messageDialog.ShowAsync();
         }
     }
 }
