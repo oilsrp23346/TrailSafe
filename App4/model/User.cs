@@ -94,5 +94,32 @@ namespace App4
             }
             return userReturn;
         }
+        public static User getUserbyID(int id)
+        {
+            Uri uri = new Uri("http://207.46.230.196/user/find_by_id?user-id="+ id);
+            HttpClient client = new HttpClient();
+            HttpResponseMessage response = client.GetAsync(uri).Result;
+            JsonValue json = JsonValue.Parse(response.Content.ReadAsStringAsync().Result.ToString());
+            int id_pri = -1;
+            string name = "";
+            int identifier = -1;
+            int profilePic = -1;
+            int status = -1;
+            int wristbandID = -1;
+            if (json.GetObject()["id"].ValueType != JsonValueType.Null)
+                id_pri = Int32.Parse(json.GetObject().GetNamedString("id"));
+            if (json.GetObject()["name"].ValueType != JsonValueType.Null)
+                name = json.GetObject().GetNamedString("name");
+            if (json.GetObject()["identifier"].ValueType != JsonValueType.Null)
+                identifier = Int32.Parse(json.GetObject().GetNamedString("identifier"));
+            if (json.GetObject()["profile_pic"].ValueType != JsonValueType.Null)
+                profilePic = Int32.Parse(json.GetObject().GetNamedString("profile_pic"));
+            if (json.GetObject()["status"].ValueType != JsonValueType.Null)
+                status = Int32.Parse(json.GetObject().GetNamedString("status"));
+            if (json.GetObject()["wristband_id"].ValueType != JsonValueType.Null)
+                wristbandID = Int32.Parse(json.GetObject().GetNamedString("wristband_id"));
+            User user = new User(id_pri, name, identifier, profilePic, status, wristbandID);
+            return user;
+        }
     }
 }
