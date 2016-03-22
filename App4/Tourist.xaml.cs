@@ -30,7 +30,7 @@ namespace App4
          {
              this.InitializeComponent();
              usersItems = new ObservableCollection<User>();
-             User.add("Tourist", usersItems);
+             User.add("Tourist",usersItems);
          }
         /*private ObservableCollection<Book> booksItems;
 

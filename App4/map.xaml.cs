@@ -20,8 +20,7 @@ using Windows.UI.Xaml.Shapes;
 using Windows.Storage.Streams;
 using Windows.Devices.Geolocation;
 using Windows.UI;
-
-
+using App4.Model;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -41,24 +40,25 @@ namespace App4
         }
         private void MyMap_Loaded(object sender, RoutedEventArgs e)
         {
+
+            foreach (Node no in Node.getAllNode())
+            {
+                BasicGeoposition snPosition = new BasicGeoposition() { Latitude = no.latitude, Longitude = no.longitude };
+                Geopoint snPoint = new Geopoint(snPosition);
+                // Create a MapIcon.
+                MapIcon mapIcon1 = new MapIcon();
+                mapIcon1.Location = snPoint;
+                mapIcon1.NormalizedAnchorPoint = new Point(0.5, 1.0);
+                mapIcon1.Title = no.node_type;
+                mapIcon1.Image = mapIconStreamReference;
+                mapIcon1.ZIndex = 0;
+                // Add the MapIcon to the map.
+                myMap.MapElements.Add(mapIcon1);
+            }
             
-            BasicGeoposition snPosition = new BasicGeoposition() { Latitude = 16.734522, Longitude = 102.285402 };
-            Geopoint snPoint = new Geopoint(snPosition);
-
-            // Create a MapIcon.
-            MapIcon mapIcon1 = new MapIcon();
-            mapIcon1.Location = snPoint;
-            mapIcon1.NormalizedAnchorPoint = new Point(0.5, 1.0);
-            mapIcon1.Title = "Center";
-            mapIcon1.Image = mapIconStreamReference;
-            mapIcon1.ZIndex = 0;
-
-            // Add the MapIcon to the map.
-            myMap.MapElements.Add(mapIcon1);
-
             // Center the map over the POI.
-            myMap.Center = snPoint;
-            myMap.ZoomLevel = 13;
+            //myMap.Center = snPoint;
+            //myMap.ZoomLevel = 13;
             /*
                         myMap.Center =
                            new Geopoint(new BasicGeoposition()
