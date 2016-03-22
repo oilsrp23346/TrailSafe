@@ -40,10 +40,11 @@ namespace App4
         }
         private void MyMap_Loaded(object sender, RoutedEventArgs e)
         {
-
+            BasicGeoposition snCenter = new BasicGeoposition() { Latitude = 16.734522, Longitude = 102.285402 };
+            Geopoint snPoint2 = new Geopoint(snCenter);
             foreach (Node no in Node.getAllNode())
             {
-                BasicGeoposition snPosition = new BasicGeoposition() { Latitude = no.latitude, Longitude = no.longitude };
+                BasicGeoposition snPosition = new BasicGeoposition() { Latitude = no.latitude, Longitude = no.longitude  };
                 Geopoint snPoint = new Geopoint(snPosition);
                 // Create a MapIcon.
                 MapIcon mapIcon1 = new MapIcon();
@@ -52,9 +53,14 @@ namespace App4
                 mapIcon1.Title = no.node_type;
                 mapIcon1.Image = mapIconStreamReference;
                 mapIcon1.ZIndex = 0;
+
                 // Add the MapIcon to the map.
+
                 myMap.MapElements.Add(mapIcon1);
+                
             }
+            myMap.Center = snPoint2;
+            myMap.ZoomLevel = 12;
             //line
             double centerLatitude = myMap.Center.Position.Latitude;
             double centerLongitude = myMap.Center.Position.Longitude;
@@ -79,9 +85,11 @@ namespace App4
 
         private void MyMap_MapElementClick(MapControl sender, MapElementClickEventArgs args)
         {
-            Node no = new Node();
-            MapIcon myClickedIcon = args.MapElements.FirstOrDefault(mapIcon1 => mapIcon1 is MapIcon) as MapIcon;
-            this.Frame.Navigate(typeof(menuNode));
+            
+            MapIcon myClickedIcon = args.MapElements.FirstOrDefault(mapIcon => mapIcon is MapIcon) as MapIcon;
+            double la = myClickedIcon.Location.Position.Latitude;
+            this.Frame.Navigate(typeof(menuNode), la);
+            
            // foreach (Node no2 in Node.getAllNode())
            // {
            //     MessageDialog ms = new MessageDialog("ID : "+no.id + "Status : " + no.online_status); 

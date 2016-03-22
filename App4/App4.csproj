@@ -104,6 +104,15 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ErrorInfo.xaml.cs">
+      <DependentUpon>ErrorInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RegisterInfo.xaml.cs">
+      <DependentUpon>RegisterInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserAround.xaml.cs">
+      <DependentUpon>UserAround.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserinNode.xaml.cs">
       <DependentUpon>UserinNode.xaml</DependentUpon>
     </Compile>
@@ -169,6 +178,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="AddInfo2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ErrorInfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="RegisterInfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserAround.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
