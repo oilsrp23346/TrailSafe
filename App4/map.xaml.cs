@@ -55,30 +55,6 @@ namespace App4
                 // Add the MapIcon to the map.
                 myMap.MapElements.Add(mapIcon1);
             }
-            
-            // Center the map over the POI.
-            //myMap.Center = snPoint;
-            //myMap.ZoomLevel = 13;
-            /*
-                        myMap.Center =
-                           new Geopoint(new BasicGeoposition()
-                           {
-                               //Geopoint for Seattle 
-                               Latitude = 16.734522,
-                               Longitude = 102.285402
-                           });
-                        myMap.ZoomLevel = 13;
-                        //////////////Seattle/////////////
-                        this.myMap.Style = MapStyle.AerialWithRoads;
-
-                        MapIcon mapIcon1 = new MapIcon();
-                        mapIcon1.Location = myMap.Center;
-                        // mapIcon1.NormalizedAnchorPoint = new Point(0.5, 1.0);
-                        mapIcon1.Title = "Center";
-                        mapIcon1.Image = mapIconStreamReference;
-                        mapIcon1.ZIndex = 0;
-                        myMap.MapElements.Add(mapIcon1);
-                        */
             //line
             double centerLatitude = myMap.Center.Position.Latitude;
             double centerLongitude = myMap.Center.Position.Longitude;
@@ -99,6 +75,17 @@ namespace App4
             mapPolyline.StrokeThickness = 3;
             mapPolyline.StrokeDashed = true;
             myMap.MapElements.Add(mapPolyline);
+        }
+
+        private void MyMap_MapElementClick(MapControl sender, MapElementClickEventArgs args)
+        {
+            Node no = new Node();
+            MapIcon myClickedIcon = args.MapElements.FirstOrDefault(mapIcon1 => mapIcon1 is MapIcon) as MapIcon;
+            this.Frame.Navigate(typeof(menuNode));
+           // foreach (Node no2 in Node.getAllNode())
+           // {
+           //     MessageDialog ms = new MessageDialog("ID : "+no.id + "Status : " + no.online_status); 
+           // }
         }
     }
 }

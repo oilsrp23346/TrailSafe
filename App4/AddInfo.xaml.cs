@@ -70,7 +70,7 @@ namespace App4
             catch (Exception ex)
             {
                 var dialog1 = new MessageDialog("Error!");
-                dialog1.ShowAsync();
+                await dialog1.ShowAsync();
 
             }
         }

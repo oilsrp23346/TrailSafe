@@ -17,7 +17,8 @@
                         MapServiceToken="P8aJ8tLXR2dCFzo5CiPs~I-TDElv6aDbXLjP4kBsCeA~An08oNFJbXQ-yJ9RI-ehVXveuCkZ7L671vvWtpfvFcWtfrP8fO2n-u_obHTV6bFo"
                         ZoomInteractionMode="GestureAndControl"
                         LandmarksVisible="True"
-                        IsRightTapEnabled="true">
+                        IsRightTapEnabled="true"
+                        MapElementClick="MyMap_MapElementClick">
            
         </bm:MapControl>
         
