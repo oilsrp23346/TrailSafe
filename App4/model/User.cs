@@ -38,32 +38,14 @@ namespace App4
             this.wristbandID = wristbandID;
         }
 
-        public async void registerUser()
-        {
-            Uri geturi = new Uri("http://207.46.230.196/user/register?name=" + this.name + "&identifier=" + this.identifier + "&profile-picture=" + this.profilePic + "&wristband-id=" + this.wristbandID); 
-            HttpClient client = new HttpClient();
-            string message = "";
-            HttpResponseMessage response = await client.GetAsync(geturi);
-            if(response.IsSuccessStatusCode)
-            {
-                message = "Register complete!.";
-            }
-            else
-            {
-                message = "Failed to register!.";
-            }
-            var messageDialog = new MessageDialog(message);
-            await messageDialog.ShowAsync();
-        }
-
-       public static User[] getAllUser()
+        public static User[] getArrayOfUser(string url)
         {
             ArrayList userArr = new ArrayList();
-            Uri uri = new Uri("http://207.46.230.196/user/get_all_user");
+            Uri uri = new Uri("http://207.46.230.196/user/" + url);
             HttpClient client = new HttpClient();
             HttpResponseMessage response = client.GetAsync(uri).Result;
             JsonArray jsonArr = JsonValue.Parse(response.Content.ReadAsStringAsync().Result.ToString()).GetArray();
-            for(uint i = 0;i < jsonArr.Count;i++)
+            for (uint i = 0; i < jsonArr.Count; i++)
             {
                 int id = -1;
                 string name = "";
@@ -71,15 +53,15 @@ namespace App4
                 int profilePic = -1;
                 int status = -1;
                 int wristbandID = -1;
-                if(jsonArr.GetObjectAt(i)["id"].ValueType != JsonValueType.Null)
+                if (jsonArr.GetObjectAt(i)["id"].ValueType != JsonValueType.Null)
                     id = Int32.Parse(jsonArr.GetObjectAt(i).GetNamedString("id"));
-                if(jsonArr.GetObjectAt(i)["name"].ValueType != JsonValueType.Null)
+                if (jsonArr.GetObjectAt(i)["name"].ValueType != JsonValueType.Null)
                     name = jsonArr.GetObjectAt(i).GetNamedString("name");
-                if(jsonArr.GetObjectAt(i)["identifier"].ValueType != JsonValueType.Null)
+                if (jsonArr.GetObjectAt(i)["identifier"].ValueType != JsonValueType.Null)
                     identifier = Int32.Parse(jsonArr.GetObjectAt(i).GetNamedString("identifier"));
-                if(jsonArr.GetObjectAt(i)["profile_pic"].ValueType != JsonValueType.Null)
+                if (jsonArr.GetObjectAt(i)["profile_pic"].ValueType != JsonValueType.Null)
                     profilePic = Int32.Parse(jsonArr.GetObjectAt(i).GetNamedString("profile_pic"));
-                if(jsonArr.GetObjectAt(i)["status"].ValueType != JsonValueType.Null)
+                if (jsonArr.GetObjectAt(i)["status"].ValueType != JsonValueType.Null)
                     status = Int32.Parse(jsonArr.GetObjectAt(i).GetNamedString("status"));
                 if (jsonArr.GetObjectAt(i)["wristband_id"].ValueType != JsonValueType.Null)
                     wristbandID = Int32.Parse(jsonArr.GetObjectAt(i).GetNamedString("wristband_id"));
@@ -88,15 +70,16 @@ namespace App4
             }
             User[] userReturn = new User[userArr.Count];
             int index = 0;
-            foreach(User user in userArr)
+            foreach (User user in userArr)
             {
                 userReturn[index++] = user;
             }
             return userReturn;
         }
-        public static User getUserbyID(int id)
+
+        public static User getSingleOfUser(string url)
         {
-            Uri uri = new Uri("http://207.46.230.196/user/find_by_id?user-id="+ id);
+            Uri uri = new Uri("http://207.46.230.196/user/" + url);
             HttpClient client = new HttpClient();
             HttpResponseMessage response = client.GetAsync(uri).Result;
             JsonValue json = JsonValue.Parse(response.Content.ReadAsStringAsync().Result.ToString());
@@ -121,22 +104,56 @@ namespace App4
             User user = new User(id_pri, name, identifier, profilePic, status, wristbandID);
             return user;
         }
-        public static async void unRegisterUser(int id)
+
+        public async void registerUser()
         {
-            Uri uri = new Uri("http://207.46.230.196/user/unregister?user-id=" + id);
+            Uri geturi = new Uri("http://207.46.230.196/user/register?name=" + this.name + "&identifier=" + this.identifier + "&profile-picture=" + this.profilePic + "&wristband-id=" + this.wristbandID); 
             HttpClient client = new HttpClient();
-            HttpResponseMessage response = await client.GetAsync(uri);
             string message = "";
-            if (response.IsSuccessStatusCode)
+            HttpResponseMessage response = await client.GetAsync(geturi);
+            if(response.IsSuccessStatusCode)
             {
-                message = "Successful unregister user!";
+                message = "Register complete!.";
             }
             else
             {
-                message = "Failed unregister user!";
+                message = "Failed to register!.";
             }
             var messageDialog = new MessageDialog(message);
             await messageDialog.ShowAsync();
         }
+
+       public static User[] getAllUser()
+       {
+           return getArrayOfUser("get_all_user");
+       }
+       public static User getUserbyID(int id)
+       {
+           return getSingleOfUser("find_by_id?user-id=" + id);
+       }
+       public static async void unRegisterUser(int id)
+       {
+           Uri uri = new Uri("http://207.46.230.196/user/unregister?user-id=" + id);
+           HttpClient client = new HttpClient();
+           HttpResponseMessage response = await client.GetAsync(uri);
+           string message = "";
+           if (response.IsSuccessStatusCode)
+           {
+                message = "Successful unregister user!";
+           }
+           else
+           {
+               message = "Failed unregister user!";
+           }
+           var messageDialog = new MessageDialog(message);
+           await messageDialog.ShowAsync();
+       }
+
+        public static User[] getUserArounfNode(int device_id)
+        {
+          return getArrayOfUser("find_by_node?device-id" + device_id);
+        }
+
+       
     }
 }
