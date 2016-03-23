@@ -114,5 +114,36 @@ namespace App4.model
         {
             return getArrayOdNode("getonlinenodes");
         }
+
+        public static int[] getAllNodeStatus()
+        {
+            ArrayList statusArr = new ArrayList();
+            Uri uri = new Uri("http://207.46.230.196/node/getallnodesstatus");
+            HttpClient client = new HttpClient();
+            HttpResponseMessage response = client.GetAsync(uri).Result;
+            JsonArray json = JsonValue.Parse(response.Content.ReadAsStringAsync().Result.ToString()).GetArray();
+            for(uint i = 0;i < json.Count;i++)
+            {
+                int status = Int32.Parse(json.GetStringAt(i));
+                statusArr.Add(status);
+            }
+            int[] statusReturn = new int[statusArr.Count];
+            int index = 0;
+            foreach(int status in statusArr)
+            {
+                statusReturn[index++] = status;
+            }
+            return statusReturn;
+        }
+
+        public static int getNodeStatus(int id)
+        {
+            Uri uri = new Uri("http://207.46.230.196/node/getstatus?device-id=" + id);
+            HttpClient client = new HttpClient();
+            HttpResponseMessage response = client.GetAsync(uri).Result;
+            JsonValue json = JsonValue.Parse(response.Content.ReadAsStringAsync().Result.ToString());
+            int status = (int)json.GetNumber();
+            return status;
+        }
     }
 }
