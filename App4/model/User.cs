@@ -151,7 +151,7 @@ namespace App4
 
         public static User[] getUserArounfNode(int device_id)
         {
-          return getArrayOfUser("find_by_node?device-id" + device_id);
+          return getArrayOfUser("find_by_node?device-id=" + device_id);
         }
 
        
