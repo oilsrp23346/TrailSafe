@@ -107,6 +107,9 @@
     <Compile Include="ErrorInfo.xaml.cs">
       <DependentUpon>ErrorInfo.xaml</DependentUpon>
     </Compile>
+    <Compile Include="NotiBox.xaml.cs">
+      <DependentUpon>NotiBox.xaml</DependentUpon>
+    </Compile>
     <Compile Include="RegisterInfo.xaml.cs">
       <DependentUpon>RegisterInfo.xaml</DependentUpon>
     </Compile>
@@ -182,6 +185,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ErrorInfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="NotiBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
