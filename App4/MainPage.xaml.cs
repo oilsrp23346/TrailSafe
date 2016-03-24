@@ -34,6 +34,15 @@ namespace App4
             MySplitView.IsPaneOpen = !MySplitView.IsPaneOpen;
         }
 
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (MyFrame.CanGoBack)
+            {
+                MyFrame.GoBack();
+                //home.IsSelected = true;
+            }
+        }
+
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (home.IsSelected) {

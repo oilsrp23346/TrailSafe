@@ -47,9 +47,14 @@
                     HorizontalAlignment="Center"
                     Click="HambergerButton_Click"
                     />
+            <Button Name="BackButton" 
+                    RelativePanel.RightOf="HamburgerButton" 
+                    FontFamily="Segoe MDL2 Assets" 
+                    FontSize="30" Content="&#xE0C4;" 
+                    Click="BackButton_Click"/>
 
             <TextBlock Name="TitleTextBlock" 
-                       RelativePanel.RightOf="HamburgerButton"
+                       RelativePanel.RightOf="BackButton"
                        FontSize="18"
                        FontWeight="Bold"
                        Margin="20,10,0,0" />

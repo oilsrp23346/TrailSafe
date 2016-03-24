@@ -32,14 +32,12 @@ namespace App4
              usersItems = new ObservableCollection<User>();
              User.add("Tourist",usersItems);
          }
-
         private void GridView_UserClick(object sender, ItemClickEventArgs e)
         {
             ItemClickEventArgs myClickedIcon;
-
             this.Frame.Navigate(typeof(map));
 
-            //var cars = (Node)e.ClickedItem;
+            //var node = (Node)e.ClickedItem;
             //ResultTextBlock.Text = "You Selected--->>" + cars.Category + "--->>Model_ " + cars.Model;
         }
     }
