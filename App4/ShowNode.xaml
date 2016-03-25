@@ -19,7 +19,9 @@
                           Background="LightGray"
                           ItemsSource="{x:Bind nodesItems}"
                           HorizontalAlignment="Stretch"
-                          Margin="10,0,0,0">
+                          Margin="10,0,0,0"
+                          ItemClick="GridView_NodeClick" 
+                          IsItemClickEnabled="True">
                     <GridView.ItemTemplate>
                         <DataTemplate x:DataType="data:Node">
                             <local:Node_form/>

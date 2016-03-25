@@ -20,12 +20,11 @@ namespace App4
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class UserinNode : Page
+    public sealed partial class RegisterInfo : Page
     {
-        public UserinNode()
+        public RegisterInfo()
         {
             this.InitializeComponent();
         }
     }
-  
 }

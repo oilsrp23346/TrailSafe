@@ -32,14 +32,13 @@ namespace App4
              usersItems = new ObservableCollection<User>();
              User.add("Tourist",usersItems);
          }
-        /*private ObservableCollection<Book> booksItems;
-
-        public Tourist()
+        private void GridView_UserClick(object sender, ItemClickEventArgs e)
         {
-            this.InitializeComponent();
-            booksItems = new ObservableCollection<Book>();
-            BooksManager.GetBooks("Tourist", booksItems);
-        }*/
+            ItemClickEventArgs myClickedIcon;
+            this.Frame.Navigate(typeof(map));
 
+            //var node = (Node)e.ClickedItem;
+            //ResultTextBlock.Text = "You Selected--->>" + cars.Category + "--->>Model_ " + cars.Model;
+        }
     }
 }
