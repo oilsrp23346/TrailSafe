@@ -104,11 +104,11 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="controls\StepsControl.cs" />
+    <Compile Include="controls\StepsHelperControl.cs" />
+    <Compile Include="controls\ToastHelper.cs" />
     <Compile Include="ErrorInfo.xaml.cs">
       <DependentUpon>ErrorInfo.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="NotiBox.xaml.cs">
-      <DependentUpon>NotiBox.xaml</DependentUpon>
     </Compile>
     <Compile Include="RegisterInfo.xaml.cs">
       <DependentUpon>RegisterInfo.xaml</DependentUpon>
@@ -188,10 +188,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="NotiBox.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="RegisterInfo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -247,6 +243,7 @@
       <Name>Microsoft Visual C++ 2013 Runtime Package for Windows Universal</Name>
     </SDKReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

@@ -15,10 +15,10 @@
             <RowDefinition Height="140*"/>
             <RowDefinition Height="140*"/>
         </Grid.RowDefinitions>
-        <Button x:Name="genInfo" Content="General Infomation" FontSize="20" HorizontalAlignment="Center"  VerticalAlignment="Top" Margin="10,10,10,0" Grid.Row="1" Height="108" Width="340" Click="genInfo_Click" />
-        <Button x:Name="useraround" Content="User Around" FontSize="20" HorizontalAlignment="Center"  VerticalAlignment="Top" Margin="10,10,10,0" Grid.Row="2" Height="108" Width="340" Click="useraround_Click" />
-        <Button x:Name="errorInfo" Content="Error Info." FontSize="20" HorizontalAlignment="Center"  VerticalAlignment="Top" Margin="10,10,10,0" Grid.Row="3" Height="108" Width="340" Click="errorInfo_Click" />
-        <Button x:Name="registerInfo" Content="Register Info." FontSize="20" HorizontalAlignment="Center"  VerticalAlignment="Top" Margin="10,10,10,0" Grid.Row="4" Height="108" Width="340" Click="registerInfo_Click" />
+        <Button x:Name="genInfo" Content="General Infomation" FontSize="20" VerticalAlignment="Top" Margin="10,10,10,0" Grid.Row="1" Height="108" Width="340" Click="genInfo_Click" HorizontalAlignment="Stretch" />
+        <Button x:Name="useraround" Content="User Around" FontSize="20" HorizontalAlignment="Stretch"  VerticalAlignment="Top" Margin="10,10,10,0" Grid.Row="2" Height="108" Width="340" Click="useraround_Click" />
+        <Button x:Name="errorInfo" Content="Error Info." FontSize="20" HorizontalAlignment="Stretch"  VerticalAlignment="Top" Margin="10,10,10,0" Grid.Row="3" Height="108" Width="340" Click="errorInfo_Click" />
+        <Button x:Name="registerInfo" Content="Register Info." FontSize="20" HorizontalAlignment="Stretch"  VerticalAlignment="Top" Margin="10,10,10,0" Grid.Row="4" Height="108" Width="340" Click="registerInfo_Click" />
 
         <TextBlock x:Name="txtLat" HorizontalAlignment="Left" Margin="254,10,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
         <TextBlock x:Name="txtLong" HorizontalAlignment="Left" Margin="64,14,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>

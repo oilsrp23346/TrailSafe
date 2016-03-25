@@ -53,11 +53,8 @@ namespace App4
                 mapIcon1.Title = no.node_type;
                 mapIcon1.Image = mapIconStreamReference;
                 mapIcon1.ZIndex = 0;
-
                 // Add the MapIcon to the map.
-
                 myMap.MapElements.Add(mapIcon1);
-                
             }
             myMap.Center = snPoint2;
             myMap.ZoomLevel = 12;
