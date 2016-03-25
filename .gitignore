@@ -1,5 +1,6 @@
 /App4/bin
 /App4/obj
 /App4/.vs
-/App4/App4.csproj.user
+/App4/App4.*
+/App4/App4/project.*
 /.vs

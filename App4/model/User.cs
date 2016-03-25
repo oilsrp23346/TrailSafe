@@ -70,29 +70,11 @@ namespace App4.Model
             }
             return users;
         }
-        //save
-        public async void registerUser()
-        {
-            Uri geturi = new Uri("http://207.46.230.196/user/register?name=" + this.name + "&identifier=" + this.identifier + "&profile-picture=" + this.profilePic + "&wristband-id=" + this.wristbandID);
-            HttpClient client = new HttpClient();
-            string message = "";
-            HttpResponseMessage response = await client.GetAsync(geturi);
-            if (response.IsSuccessStatusCode)
-            {
-                message = "Complete!";
-            }
-            else
-            {
-                message = "Cannot save to database.";
-            }
-            var messageDialog = new MessageDialog(message);
-            await messageDialog.ShowAsync();
-        }
 
-        public static User[] getAllUser()
+        public static User[] getArrayOfUser(string url)
         {
             ArrayList userArr = new ArrayList();
-            Uri uri = new Uri("http://207.46.230.196/user/get_all_user");
+            Uri uri = new Uri("http://207.46.230.196/user/" + url);
             HttpClient client = new HttpClient();
             HttpResponseMessage response = client.GetAsync(uri).Result;
             JsonArray jsonArr = JsonValue.Parse(response.Content.ReadAsStringAsync().Result.ToString()).GetArray();
@@ -127,9 +109,10 @@ namespace App4.Model
             }
             return userReturn;
         }
-        public static User getUserbyID(int id)
+
+        public static User getSingleOfUser(string url)
         {
-            Uri uri = new Uri("http://207.46.230.196/user/find_by_id?user-id=" + id);
+            Uri uri = new Uri("http://207.46.230.196/user/" + url);
             HttpClient client = new HttpClient();
             HttpResponseMessage response = client.GetAsync(uri).Result;
             JsonValue json = JsonValue.Parse(response.Content.ReadAsStringAsync().Result.ToString());
@@ -154,6 +137,36 @@ namespace App4.Model
             User user = new User(id_pri, name, identifier, profilePic, status, wristbandID);
             return user;
         }
+
+        //save
+        public async void registerUser()
+        {
+            Uri geturi = new Uri("http://207.46.230.196/user/register?name=" + this.name + "&identifier=" + this.identifier + "&profile-picture=" + this.profilePic + "&wristband-id=" + this.wristbandID);
+            HttpClient client = new HttpClient();
+            string message = "";
+            HttpResponseMessage response = await client.GetAsync(geturi);
+            if (response.IsSuccessStatusCode)
+            {
+                message = "Register complete!.";
+            }
+            else
+            {
+                message = "Failed to register!.";
+            }
+            var messageDialog = new MessageDialog(message);
+            await messageDialog.ShowAsync();
+        }
+
+        public static User[] getAllUser()
+        {
+            return getArrayOfUser("get_all_user");
+        }
+
+        public static User getUserbyID(int id)
+        {
+            return getSingleOfUser("find_by_id?user-id=" + id);
+        }
+
         public static async void unRegisterUser(int id)
         {
             Uri uri = new Uri("http://207.46.230.196/user/unregister?user-id=" + id);
@@ -170,6 +183,11 @@ namespace App4.Model
             }
             var messageDialog = new MessageDialog(message);
             await messageDialog.ShowAsync();
+        }
+
+        public static User[] getUserArounfNode(int device_id)
+        {
+          return getArrayOfUser("find_by_node?device-id=" + device_id);
         }
 
     }
