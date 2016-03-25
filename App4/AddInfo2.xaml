@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿<Page
     x:Class="App4.AddInfo2"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
@@ -39,4 +40,43 @@
         <Button x:Name="submit" Content="Submit" HorizontalAlignment="Stretch" Margin="138,10,51,78" VerticalAlignment="Stretch" BorderBrush="White" Foreground="Black" FontWeight="Bold" FontSize="18" Grid.Column="1" Click="submit_Click"/>
 
     </Grid>
+=======
+﻿<Page
+    x:Class="App4.AddInfo2"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:App4"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Margin="10,0,0,0" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="146*" />
+            <ColumnDefinition Width="177*" />
+            <ColumnDefinition Width="27*" />
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Grid.Row="1" Text="Name: " VerticalAlignment="Center" Height="20" Margin="0,30,0,22" />
+        <TextBox Grid.Row="1" Grid.Column="1" Margin="0,30,0,10" Name="name" />
+
+        <TextBlock Grid.Row="2" Text="ID: " VerticalAlignment="Center" Height="20" Margin="0,0,0,22" />
+        <TextBox Grid.Row="2" Grid.Column="1" Margin="0,0,0,10" Name="ID" />
+
+        <TextBlock Grid.Row="3" Text="Wristband's ID: " VerticalAlignment="Center" Height="20" Margin="0,0,0,22" />
+        <TextBox Grid.Row="3" Grid.Column="1" Margin="0,0,0,10" Name="Whistband"/>
+
+        <Button Grid.Row="4" Grid.Column="1" Content="Save" Height="32" Width="51" Click="save_Click" />
+
+
+    </Grid>
+>>>>>>> 363f1be3564d45b1eff5b15632f0bede15c909b3
 </Page>

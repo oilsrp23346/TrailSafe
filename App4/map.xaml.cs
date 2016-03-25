@@ -12,8 +12,15 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-using Bing.Maps;
 using Windows.UI.Popups;
+
+using Bing.Maps;
+using Windows.UI.Xaml.Controls.Maps;
+using Windows.UI.Xaml.Shapes;
+using Windows.Storage.Streams;
+using Windows.Devices.Geolocation;
+using Windows.UI;
+using App4.Model;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -24,51 +31,61 @@ namespace App4
     /// </summary>
     public sealed partial class map : Page
     {
+        RandomAccessStreamReference mapIconStreamReference;
         public map()
-            {
+        {
             this.InitializeComponent();
-            InitializeMap();
-
+            myMap.Loaded += MyMap_Loaded;
+            mapIconStreamReference = RandomAccessStreamReference.CreateFromUri(new Uri("ms-appx:///image/mappin.png"));
         }
-
-        void InitializeMap()
-        {
-            myMap.Center = new Location(16.785264, 102.270741); 
-            myMap.ZoomLevel = 12;
-            myMap.MapType = MapType.Aerial;
-            myMap.Width = 800;
-            myMap.Height = 800;
-
-        }
-        protected override void OnNavigatedTo(NavigationEventArgs e)
+        private void MyMap_Loaded(object sender, RoutedEventArgs e)
         {
 
+            foreach (Node no in Node.getAllNode())
+            {
+                BasicGeoposition snPosition = new BasicGeoposition() { Latitude = no.latitude, Longitude = no.longitude };
+                Geopoint snPoint = new Geopoint(snPosition);
+                // Create a MapIcon.
+                MapIcon mapIcon1 = new MapIcon();
+                mapIcon1.Location = snPoint;
+                mapIcon1.NormalizedAnchorPoint = new Point(0.5, 1.0);
+                mapIcon1.Title = no.node_type;
+                mapIcon1.Image = mapIconStreamReference;
+                mapIcon1.ZIndex = 0;
+                // Add the MapIcon to the map.
+                myMap.MapElements.Add(mapIcon1);
+            }
+            //line
+            double centerLatitude = myMap.Center.Position.Latitude;
+            double centerLongitude = myMap.Center.Position.Longitude;
+            double centerLatitude2 = myMap.Center.Position.Latitude;
+            double centerLongitude2 = myMap.Center.Position.Longitude;
+            Windows.UI.Xaml.Controls.Maps.MapPolyline mapPolyline = new Windows.UI.Xaml.Controls.Maps.MapPolyline();
+            mapPolyline.Path = new Geopath(new List<BasicGeoposition>() {
+         new BasicGeoposition() {Latitude=centerLatitude, Longitude=centerLongitude },
+         new BasicGeoposition() {Latitude=centerLatitude+0.05, Longitude=centerLongitude-0.05 },
+
+         new BasicGeoposition() {Latitude=centerLatitude2+0.05, Longitude=centerLongitude2-0.05 },
+         new BasicGeoposition() {Latitude=centerLatitude2+0.05, Longitude= centerLongitude2+0.0000005},
+
+         new BasicGeoposition() {Latitude=centerLatitude2+0.05, Longitude=centerLongitude2-0.0000005 },
+         new BasicGeoposition() {Latitude=centerLatitude2, Longitude= centerLongitude2},
+                  });
+            mapPolyline.StrokeColor = Colors.White;
+            mapPolyline.StrokeThickness = 3;
+            mapPolyline.StrokeDashed = true;
+            myMap.MapElements.Add(mapPolyline);
         }
 
-        private async void pushpinTapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
+        private void MyMap_MapElementClick(MapControl sender, MapElementClickEventArgs args)
         {
-            MessageDialog dialog = new MessageDialog("Nation Center");
-            await dialog.ShowAsync();
-        }
-        private async void pushpinTappedNode1(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
-        {
-            MessageDialog dialog = new MessageDialog("<!--Node1-->");
-            await dialog.ShowAsync();
-        }
-        private async void pushpinTappedNode2(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
-        {
-            MessageDialog dialog = new MessageDialog("<!--Node2-->");
-            await dialog.ShowAsync();
-        }
-        private async void pushpinTappedNode3(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
-        {
-            MessageDialog dialog = new MessageDialog("<!--Node3-->");
-            await dialog.ShowAsync();
-        }
-        private async void pushpinTappedNode4(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
-        {
-            MessageDialog dialog = new MessageDialog("<!--Node4-->");
-            await dialog.ShowAsync();
+            Node no = new Node();
+            MapIcon myClickedIcon = args.MapElements.FirstOrDefault(mapIcon1 => mapIcon1 is MapIcon) as MapIcon;
+            this.Frame.Navigate(typeof(menuNode));
+           // foreach (Node no2 in Node.getAllNode())
+           // {
+           //     MessageDialog ms = new MessageDialog("ID : "+no.id + "Status : " + no.online_status); 
+           // }
         }
     }
 }

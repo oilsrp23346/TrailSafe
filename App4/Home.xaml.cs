@@ -1,4 +1,5 @@
-﻿using System;
+﻿using App4.Model;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -19,7 +20,7 @@ namespace App4
 {
     public sealed partial class Home : UserControl
     {
-        public Model.Book Book { get { return this.DataContext as Model.Book; } }
+        public User User { get { return this.DataContext as User; } }
 
         public Home()
         {

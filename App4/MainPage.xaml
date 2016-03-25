@@ -81,6 +81,17 @@
                                        Margin="20,0,0,0" />
                         </StackPanel>
                     </ListBoxItem>
+                    <ListBoxItem Name="node">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock 
+                                Text="&#xE80A;"
+                                FontFamily="Segoe MDL2 Assets" 
+                                FontSize="20" />
+                            <TextBlock Text="Node" 
+                                       FontSize="18" 
+                                       Margin="20,0,0,0" />
+                        </StackPanel>
+                    </ListBoxItem>
                     <ListBoxItem Name="addTourist">
                         <StackPanel Orientation="Horizontal">
                             <TextBlock 
