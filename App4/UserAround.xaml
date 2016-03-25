@@ -14,6 +14,8 @@
                 Content="Pop Toast"
                 HorizontalAlignment="Stretch"
                 Click="ButtonPopToast_Click"/>
+        
+        
        <!-- <TextBox
             x:Name="TextBoxPayload"
             AcceptsReturn="True"

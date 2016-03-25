@@ -58,9 +58,10 @@ namespace App4
                 Scenario = ToastScenario.Alarm,
                 Actions = new ToastActionsCustom()
                 {
-                    Buttons =
+                   
+                Buttons =
                     {
-                        new ToastButtonSnooze("5 more mins plz"),
+                    new ToastButtonSnooze("5 more mins plz"),
                         new ToastButtonDismiss("ok,help now")
                     }
                 }
