@@ -103,6 +103,7 @@ namespace App4
             else
             {
                 User user = new User(name.Text, Int32.Parse(ID.Text), Int32.Parse(Whistband.Text));
+
                 user.registerUser();
                 clearForm();
             }
