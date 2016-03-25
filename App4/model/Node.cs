@@ -145,5 +145,80 @@ namespace App4.model
             int status = (int)json.GetNumber();
             return status;
         }
+
+        public static NodeEvent[] getNodeEvent(int id)
+        {
+            ArrayList nodeRarr = new ArrayList();
+            Uri uri = new Uri("http://207.46.230.196/node/error_log?device-id=" + id);
+            HttpClient client = new HttpClient();
+            HttpResponseMessage response = client.GetAsync(uri).Result;
+            JsonArray jsonArr = JsonValue.Parse(response.Content.ReadAsStringAsync().Result.ToString()).GetArray();
+            for(uint i =0;i < jsonArr.Count;i++)
+            {
+                int id_pri = -1;
+                int node_id = -1;
+                int type = -1;
+                string detail = "";
+                string sys_info = "";
+                string created_at = "";
+                if (jsonArr.GetObjectAt(i)["id"].ValueType != JsonValueType.Null)
+                    id_pri = Int32.Parse(jsonArr.GetObjectAt(i).GetNamedString("id"));
+                if (jsonArr.GetObjectAt(i)["node_id"].ValueType != JsonValueType.Null)
+                    node_id = Int32.Parse(jsonArr.GetObjectAt(i).GetNamedString("node_id"));
+                if (jsonArr.GetObjectAt(i)["type"].ValueType != JsonValueType.Null)
+                    type = Int32.Parse(jsonArr.GetObjectAt(i).GetNamedString("type"));
+                if (jsonArr.GetObjectAt(i)["detail"].ValueType != JsonValueType.Null)
+                    detail = jsonArr.GetObjectAt(i).GetNamedString("detail");
+                if (jsonArr.GetObjectAt(i)["sys_info"].ValueType != JsonValueType.Null)
+                    sys_info = jsonArr.GetObjectAt(i).GetNamedString("sys_info");
+                if (jsonArr.GetObjectAt(i)["created_at"].ValueType != JsonValueType.Null)
+                    created_at = jsonArr.GetObjectAt(i).GetNamedString("created_at");
+                NodeEvent nd = new NodeEvent(id_pri, node_id, type, detail, sys_info, created_at);
+                nodeRarr.Add(nd);
+            }
+            NodeEvent[] ndReturn = new NodeEvent[nodeRarr.Count];
+            int index = 0;
+            foreach(NodeEvent nd in nodeRarr)
+            {
+                ndReturn[index++] = nd;
+            }
+            return ndReturn;
+        }
+
+        public static NodeRegistration[] getNodeRegistration(int id)
+        {
+            ArrayList nodeRarr = new ArrayList();
+            Uri uri = new Uri("http://207.46.230.196/node/registration_log?device-id=" + id);
+            HttpClient client = new HttpClient();
+            HttpResponseMessage response = client.GetAsync(uri).Result;
+            JsonArray jsonArr = JsonValue.Parse(response.Content.ReadAsStringAsync().Result.ToString()).GetArray();
+            for (uint i = 0; i < jsonArr.Count; i++)
+            {
+                int id_pri = -1;
+                int node_id = -1;
+                string path = "";
+                int registration_node_id = -1;
+                string created_at = "";
+                if (jsonArr.GetObjectAt(i)["id"].ValueType != JsonValueType.Null)
+                    id_pri = Int32.Parse(jsonArr.GetObjectAt(i).GetNamedString("id"));
+                if (jsonArr.GetObjectAt(i)["node_id"].ValueType != JsonValueType.Null)
+                    node_id = Int32.Parse(jsonArr.GetObjectAt(i).GetNamedString("node_id"));
+                if (jsonArr.GetObjectAt(i)["path"].ValueType != JsonValueType.Null)
+                    path = jsonArr.GetObjectAt(i).GetNamedString("path");
+                if (jsonArr.GetObjectAt(i)["registration_node_id"].ValueType != JsonValueType.Null)
+                    registration_node_id = Int32.Parse(jsonArr.GetObjectAt(i).GetNamedString("registration_node_id"));
+                if (jsonArr.GetObjectAt(i)["created_at"].ValueType != JsonValueType.Null)
+                    created_at = jsonArr.GetObjectAt(i).GetNamedString("created_at");
+                NodeRegistration nd = new NodeRegistration(id_pri, node_id, path, registration_node_id, created_at);
+                nodeRarr.Add(nd);
+            }
+            NodeRegistration[] ndReturn = new NodeRegistration[nodeRarr.Count];
+            int index = 0;
+            foreach (NodeRegistration nd in nodeRarr)
+            {
+                ndReturn[index++] = nd;
+            }
+            return ndReturn;
+        }
     }
 }
