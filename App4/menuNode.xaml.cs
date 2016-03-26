@@ -31,7 +31,7 @@ namespace App4
         }
         private void genInfo_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(UserinNode));
+            this.Frame.Navigate(typeof(UserinNode), nodeId);
         }   
         private void useraround_Click(object sender, RoutedEventArgs e)
         {
@@ -40,12 +40,12 @@ namespace App4
 
         private void errorInfo_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(ErrorInfo));
+            this.Frame.Navigate(typeof(ErrorInfo), nodeId);
         }
 
         private void registerInfo_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(RegisterInfo));
+            this.Frame.Navigate(typeof(RegisterInfo), nodeId);
         }
         //get latitude from map 
         Node nodeId = null;

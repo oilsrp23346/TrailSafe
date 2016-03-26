@@ -17,6 +17,7 @@ using Windows.UI.Popups;
 using NotificationsExtensions.Toasts;
 using Windows.UI.Notifications;
 using App4.Model;
+using System.Collections.ObjectModel;
 
 
 
@@ -29,9 +30,16 @@ namespace App4
     /// </summary>
     public sealed partial class UserAround : Page
     {
+        private ObservableCollection<User> usersItems;
         public UserAround()
         {
             this.InitializeComponent();
+            usersItems = new ObservableCollection<User>();
+            User.add("Tourist", usersItems);
+        }
+        private void GridView_UserClick(object sender, ItemClickEventArgs e)
+        {
+            this.Frame.Navigate(typeof(map));
 
         }
         // private void ButtonPopToast_Click(object sender, RoutedEventArgs e)

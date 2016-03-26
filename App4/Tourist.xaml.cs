@@ -34,7 +34,6 @@ namespace App4
          }
         private void GridView_UserClick(object sender, ItemClickEventArgs e)
         {
-            ItemClickEventArgs myClickedIcon;
             this.Frame.Navigate(typeof(map));
 
             //var node = (Node)e.ClickedItem;
