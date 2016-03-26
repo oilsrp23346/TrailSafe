@@ -13,6 +13,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using App4.Model;
 
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
@@ -30,28 +31,32 @@ namespace App4
         }
         private void genInfo_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(UserinNode));
+            this.Frame.Navigate(typeof(UserinNode), nodeId);
         }   
         private void useraround_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(UserAround));
+            this.Frame.Navigate(typeof(UserAround), nodeId);
         }
 
         private void errorInfo_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(ErrorInfo));
+            this.Frame.Navigate(typeof(ErrorInfo), nodeId);
         }
 
         private void registerInfo_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(RegisterInfo));
+            this.Frame.Navigate(typeof(RegisterInfo), nodeId);
         }
         //get latitude from map 
+        Node nodeId = null;
+
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
 
-            double la = (double)e.Parameter;
-            if (la == 16.831196)
+             nodeId = (Node)e.Parameter;
+           
+            txtLat.Text = "Hi, " + e.Parameter;
+            /*if (la == 16.831196)
             // if (e.Parameter is Node)
             {
                 txtLat.Text = "Hi, " + e.Parameter.ToString();
@@ -60,6 +65,7 @@ namespace App4
             {
                 txtLong.Text = "Hi!++" + e.Parameter.ToString();
             }
+            */
             base.OnNavigatedTo(e);
         }
     }

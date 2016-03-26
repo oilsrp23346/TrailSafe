@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace App4.model
 {
-    class NodeEvent
+    public class NodeEvent
     {
         private int id { get; set; }
         private int node_id { get; set; }
