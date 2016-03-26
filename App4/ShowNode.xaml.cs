@@ -39,9 +39,7 @@ namespace App4
         private void GridView_NodeClick(object sender, ItemClickEventArgs e)
         {
             ItemClickEventArgs myClickedIcon;
-
-            this.Frame.Navigate(typeof(map));
-
+            this.Frame.Navigate(typeof(menuNode));
             //var cars = (Node)e.ClickedItem;
             //ResultTextBlock.Text = "You Selected--->>" + cars.Category + "--->>Model_ " + cars.Model;
         }

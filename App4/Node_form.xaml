@@ -8,7 +8,7 @@
     mc:Ignorable="d"
     d:DesignWidth="220" Height="196">
 
-    <Grid Name="MainPanel" Background="WhiteSmoke" Margin="15,0,5,10" Height="Auto" Width="Auto" >
+    <Grid Name="MainPanel" Background="White" Margin="15,0,5,10" Height="Auto" Width="Auto" >
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto"  />

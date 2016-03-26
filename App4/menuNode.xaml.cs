@@ -34,7 +34,7 @@ namespace App4
         }   
         private void useraround_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(UserAround));
+            this.Frame.Navigate(typeof(UserAround), nodeId);
         }
 
         private void errorInfo_Click(object sender, RoutedEventArgs e)
@@ -47,11 +47,14 @@ namespace App4
             this.Frame.Navigate(typeof(RegisterInfo));
         }
         //get latitude from map 
+        int nodeId = 0;
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
 
-            double la = (double)e.Parameter;
-            if (la == 16.831196)
+            nodeId = (int)e.Parameter;
+           
+            txtLat.Text = "Hi, " + e.Parameter;
+            /*if (la == 16.831196)
             // if (e.Parameter is Node)
             {
                 txtLat.Text = "Hi, " + e.Parameter.ToString();
@@ -60,6 +63,7 @@ namespace App4
             {
                 txtLong.Text = "Hi!++" + e.Parameter.ToString();
             }
+            */
             base.OnNavigatedTo(e);
         }
     }

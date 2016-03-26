@@ -38,7 +38,7 @@ namespace App4
         //     ToastHelper.PopCustomToast(TextBoxPayload.Text);
         // }
 
-            //noti
+        //noti
         private void Show(ToastContent content)
         {
             ToastNotificationManager.CreateToastNotifier().Show(new ToastNotification(content.GetXml()));
@@ -58,8 +58,8 @@ namespace App4
                 Scenario = ToastScenario.Alarm,
                 Actions = new ToastActionsCustom()
                 {
-                   
-                Buttons =
+
+                    Buttons =
                     {
                     new ToastButtonSnooze("5 more mins plz"),
                         new ToastButtonDismiss("ok,help now")
@@ -68,6 +68,11 @@ namespace App4
             });
         }
 
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            int test = (int)e.Parameter;
+            txttest.Text = "Hi, " + e.Parameter;
+        }
     }
- }
+}
 

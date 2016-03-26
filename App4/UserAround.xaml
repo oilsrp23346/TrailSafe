@@ -14,9 +14,9 @@
                 Content="Pop Toast"
                 HorizontalAlignment="Stretch"
                 Click="ButtonPopToast_Click"/>
-        
-        
-       <!-- <TextBox
+
+        <TextBlock x:Name="txttest" HorizontalAlignment="Left" Margin="254,10,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+        <!-- <TextBox
             x:Name="TextBoxPayload"
             AcceptsReturn="True"
             TextWrapping="Wrap"

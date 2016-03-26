@@ -89,6 +89,33 @@ namespace App4.Model
             await messageDialog.ShowAsync();
         }
 
+        public static User getSingleOfUser(string url)
+        {
+            Uri uri = new Uri("http://207.46.230.196/user/" + url);
+            HttpClient client = new HttpClient();
+            HttpResponseMessage response = client.GetAsync(uri).Result;
+            JsonValue json = JsonValue.Parse(response.Content.ReadAsStringAsync().Result.ToString());
+            int id_pri = -1;
+            string name = "";
+            int identifier = -1;
+            int profilePic = -1;
+            int status = -1;
+            int wristbandID = -1;
+            if (json.GetObject()["id"].ValueType != JsonValueType.Null)
+                id_pri = Int32.Parse(json.GetObject().GetNamedString("id"));
+            if (json.GetObject()["name"].ValueType != JsonValueType.Null)
+                name = json.GetObject().GetNamedString("name");
+            if (json.GetObject()["identifier"].ValueType != JsonValueType.Null)
+                identifier = Int32.Parse(json.GetObject().GetNamedString("identifier"));
+            if (json.GetObject()["profile_pic"].ValueType != JsonValueType.Null)
+                profilePic = Int32.Parse(json.GetObject().GetNamedString("profile_pic"));
+            if (json.GetObject()["status"].ValueType != JsonValueType.Null)
+                status = Int32.Parse(json.GetObject().GetNamedString("status"));
+            if (json.GetObject()["wristband_id"].ValueType != JsonValueType.Null)
+                wristbandID = Int32.Parse(json.GetObject().GetNamedString("wristband_id"));
+            User user = new User(id_pri, name, identifier, profilePic, status, wristbandID);
+            return user;
+        }
         public static User[] getAllUser()
         {
             ArrayList userArr = new ArrayList();
@@ -170,6 +197,48 @@ namespace App4.Model
             }
             var messageDialog = new MessageDialog(message);
             await messageDialog.ShowAsync();
+        }
+        public static User[] getUserArounfNode(int device_id)
+        {
+            return getArrayOfUser("find_by_node?device-id=" + device_id);
+        }
+        public static User[] getArrayOfUser(string url)
+        {
+            ArrayList userArr = new ArrayList();
+            Uri uri = new Uri("http://207.46.230.196/user/" + url);
+            HttpClient client = new HttpClient();
+            HttpResponseMessage response = client.GetAsync(uri).Result;
+            JsonArray jsonArr = JsonValue.Parse(response.Content.ReadAsStringAsync().Result.ToString()).GetArray();
+            for (uint i = 0; i < jsonArr.Count; i++)
+            {
+                int id = -1;
+                string name = "";
+                int identifier = -1;
+                int profilePic = -1;
+                int status = -1;
+                int wristbandID = -1;
+                if (jsonArr.GetObjectAt(i)["id"].ValueType != JsonValueType.Null)
+                    id = Int32.Parse(jsonArr.GetObjectAt(i).GetNamedString("id"));
+                if (jsonArr.GetObjectAt(i)["name"].ValueType != JsonValueType.Null)
+                    name = jsonArr.GetObjectAt(i).GetNamedString("name");
+                if (jsonArr.GetObjectAt(i)["identifier"].ValueType != JsonValueType.Null)
+                    identifier = Int32.Parse(jsonArr.GetObjectAt(i).GetNamedString("identifier"));
+                if (jsonArr.GetObjectAt(i)["profile_pic"].ValueType != JsonValueType.Null)
+                    profilePic = Int32.Parse(jsonArr.GetObjectAt(i).GetNamedString("profile_pic"));
+                if (jsonArr.GetObjectAt(i)["status"].ValueType != JsonValueType.Null)
+                    status = Int32.Parse(jsonArr.GetObjectAt(i).GetNamedString("status"));
+                if (jsonArr.GetObjectAt(i)["wristband_id"].ValueType != JsonValueType.Null)
+                    wristbandID = Int32.Parse(jsonArr.GetObjectAt(i).GetNamedString("wristband_id"));
+                User user = new User(id, name, identifier, profilePic, status, wristbandID);
+                userArr.Add(user);
+            }
+            User[] userReturn = new User[userArr.Count];
+            int index = 0;
+            foreach (User user in userArr)
+            {
+                userReturn[index++] = user;
+            }
+            return userReturn;
         }
 
     }

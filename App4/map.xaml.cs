@@ -31,6 +31,7 @@ namespace App4
     /// </summary>
     public sealed partial class map : Page
     {
+        
         RandomAccessStreamReference mapIconStreamReference;
         public map()
         {
@@ -55,7 +56,7 @@ namespace App4
             mapIcon2.Image = mapIconStreamReference;
             mapIcon2.ZIndex = 0;
             myMap.MapElements.Add(mapIcon2);
-
+            //node 0 1 2 3
             foreach (Node no in Node.getAllNode())
             {
                 BasicGeoposition snPosition = new BasicGeoposition() { Latitude = no.latitude, Longitude = no.longitude  };
@@ -68,17 +69,20 @@ namespace App4
                 mapIcon1.Title = no.node_type;
                 mapIcon1.Image = mapIconStreamReference;
                 mapIcon1.ZIndex = 0;
+                
                 // Add the MapIcon to the map.
                 myMap.MapElements.Add(mapIcon1);
+                
             }
+            
            
             myMap.Center = snCentermap;
             myMap.ZoomLevel = 12;
 
-            //16.789774,102.235653
-            //16.831196,102.244084
-            //16.791274,102.275468
-            //16.764741,102.304295
+            //node 0 : 16.789774,102.235653
+            //node 1 :16.831196,102.244084
+            //node 2 :16.791274,102.275468
+            //node 3 :16.764741,102.304295
             //center : 16.734522,102.285402
             //line
             double centerLatitude1 = 16.734522;double centerLongitude1 = 102.285402;
@@ -112,15 +116,70 @@ namespace App4
 
         private void MyMap_MapElementClick(MapControl sender, MapElementClickEventArgs args)
         {
-            
+         
             MapIcon myClickedIcon = args.MapElements.FirstOrDefault(mapIcon => mapIcon is MapIcon) as MapIcon;
             double la = myClickedIcon.Location.Position.Latitude;
-            this.Frame.Navigate(typeof(menuNode), la);
-            
-           // foreach (Node no2 in Node.getAllNode())
-           // {
-           //     MessageDialog ms = new MessageDialog("ID : "+no.id + "Status : " + no.online_status); 
-           // }
+            double lo = myClickedIcon.Location.Position.Longitude;
+            // this.Frame.Navigate(typeof(menuNode), la);
+
+            Node ndEqual = null;
+
+            foreach (Node node in Node.getAllNode())
+            {
+
+                if (la == node.latitude && lo == node.longitude)
+                {
+
+                    ndEqual = node;
+
+                }
+            }
+            this.Frame.Navigate(typeof(menuNode), ndEqual.id);
+
+            /*
+
+            foreach (Node nodeid in Node.getAllNode())
+            {
+                int id = nodeid.id;          
+                this.Frame.Navigate(typeof(menuNode), la);
+            }
+
+             foreach (User user in User.getAllUser())
+            {
+                User[] us = User.getUserArounfNode(0);
+                int id = user.id;
+                string name = user.name;
+                int identifier = user.identifier;
+                int profilePic = user.profilePic;
+                int status = user.status;
+                int wristbandID = user.wristbandID;
+                //Window.Current.Content = new User(id,name, identifier, profilePic, status, wristbandID);
+                this.Frame.Navigate(typeof(menuNode),id);
+            }
+
+            if (la == 16.789774)
+            {
+                User[] userAr =  User.getUserArounfNode(0);
+                this.Frame.Navigate(typeof(menuNode));
+            }
+            else if (la == 16.831196)
+            {
+                this.Frame.Navigate(typeof(menuNode));
+            }
+            else if (la == 16.791274)
+            {
+                this.Frame.Navigate(typeof(menuNode));
+            }
+            else if (la == 16.764741)
+            {
+                this.Frame.Navigate(typeof(menuNode));
+            }
+            */
+
+            // foreach (Node no2 in Node.getAllNode())
+            // {
+            //     MessageDialog ms = new MessageDialog("ID : "+no.id + "Status : " + no.online_status); 
+            // }
         }
     }
 }

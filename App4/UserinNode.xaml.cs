@@ -26,6 +26,12 @@ namespace App4
         {
             this.InitializeComponent();
         }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            int test = (int)e.Parameter;
+        }
     }
+
   
 }
