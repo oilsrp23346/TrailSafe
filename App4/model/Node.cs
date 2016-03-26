@@ -99,6 +99,31 @@ namespace App4.Model
             return node;
         }
 
+        public static Node getNodeByCoordinate(double la, double lo)
+        {
+            Uri uri = new Uri("http://207.46.230.196/node/find_by_coordinate?latitude=" + la + "&longitude=" + lo);
+            HttpClient client = new HttpClient();
+            HttpResponseMessage response = client.GetAsync(uri).Result;
+            JsonValue json = JsonValue.Parse(response.Content.ReadAsStringAsync().Result.ToString());
+            int id_pri = -1;
+            int onlineStatus = -1;
+            string nodeType = "";
+            double latitude = -1;
+            double longitude = -1;
+            if (json.GetObject()["id"].ValueType != JsonValueType.Null)
+                id_pri = Int32.Parse(json.GetObject().GetNamedString("id"));
+            if (json.GetObject()["node_type"].ValueType != JsonValueType.Null)
+                nodeType = json.GetObject().GetNamedString("node_type");
+            if (json.GetObject()["online_status"].ValueType != JsonValueType.Null)
+                onlineStatus = Int32.Parse(json.GetObject().GetNamedString("online_status"));
+            if (json.GetObject()["latitude"].ValueType != JsonValueType.Null)
+                latitude = Double.Parse(json.GetObject().GetNamedString("latitude"));
+            if (json.GetObject()["longitude"].ValueType != JsonValueType.Null)
+                longitude = Double.Parse(json.GetObject().GetNamedString("longitude"));
+            Node node = new Node(id_pri, nodeType, onlineStatus, latitude, longitude);
+            return node;
+        }
+
         public static Node[] getAllOfflineNode()
         {
             ArrayList nodeArr = new ArrayList();

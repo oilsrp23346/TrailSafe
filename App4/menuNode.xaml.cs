@@ -13,6 +13,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using App4.Model;
 
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
@@ -47,11 +48,12 @@ namespace App4
             this.Frame.Navigate(typeof(RegisterInfo));
         }
         //get latitude from map 
-        int nodeId = 0;
+        Node nodeId = null;
+
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
 
-            nodeId = (int)e.Parameter;
+             nodeId = (Node)e.Parameter;
            
             txtLat.Text = "Hi, " + e.Parameter;
             /*if (la == 16.831196)

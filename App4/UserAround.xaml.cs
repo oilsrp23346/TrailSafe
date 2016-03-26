@@ -16,6 +16,7 @@ using App4.controls;
 using Windows.UI.Popups;
 using NotificationsExtensions.Toasts;
 using Windows.UI.Notifications;
+using App4.Model;
 
 
 
@@ -67,11 +68,10 @@ namespace App4
                 }
             });
         }
-
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            int test = (int)e.Parameter;
-            txttest.Text = "Hi, " + e.Parameter;
+            Node test = (Node)e.Parameter;
+            txttest.Text = "Hi, " + test.id;
         }
     }
 }

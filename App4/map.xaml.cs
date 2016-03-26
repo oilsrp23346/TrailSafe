@@ -124,17 +124,10 @@ namespace App4
 
             Node ndEqual = null;
 
-            foreach (Node node in Node.getAllNode())
-            {
-
-                if (la == node.latitude && lo == node.longitude)
-                {
-
-                    ndEqual = node;
-
-                }
-            }
-            this.Frame.Navigate(typeof(menuNode), ndEqual.id);
+            Node node = Node.getNodeByCoordinate(la, lo);
+            
+          
+            this.Frame.Navigate(typeof(menuNode), node);
 
             /*
 
