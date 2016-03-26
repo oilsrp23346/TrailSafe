@@ -16,6 +16,8 @@ using App4.controls;
 using Windows.UI.Popups;
 using NotificationsExtensions.Toasts;
 using Windows.UI.Notifications;
+using App4.Model;
+using System.Collections.ObjectModel;
 
 
 
@@ -28,9 +30,16 @@ namespace App4
     /// </summary>
     public sealed partial class UserAround : Page
     {
+        private ObservableCollection<User> usersItems;
         public UserAround()
         {
             this.InitializeComponent();
+            usersItems = new ObservableCollection<User>();
+            User.add("Tourist", usersItems);
+        }
+        private void GridView_UserClick(object sender, ItemClickEventArgs e)
+        {
+            this.Frame.Navigate(typeof(map));
 
         }
         // private void ButtonPopToast_Click(object sender, RoutedEventArgs e)
@@ -38,7 +47,7 @@ namespace App4
         //     ToastHelper.PopCustomToast(TextBoxPayload.Text);
         // }
 
-            //noti
+        //noti
         private void Show(ToastContent content)
         {
             ToastNotificationManager.CreateToastNotifier().Show(new ToastNotification(content.GetXml()));
@@ -58,8 +67,8 @@ namespace App4
                 Scenario = ToastScenario.Alarm,
                 Actions = new ToastActionsCustom()
                 {
-                   
-                Buttons =
+
+                    Buttons =
                     {
                     new ToastButtonSnooze("5 more mins plz"),
                         new ToastButtonDismiss("ok,help now")
@@ -67,7 +76,11 @@ namespace App4
                 }
             });
         }
-
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            Node test = (Node)e.Parameter;
+            txttest.Text = "Hi, " + test.id;
+        }
     }
- }
+}
 

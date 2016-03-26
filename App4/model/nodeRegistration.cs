@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace App4.model
 {
-    class NodeRegistration
+    public class NodeRegistration
     {
-        private int id;
-        private int node_id;
-        private string path;
-        private int registration_node_id;
-        private string created_at;
+        private int id { get; set; }
+        private int node_id { get; set; }
+        private string path { get; set; }
+        private int registration_node_id { get; set; }
+        private string created_at { get; set; }
         
         public NodeRegistration()
         {

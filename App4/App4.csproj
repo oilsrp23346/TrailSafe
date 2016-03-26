@@ -104,27 +104,23 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
     <Compile Include="controls\StepsControl.cs" />
     <Compile Include="controls\StepsHelperControl.cs" />
     <Compile Include="controls\ToastHelper.cs" />
     <Compile Include="ErrorInfo.xaml.cs">
       <DependentUpon>ErrorInfo.xaml</DependentUpon>
     </Compile>
+    <Compile Include="model\NodeEvent.cs" />
+    <Compile Include="model\NodeRegistration.cs" />
     <Compile Include="RegisterInfo.xaml.cs">
       <DependentUpon>RegisterInfo.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserAround.xaml.cs">
       <DependentUpon>UserAround.xaml</DependentUpon>
     </Compile>
->>>>>>> cb04ba6a3c1d7e65f544700ed8ffbeae89da45ff
     <Compile Include="UserinNode.xaml.cs">
       <DependentUpon>UserinNode.xaml</DependentUpon>
     </Compile>
->>>>>>> 363f1be3564d45b1eff5b15632f0bede15c909b3
     <Compile Include="Home.xaml.cs">
       <DependentUpon>Home.xaml</DependentUpon>
     </Compile>
@@ -134,14 +130,6 @@
     <Compile Include="map.xaml.cs">
       <DependentUpon>map.xaml</DependentUpon>
     </Compile>
-<<<<<<< HEAD
-    <Compile Include="model\Book.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Tourist.xaml.cs">
-      <DependentUpon>Tourist.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="User.cs" />
-=======
     <Compile Include="menuNode.xaml.cs">
       <DependentUpon>menuNode.xaml</DependentUpon>
     </Compile>
@@ -158,7 +146,6 @@
     <Compile Include="Tourist.xaml.cs">
       <DependentUpon>Tourist.xaml</DependentUpon>
     </Compile>
->>>>>>> 363f1be3564d45b1eff5b15632f0bede15c909b3
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -172,15 +159,11 @@
     <Content Include="Assets\SmallLogo.scale-100.png" />
     <Content Include="Assets\SplashScreen.scale-100.png" />
     <Content Include="Assets\StoreLogo.scale-100.png" />
-<<<<<<< HEAD
-    <Content Include="image\placeholder-sdk.png" />
-=======
     <Content Include="image\feature-buttons-system-status.png" />
     <Content Include="image\mappin.png" />
     <Content Include="image\Pin.png" />
     <Content Include="image\placeholder-sdk.png" />
     <Content Include="image\red-pin.png" />
->>>>>>> 363f1be3564d45b1eff5b15632f0bede15c909b3
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -203,10 +186,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
     <Page Include="ErrorInfo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -219,12 +198,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
->>>>>>> cb04ba6a3c1d7e65f544700ed8ffbeae89da45ff
     <Page Include="UserinNode.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
->>>>>>> 363f1be3564d45b1eff5b15632f0bede15c909b3
     <Page Include="Home.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -237,8 +214,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-<<<<<<< HEAD
-=======
     <Page Include="menuNode.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -251,7 +226,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
->>>>>>> 363f1be3564d45b1eff5b15632f0bede15c909b3
     <Page Include="Tourist.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -276,20 +250,11 @@
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
-<<<<<<< HEAD
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
   </Target>
   <Target Name="AfterBuild">
   </Target>
-=======
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
->>>>>>> 363f1be3564d45b1eff5b15632f0bede15c909b3
   -->
 </Project>

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace App4.model
 {
-    class NodeEvent
+    public class NodeEvent
     {
         private int id { get; set; }
         private int node_id { get; set; }
@@ -15,6 +15,7 @@ namespace App4.model
         private string sys_info { get; set; }
         private string created_at { get; set; }
 
+        //errorEvent
         public NodeEvent()
         {
             id = -1;
@@ -32,6 +33,6 @@ namespace App4.model
             this.detail = detail;
             this.sys_info = sys_info;
             this.created_at = created_at;
-        } 
+        }
     }
 }

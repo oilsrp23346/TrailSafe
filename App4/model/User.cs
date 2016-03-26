@@ -161,12 +161,10 @@ namespace App4.Model
         {
             return getArrayOfUser("get_all_user");
         }
-
         public static User getUserbyID(int id)
         {
             return getSingleOfUser("find_by_id?user-id=" + id);
         }
-
         public static async void unRegisterUser(int id)
         {
             Uri uri = new Uri("http://207.46.230.196/user/unregister?user-id=" + id);
@@ -175,7 +173,7 @@ namespace App4.Model
             string message = "";
             if (response.IsSuccessStatusCode)
             {
-                message = "Successful unregister user!";
+                 message = "Successful unregister user!";
             }
             else
             {
@@ -185,10 +183,10 @@ namespace App4.Model
             await messageDialog.ShowAsync();
         }
 
-        public static User[] getUserArounfNode(int device_id)
-        {
-          return getArrayOfUser("find_by_node?device-id=" + device_id);
-        }
+         public static User[] getUserArounfNode(int device_id)
+         {
+           return getArrayOfUser("find_by_node?device-id=" + device_id);
+         }
 
     }
 }

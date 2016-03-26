@@ -5,7 +5,7 @@
     xmlns:local="using:App4"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:controls="using:App4.Controls"
+    xmlns:data="using:App4.Model"
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
@@ -14,9 +14,32 @@
                 Content="Pop Toast"
                 HorizontalAlignment="Stretch"
                 Click="ButtonPopToast_Click"/>
-        
-        
-       <!-- <TextBox
+
+        <TextBlock x:Name="txttest" HorizontalAlignment="Left" Margin="254,10,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+
+        <SplitView Name="MySplitView" 
+                   Grid.Row="1" 
+                   DisplayMode="CompactOverlay" 
+                   OpenPaneLength="150" 
+                   CompactPaneLength="45" >
+            <SplitView.Content>
+                <GridView Name="NewsItemGrid"
+                          Background="LightGray"
+                          ItemsSource="{x:Bind usersItems}"
+                          HorizontalAlignment="Stretch"
+                          Margin="10,0,0,0"
+                          ItemClick="GridView_UserClick"
+                          IsItemClickEnabled="True">
+                    <GridView.ItemTemplate>
+                        <DataTemplate x:DataType="data:User">
+                            <local:Home/>
+                        </DataTemplate>
+                    </GridView.ItemTemplate>
+                </GridView>
+            </SplitView.Content>
+        </SplitView>
+    </Grid>
+    <!-- <TextBox
             x:Name="TextBoxPayload"
             AcceptsReturn="True"
             TextWrapping="Wrap"
@@ -24,5 +47,4 @@
             Grid.Row="1"
             Visibility="Collapsed"
             Text="{Binding Payload, ElementName=popToastControl}"/>-->
-    </Grid>
 </Page>

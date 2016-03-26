@@ -7,6 +7,7 @@ using System.Net.Http;
 using Windows.Data.Json;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
+using App4.model;
 
 namespace App4.Model
 {
@@ -156,7 +157,7 @@ namespace App4.Model
             HttpClient client = new HttpClient();
             HttpResponseMessage response = client.GetAsync(uri).Result;
             JsonArray jsonArr = JsonValue.Parse(response.Content.ReadAsStringAsync().Result.ToString()).GetArray();
-            for(uint i =0;i < jsonArr.Count;i++)
+            for (uint i = 0; i < jsonArr.Count; i++)
             {
                 int id_pri = -1;
                 int node_id = -1;
@@ -181,11 +182,16 @@ namespace App4.Model
             }
             NodeEvent[] ndReturn = new NodeEvent[nodeRarr.Count];
             int index = 0;
-            foreach(NodeEvent nd in nodeRarr)
+            foreach (NodeEvent nd in nodeRarr)
             {
                 ndReturn[index++] = nd;
             }
             return ndReturn;
+        }
+
+        public static Node getNodeByCoordinate(double latitude, double longitude)
+        {
+            return getSingleOfNode("find_by_coordinate?latitude=" + latitude + "&longitude=" + longitude);
         }
 
         public static NodeRegistration[] getNodeRegistration(int id)
@@ -223,6 +229,7 @@ namespace App4.Model
             }
             return ndReturn;
         }
+
 
         //list
         public static void GetNodes(string topic, ObservableCollection<Node> nodesItems)
