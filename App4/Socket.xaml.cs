@@ -18,6 +18,10 @@ using Windows.Networking.Connectivity;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.Storage.Streams;
+using Windows.Devices.Geolocation;
+using Windows.UI.Popups;
+using Windows.Data.Json;
+using Newtonsoft.Json;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -30,13 +34,15 @@ namespace App4
     {
         private List<LocalHostItem> localHostItems = new List<LocalHostItem>();
         private NetworkAdapter adapter = null;
+        private double latitude = 0;
+        private double longitude = 0;
 
         public Socket()
         {
             this.InitializeComponent();
             PopulateAdapterList();
         }
-        public async void tcpConnection(LocalHostItem selectedLocalHost)
+        public async void tcpConnection(LocalHostItem selectedLocalHost,int port,double latitude, double longitude)
         {
             try
             {
@@ -50,13 +56,14 @@ namespace App4
 
                 //Every protocol typically has a standard port number. For example HTTP is typically 80, FTP is 20 and 21, etc.
                 //For the echo server/client application we will use a random port 1337.
-                string serverPort = "22112";
+                string serverPort = port.ToString();
                 await socket.ConnectAsync(serverHost, serverPort, SocketProtectionLevel.PlainSocket,adapter);
 
                 //Write data to the echo server.
                 Stream streamOut = socket.OutputStream.AsStreamForWrite();
                 StreamWriter writer = new StreamWriter(streamOut);
-                string request = "hello";
+                GeoLoacation location = new GeoLoacation(latitude, longitude);
+                string request = JsonConvert.SerializeObject(location);
                 await writer.WriteLineAsync(request);
                 await writer.FlushAsync();
 
@@ -68,7 +75,8 @@ namespace App4
             }
             catch (Exception e)
             {
-                //Handle exception here.            
+                var messageDialog = new MessageDialog(e.ToString());
+                await messageDialog.ShowAsync();
             }
         }
 
@@ -102,10 +110,10 @@ namespace App4
             }
         }
 
-        private async void connClick(object sender, RoutedEventArgs e)
+        private void connClick(object sender, RoutedEventArgs e)
         {
             LocalHostItem selectedLocalHost = (LocalHostItem)AdapterList.SelectedItem;
-            StreamSocketListener listener = new StreamSocketListener();
+            /*StreamSocketListener listener = new StreamSocketListener();
             listener.ConnectionReceived += SocketListener_ConnectionReceived;
             listener.Control.KeepAlive = false;
             try
@@ -115,10 +123,35 @@ namespace App4
             catch(Exception ex)
             {
                 //
-            }
-            tcpConnection(selectedLocalHost);
+            }*/
+            tcpConnection(selectedLocalHost, 22112, latitude, longitude);
         }
 
+        private async void getGPS_click(object sender, RoutedEventArgs e)
+        {
+            Geolocator geolocator = new Geolocator();
+            geolocator.DesiredAccuracyInMeters = 50;
+
+            try
+            {
+                Geoposition geoposition = await geolocator.GetGeopositionAsync(
+                     maximumAge: TimeSpan.FromMinutes(5),
+                     timeout: TimeSpan.FromSeconds(10)
+                    );
+
+                //With this 2 lines of code, the app is able to write on a Text Label the Latitude and the Longitude, given by {{Icode|geoposition}}
+                geolocation.Text = "GPS:" + geoposition.Coordinate.Point.Position.Latitude.ToString("0.0000") + ", " + geoposition.Coordinate.Point.Position.Longitude.ToString("0.0000");
+                latitude = geoposition.Coordinate.Point.Position.Latitude;
+                longitude = geoposition.Coordinate.Point.Position.Longitude;
+            }
+            //If an error is catch 2 are the main causes: the first is that you forgot to include ID_CAP_LOCATION in your app manifest. 
+            //The second is that the user doesn't turned on the Location Services
+            catch (Exception ex)
+            {
+                var messageDialog = new MessageDialog(ex.ToString());
+                await messageDialog.ShowAsync();
+            }
+        }
     }
     public class LocalHostItem
     {
@@ -149,6 +182,18 @@ namespace App4
             this.LocalHost = localHostName;
             this.DisplayString = "Address: " + localHostName.DisplayName +
                 " Adapter: " + localHostName.IPInformation.NetworkAdapter.NetworkAdapterId;
+        }
+    }
+
+    public class GeoLoacation
+    {
+        public double latitude { get; set; }
+        public double longitude { get; set; }
+
+        public GeoLoacation(double latitude, double longitude)
+        {
+            this.latitude = latitude;
+            this.longitude = longitude;
         }
     }
 }

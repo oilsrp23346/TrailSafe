@@ -14,6 +14,10 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -22,12 +26,18 @@
             <ColumnDefinition Width="1*" />
         </Grid.ColumnDefinitions>
 
-        <TextBlock Grid.Row="1" Text="Resonse Msg: " VerticalAlignment="Center" />
-        <TextBox Grid.Row="1" Grid.Column="1" Margin="0,0,0,10" Name="responseTxt"/>
+        <TextBlock Grid.Row="1" Text="GPS location:"/>
+        <TextBlock Grid.Row="1" Grid.Column="1" Name="geolocation"/>
+        <Button Grid.Row="2"  Grid.Column="1" Content="Get GPS location" Click="getGPS_click"/>
+        
 
-        <ComboBox Grid.Row="2" Grid.Column="2" x:Name="AdapterList" AllowDrop="True" IsEnabled="True"/>
+        <TextBlock Grid.Row="3" Text="Response Msg: " VerticalAlignment="Center" />
+        <TextBlock Grid.Row="3" Grid.Column="1" Margin="0,0,0,10" Name="responseTxt"/>
+        
+        <ComboBox Grid.Row="4" Grid.Column="2" x:Name="AdapterList" AllowDrop="True" IsEnabled="True"/>
 
-        <Button Grid.Row="2" Grid.Column="1" Name="connect_btn" Margin="0.333,0,0,0" VerticalAlignment="Top" Click="connClick">Connect</Button>
+        <Button Grid.Row="4" Grid.Column="1" Name="connect_btn" Margin="0.333,0,0,0" VerticalAlignment="Top" Click="connClick">Send GPS Location</Button>
+        
 
     </Grid>
 </Page>
