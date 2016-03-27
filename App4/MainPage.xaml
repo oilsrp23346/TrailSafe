@@ -37,9 +37,9 @@
         </VisualStateManager.VisualStateGroups>
 
         <RelativePanel>
-            <Button Name="HamburgerButton" 
+            <Button Name="HamburgerButton"
                     RelativePanel.AlignLeftWithPanel="True"
-                    FontFamily="Segoe MDL2 Assets" 
+                    FontFamily="Segoe MDL2 Assets"
                     Content="&#xE700;"
                     FontSize="20"
                     Width="45"
@@ -47,75 +47,86 @@
                     HorizontalAlignment="Center"
                     Click="HambergerButton_Click"
                     />
-            <Button Name="BackButton" 
-                    RelativePanel.RightOf="HamburgerButton" 
-                    FontFamily="Segoe MDL2 Assets" 
-                    FontSize="30" Content="&#xE0C4;" 
+            <Button Name="BackButton"
+                    RelativePanel.RightOf="HamburgerButton"
+                    FontFamily="Segoe MDL2 Assets"
+                    FontSize="30" Content="&#xE0C4;"
                     Click="BackButton_Click"/>
 
-            <TextBlock Name="TitleTextBlock" 
+            <TextBlock Name="TitleTextBlock"
                        RelativePanel.RightOf="BackButton"
                        FontSize="18"
                        FontWeight="Bold"
                        Margin="20,10,0,0" />
 
             <AutoSuggestBox Name="MyAutoSuggestBox"
-                            QueryIcon="Find" 
-                            PlaceholderText="Search" 
+                            QueryIcon="Find"
+                            PlaceholderText="Search"
                             RelativePanel.AlignRightWithPanel="True"
                             Width="200"
                             Margin="0,5,10,0" />
         </RelativePanel>
 
-        <SplitView Name="MySplitView" 
-                   Grid.Row="1" 
-                   DisplayMode="CompactOverlay" 
-                   OpenPaneLength="150" 
+        <SplitView Name="MySplitView"
+                   Grid.Row="1"
+                   DisplayMode="CompactOverlay"
+                   OpenPaneLength="150"
                    CompactPaneLength="45" >
             <SplitView.Pane>
-                <ListBox SelectionMode="Single" 
+                <ListBox SelectionMode="Single"
                          SelectionChanged="ListBox_SelectionChanged">
                     <ListBoxItem Name="home">
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock 
+                            <TextBlock
                                 Text="&#xE80F;"
-                                FontFamily="Segoe MDL2 Assets" 
+                                FontFamily="Segoe MDL2 Assets"
                                 FontSize="20" />
-                            <TextBlock Text="Home" 
-                                       FontSize="18" 
+                            <TextBlock Text="Home"
+                                       FontSize="18"
                                        Margin="20,0,0,0" />
                         </StackPanel>
                     </ListBoxItem>
                     <ListBoxItem Name="node">
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock 
+                            <TextBlock
                                 Text="&#xE80A;"
-                                FontFamily="Segoe MDL2 Assets" 
+                                FontFamily="Segoe MDL2 Assets"
                                 FontSize="20" />
-                            <TextBlock Text="Node" 
-                                       FontSize="18" 
+                            <TextBlock Text="Node"
+                                       FontSize="18"
                                        Margin="20,0,0,0" />
                         </StackPanel>
                     </ListBoxItem>
                     <ListBoxItem Name="addTourist">
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock 
+                            <TextBlock
                                 Text="&#xE1E2;"
-                                FontFamily="Segoe MDL2 Assets" 
+                                FontFamily="Segoe MDL2 Assets"
                                 FontSize="20" />
-                            <TextBlock Text="Add Tourist" 
-                                       FontSize="18" 
+                            <TextBlock Text="Add Tourist"
+                                       FontSize="18"
                                        Margin="20,0,0,0" />
                         </StackPanel>
                     </ListBoxItem>
                     <ListBoxItem Name="map">
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock 
+                            <TextBlock
                                 Text="&#xE707;"
-                                FontFamily="Segoe MDL2 Assets" 
+                                FontFamily="Segoe MDL2 Assets"
                                 FontSize="20" />
-                            <TextBlock Text="Map" 
-                                       FontSize="18" 
+                            <TextBlock Text="Map"
+                                       FontSize="18"
+                                       Margin="20,0,0,0" />
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem Name="socket">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock
+                                Text="&#xE704;"
+                                FontFamily="Segoe MDL2 Assets"
+                                FontSize="20" />
+                            <TextBlock Text="Socket"
+                                       FontSize="18"
                                        Margin="20,0,0,0" />
                         </StackPanel>
                     </ListBoxItem>

@@ -63,6 +63,11 @@ namespace App4
                 MyFrame.Navigate(typeof(map));
                 TitleTextBlock.Text = "Map";
             }
+            else if (socket.IsSelected)
+            {
+                MyFrame.Navigate(typeof(Socket));
+                TitleTextBlock.Text = "Socket";
+            }
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
