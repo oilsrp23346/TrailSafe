@@ -33,10 +33,7 @@ namespace App4
         {
             this.InitializeComponent();
         }
-        private void genInfo_Click(object sender, RoutedEventArgs e)
-        {
-            this.Frame.Navigate(typeof(UserinNode), node);
-        }   
+        
         private void useraround_Click(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(UserAround), node);
@@ -56,7 +53,7 @@ namespace App4
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
              node = (Node)e.Parameter;
-            //txtLat.Text = "Hi, " + node.id;
+            nodeID.Text = "NODE : " + node.id;
             base.OnNavigatedTo(e);
         }
     }

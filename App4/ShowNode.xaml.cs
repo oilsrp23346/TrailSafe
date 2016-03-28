@@ -32,16 +32,14 @@ namespace App4
             this.InitializeComponent();
             nodesItems = new ObservableCollection<Node>();
             Node.GetNodes("Node", nodesItems);
-           // cars = CarManager.GetCars();
         }
 
         //link to map include Node's id 
         private void GridView_NodeClick(object sender, ItemClickEventArgs e)
         {
-            ItemClickEventArgs myClickedIcon;
-            this.Frame.Navigate(typeof(menuNode));
-            //var cars = (Node)e.ClickedItem;
-            //ResultTextBlock.Text = "You Selected--->>" + cars.Category + "--->>Model_ " + cars.Model;
+            Node node = (Node)e.ClickedItem;
+            this.Frame.Navigate(typeof(menuNode), node);
+
         }
     }
 }
