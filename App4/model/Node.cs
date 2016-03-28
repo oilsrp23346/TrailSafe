@@ -7,13 +7,12 @@ using System.Net.Http;
 using Windows.Data.Json;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
-using App4.model;
 
 namespace App4.Model
 {
     public class Node
     {
-        private string Topic = "Node";
+        public string Topic = "Node";
         public int id { get; set; }
         public string node_type { get; set; }
         public int online_status { get; set; }
@@ -157,42 +156,7 @@ namespace App4.Model
             return getSingleOfNode("find_by_coordinate?latitude=" + latitude + "&longitude=" + longitude);
         }
 
-        public static NodeRegistration[] getNodeRegistration(int id)
-        {
-            ArrayList nodeRarr = new ArrayList();
-            Uri uri = new Uri("http://207.46.230.196/node/registration_log?device-id=" + id);
-            HttpClient client = new HttpClient();
-            HttpResponseMessage response = client.GetAsync(uri).Result;
-            JsonArray jsonArr = JsonValue.Parse(response.Content.ReadAsStringAsync().Result.ToString()).GetArray();
-            for (uint i = 0; i < jsonArr.Count; i++)
-            {
-                int id_pri = -1;
-                int node_id = -1;
-                string path = "";
-                int registration_node_id = -1;
-                string created_at = "";
-                if (jsonArr.GetObjectAt(i)["id"].ValueType != JsonValueType.Null)
-                    id_pri = Int32.Parse(jsonArr.GetObjectAt(i).GetNamedString("id"));
-                if (jsonArr.GetObjectAt(i)["node_id"].ValueType != JsonValueType.Null)
-                    node_id = Int32.Parse(jsonArr.GetObjectAt(i).GetNamedString("node_id"));
-                if (jsonArr.GetObjectAt(i)["path"].ValueType != JsonValueType.Null)
-                    path = jsonArr.GetObjectAt(i).GetNamedString("path");
-                if (jsonArr.GetObjectAt(i)["registration_node_id"].ValueType != JsonValueType.Null)
-                    registration_node_id = Int32.Parse(jsonArr.GetObjectAt(i).GetNamedString("registration_node_id"));
-                if (jsonArr.GetObjectAt(i)["created_at"].ValueType != JsonValueType.Null)
-                    created_at = jsonArr.GetObjectAt(i).GetNamedString("created_at");
-                NodeRegistration nd = new NodeRegistration(id_pri, node_id, path, registration_node_id, created_at);
-                nodeRarr.Add(nd);
-            }
-            NodeRegistration[] ndReturn = new NodeRegistration[nodeRarr.Count];
-            int index = 0;
-            foreach (NodeRegistration nd in nodeRarr)
-            {
-                ndReturn[index++] = nd;
-            }
-            return ndReturn;
-        }
-
+        
 
         //add list
         public static void GetNodes(string topic, ObservableCollection<Node> nodesItems)
@@ -273,5 +237,61 @@ namespace App4.Model
             }
             return nodes;
         }
+
+        public static NodeRegistration[] getNodeRegistration(int id)
+        {
+            ArrayList nodeRarr = new ArrayList();
+            Uri uri = new Uri("http://207.46.230.196/node/registration_log?device-id=" + id);
+            HttpClient client = new HttpClient();
+            HttpResponseMessage response = client.GetAsync(uri).Result;
+            JsonArray jsonArr = JsonValue.Parse(response.Content.ReadAsStringAsync().Result.ToString()).GetArray();
+            for (uint i = 0; i < jsonArr.Count; i++)
+            {
+                int id_pri = -1;
+                int node_id = -1;
+                string path = "";
+                int registration_node_id = -1;
+                string created_at = "";
+                if (jsonArr.GetObjectAt(i)["id"].ValueType != JsonValueType.Null)
+                    id_pri = Int32.Parse(jsonArr.GetObjectAt(i).GetNamedString("id"));
+                if (jsonArr.GetObjectAt(i)["node_id"].ValueType != JsonValueType.Null)
+                    node_id = Int32.Parse(jsonArr.GetObjectAt(i).GetNamedString("node_id"));
+                if (jsonArr.GetObjectAt(i)["path"].ValueType != JsonValueType.Null)
+                    path = jsonArr.GetObjectAt(i).GetNamedString("path");
+                if (jsonArr.GetObjectAt(i)["registration_node_id"].ValueType != JsonValueType.Null)
+                    registration_node_id = Int32.Parse(jsonArr.GetObjectAt(i).GetNamedString("registration_node_id"));
+                if (jsonArr.GetObjectAt(i)["created_at"].ValueType != JsonValueType.Null)
+                    created_at = jsonArr.GetObjectAt(i).GetNamedString("created_at");
+                NodeRegistration nd = new NodeRegistration(id_pri, node_id, path, registration_node_id, created_at);
+                nodeRarr.Add(nd);
+            }
+            NodeRegistration[] ndReturn = new NodeRegistration[nodeRarr.Count];
+            int index = 0;
+            foreach (NodeRegistration nd in nodeRarr)
+            {
+                ndReturn[index++] = nd;
+            }
+            return ndReturn;
+        }
+        //add Register
+        public static void addRegister(string topic, ObservableCollection<NodeRegistration> nodesItems, int nodeId)
+        {
+            var allItems = getNodesRegister(nodeId);
+            var filteredNewsItems = allItems.Where(p => p.Topic == topic).ToList();
+            nodesItems.Clear();
+            filteredNewsItems.ForEach(p => nodesItems.Add(p));
+        }
+        private static List<NodeRegistration> getNodesRegister(int nodeId)
+        {
+            var nodes = new List<NodeRegistration>();
+            NodeRegistration[] node = Node.getNodeRegistration(nodeId);
+
+            foreach (NodeRegistration no in node)
+            {
+                nodes.Add(no);
+            }
+            return nodes;
+        }
+
     }
 }

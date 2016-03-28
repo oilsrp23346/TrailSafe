@@ -4,15 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace App4.model
+namespace App4.Model
 {
     public class NodeRegistration
     {
-        private int id { get; set; }
-        private int node_id { get; set; }
-        private string path { get; set; }
-        private int registration_node_id { get; set; }
-        private string created_at { get; set; }
+        public string Topic = "NodeRegister";
+        public int id { get; set; }
+        public int node_id { get; set; }
+        public string path { get; set; }
+        public int registration_node_id { get; set; }
+        public string created_at { get; set; }
         
         public NodeRegistration()
         {

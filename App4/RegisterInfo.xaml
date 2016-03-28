@@ -5,9 +5,28 @@
     xmlns:local="using:App4"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
-
+    mc:Ignorable="d"
+     xmlns:data="using:App4.Model">
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
+        <SplitView Name="MySplitView" 
+                   Grid.Row="1" 
+                   DisplayMode="CompactOverlay" 
+                   OpenPaneLength="50" 
+                   CompactPaneLength="45" >
+            <SplitView.Content>
+                <ListView Name="NewsItemGrid"
+                          Background="LightGray"
+                          ItemsSource="{x:Bind nodesItems}"
+                          HorizontalAlignment="Stretch"
+                          Margin="10,0,0,0"
+                          IsItemClickEnabled="True">
+                    <ListView.ItemTemplate>
+                        <DataTemplate x:DataType="data:Node">
+                            <local:List_formRegister/>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </SplitView.Content>
+        </SplitView>
     </Grid>
 </Page>

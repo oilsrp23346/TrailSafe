@@ -113,6 +113,9 @@
     <Compile Include="List_form.xaml.cs">
       <DependentUpon>List_form.xaml</DependentUpon>
     </Compile>
+    <Compile Include="List_formRegister.xaml.cs">
+      <DependentUpon>List_formRegister.xaml</DependentUpon>
+    </Compile>
     <Compile Include="model\NodeEvent.cs" />
     <Compile Include="model\NodeRegistration.cs" />
     <Compile Include="RegisterInfo.xaml.cs">
@@ -194,6 +197,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="List_form.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="List_formRegister.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

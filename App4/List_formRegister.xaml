@@ -1,12 +1,12 @@
 ﻿<UserControl
-    x:Class="App4.List_form"
+    x:Class="App4.List_formRegister"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:App4"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    d:DesignWidth="400">
+    >
 
     <Grid Name="MainPanel" Background="White" Height="Auto" Width="Auto" Margin="5">
 
@@ -38,12 +38,12 @@
 
         <!--<Image Name="MyImage" Source="{x:Bind User.profilePic}" />-->
         <RelativePanel Margin="10,10,10,10"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" >
-            <TextBlock Text="{x:Bind Node.detail}"
+            <TextBlock Text="{x:Bind Node.path}"
                        Name="HeadlineTextBlock" 
                        FontFamily="Times New Roman"
                        FontSize="16" 
                        HorizontalAlignment="Stretch"/>
-            <TextBlock Text="{x:Bind Node.sys_info}"
+            <TextBlock Text="{x:Bind Node.registration_node_id}"
                        Name="HeadlineTextBlock2"
                       RelativePanel.Below="HeadlineTextBlock"
                        TextWrapping="Wrap"

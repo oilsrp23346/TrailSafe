@@ -7,7 +7,6 @@ using System.Net.Http;
 using Windows.Data.Json;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
-using App4.model;
 
 namespace App4.Model
 {
