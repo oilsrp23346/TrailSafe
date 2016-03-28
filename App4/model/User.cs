@@ -63,7 +63,8 @@ namespace App4.Model
         private static List<User> getUsersItems()
         {
             var users = new List<User>();
-            User[] user = User.getAllUser();
+            //-------------------------------show
+            User[] user = User.getUserArounfNode(0);
             foreach(User us in user)
             {
                 users.Add(us);
