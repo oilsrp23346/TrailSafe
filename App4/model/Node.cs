@@ -293,5 +293,24 @@ namespace App4.Model
             return nodes;
         }
 
+        //add General
+        /*public static void addGeneral(string topic, ObservableCollection<Node> nodesItems, int nodeId)
+        {
+            var allItems = getNodesGeneral(nodeId);
+            var filteredNewsItems = allItems.Where(p => p.Topic == topic).ToList();
+            nodesItems.Clear();
+            filteredNewsItems.ForEach(p => nodesItems.Add(p));
+        }
+        private static List<Node> getNodesGeneral(int nodeId)
+        {
+            var nodes = new List<Node>();
+            Node[] node = Node.getAllNode(nodeId);
+
+            foreach (Node no in node)
+            {
+                nodes.Add(no);
+            }
+            return nodes;
+        }*/
     }
 }

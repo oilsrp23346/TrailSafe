@@ -55,20 +55,8 @@ namespace App4
         Node node = null;
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-
              node = (Node)e.Parameter;
-           
-            txtLat.Text = "Hi, " + node.id;
-            /*if (la == 16.831196)
-            // if (e.Parameter is Node)
-            {
-                txtLat.Text = "Hi, " + e.Parameter.ToString();
-            }
-            else
-            {
-                txtLong.Text = "Hi!++" + e.Parameter.ToString();
-            }
-            */
+            //txtLat.Text = "Hi, " + node.id;
             base.OnNavigatedTo(e);
         }
     }

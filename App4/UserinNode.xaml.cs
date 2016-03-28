@@ -13,6 +13,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using App4.Model;
+using System.Collections.ObjectModel;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -23,16 +24,24 @@ namespace App4
     /// </summary>
     public sealed partial class UserinNode : Page
     {
+        Node test = null;
+        private ObservableCollection<Node> nodesItems;
         public UserinNode()
         {
             this.InitializeComponent();
         }
 
-        protected override void OnNavigatedTo(NavigationEventArgs e)
+        /*protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            Node test = (Node)e.Parameter;
+            Node node = (Node)e.Parameter;
+            getNodeId(node);
         }
+        private void getNodeId(Node node)
+        {
+            nodesItems = new ObservableCollection<Node>();
+            int id = test.id;
+            Node.addGeneral("NodeEvent", nodesItems, id);
+        }*/
     }
-
   
 }
