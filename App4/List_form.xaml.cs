@@ -20,12 +20,29 @@ namespace App4
 {
     public sealed partial class List_form : UserControl
     {
-        public User User { get { return this.DataContext as User; } }
+        public NodeEvent Node { get { return this.DataContext as NodeEvent; } }
 
         public List_form()
         {
             this.InitializeComponent();
             this.DataContextChanged += (s, e) => Bindings.Update();
+
+            //show image status
+            String imagesource = "";
+            // if (Node.online_status == 1)
+            // {
+            imagesource = "ms-appx:///image/feature-buttons-system-status.jpg";
+            // }
+            // else
+            // {
+            //     imagesource = "ms-appx:///image/red-pin.jpg";
+            // }
+            // MyImage.Source = new BitmapImage(new Uri(imagesource, UriKind.Absolute));
+        }
+
+        private void HeadlineTextBlock3_SelectionChanged(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

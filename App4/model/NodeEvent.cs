@@ -1,13 +1,19 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Collections;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Net.Http;
+using Windows.Data.Json;
+using System.Collections.ObjectModel;
+using System.Collections.Generic;
+using App4.model;
 
-namespace App4.model
+namespace App4.Model
 {
     public class NodeEvent
     {
+        public string Topic = "NodeEvent";
         public int id { get; set; }
         public int node_id { get; set; }
         public int type { get; set; }
@@ -34,5 +40,8 @@ namespace App4.model
             this.sys_info = sys_info;
             this.created_at = created_at;
         }
+
+        
+
     }
 }

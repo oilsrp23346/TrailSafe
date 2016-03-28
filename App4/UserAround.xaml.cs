@@ -37,7 +37,6 @@ namespace App4
             this.InitializeComponent();
         }
         //recieve Node id
-        
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             Node test = (Node)e.Parameter;

@@ -6,16 +6,11 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    d:DesignHeight="300"
-    d:DesignWidth="700">
+    d:DesignHeight="150" Width="675.667">
 
-    <Grid Name="MainPanel" Background="White" Margin="10" Height="275" Width="200" >
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-        </Grid.RowDefinitions>
+    <Grid Name="MainPanel" Background="White" Height="Auto" Width="Auto" Margin="5">
 
-        <VisualStateManager.VisualStateGroups>
+        <!-- <VisualStateManager.VisualStateGroups>
             <VisualStateGroup>
                 <VisualState x:Name="NarrowLayout">
                     <VisualState.StateTriggers>
@@ -26,8 +21,8 @@
                         <Setter Target="MainPanel.Height" Value="275" />
                         <Setter Target="HeadlineTextBlock.FontSize" Value="18" />
                     </VisualState.Setters>
-                   
                 </VisualState>
+                
                 <VisualState x:Name="WideLayout">
                     <VisualState.StateTriggers>
                         <AdaptiveTrigger MinWindowWidth="900" />
@@ -39,25 +34,23 @@
                     </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>
-        </VisualStateManager.VisualStateGroups>
+        </VisualStateManager.VisualStateGroups>-->
 
         <!--<Image Name="MyImage" Source="{x:Bind User.profilePic}" />-->
-        <RelativePanel Grid.Row="1" Margin="10,10,10,0" Height="255" VerticalAlignment="Top">
-            <TextBlock Text="{x:Bind User.name}"
-                       Name="HeadlineTextBlock"
-                       RelativePanel.AlignTopWithPanel="True" 
+        <RelativePanel Margin="10,10,10,10"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" >
+            <TextBlock Text="{x:Bind Node.detail}"
+                       Name="HeadlineTextBlock" 
                        FontFamily="Times New Roman"
                        FontSize="16" 
-                       TextWrapping="Wrap"
                        HorizontalAlignment="Stretch"/>
-            <TextBlock Text="{x:Bind User.wristbandID}"
+            <TextBlock Text="{x:Bind Node.sys_info}"
                        Name="HeadlineTextBlock2"
-                       RelativePanel.Below="HeadlineTextBlock" 
+                      RelativePanel.Below="HeadlineTextBlock"
                        TextWrapping="Wrap"
                         HorizontalAlignment="Stretch"/>
-            <TextBlock Text="{x:Bind User.identifier}" 
+            <TextBlock Text="{x:Bind Node.created_at}" 
                        Name="HeadlineTextBlock3"
-                       RelativePanel.Below="HeadlineTextBlock2" 
+                      RelativePanel.Below="HeadlineTextBlock2"
                        TextWrapping="Wrap" 
                        HorizontalAlignment="Stretch"/>
         </RelativePanel>

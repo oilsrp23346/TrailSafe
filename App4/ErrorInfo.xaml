@@ -5,33 +5,29 @@
     xmlns:local="using:App4"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
+    mc:Ignorable="d"
+    xmlns:data="using:App4.Model">
 
-    <Grid Background="{ThemeResource AppBarBorderThemeBrush}">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="19*"/>
-            <ColumnDefinition Width="26*"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="45*"/>
-            <RowDefinition Height="125*"/>
-            <RowDefinition Height="45*"/>
-            <RowDefinition Height="125*"/>
-            <RowDefinition Height="45*"/>
-            <RowDefinition Height="125*"/>
-            <RowDefinition Height="45*"/>
-        </Grid.RowDefinitions>
-        <Grid Background="White" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right" Width="142">
-            <TextBlock Grid.Column="1" Text="Latitude: " VerticalAlignment="Center" Height="20" Margin="11,4.667,9.667,5.333" FontFamily="times new roman" FontSize="12"/>
-        </Grid>
-        <Grid Background="White" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right" Width="203">
-            <TextBlock Text="aaaaaaaaaaaa" 
-                   Margin="5"
-                       Name="HeadlineTextBlock4"
-                       TextWrapping="Wrap"
-                       FontFamily="times new roman" FontSize="12"
-                       VerticalAlignment="Center"
-                       Grid.Row="4" Grid.Column="1"/>
-        </Grid>
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <SplitView Name="MySplitView" 
+                   Grid.Row="1" 
+                   DisplayMode="CompactOverlay" 
+                   OpenPaneLength="50" 
+                   CompactPaneLength="45" >
+            <SplitView.Content>
+                <ListView Name="NewsItemGrid"
+                          Background="LightGray"
+                          ItemsSource="{x:Bind nodesItems}"
+                          HorizontalAlignment="Stretch"
+                          Margin="10,0,0,0"
+                          IsItemClickEnabled="True">
+                    <ListView.ItemTemplate>
+                        <DataTemplate x:DataType="data:Node">
+                            <local:List_form/>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </SplitView.Content>
+        </SplitView>
     </Grid>
 </Page>

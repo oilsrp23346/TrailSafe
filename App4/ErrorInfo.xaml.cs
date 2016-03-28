@@ -14,6 +14,7 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using App4.Model;
 using App4.model;
+using System.Collections.ObjectModel;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -25,18 +26,26 @@ namespace App4
     public sealed partial class ErrorInfo : Page
     {
         Node test = null;
-        public Model.Node Node { get { return this.DataContext as Model.Node; } }
+        private ObservableCollection<NodeEvent> nodesItems;
         public ErrorInfo()
         {
             this.InitializeComponent();
 
             //NodeEvent[] no = Node.getNodeEvent(test.id);
-
         }
        
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             test = (Node)e.Parameter;
+            getNodeId(test);
         }
+        private void getNodeId(Node test)
+        {
+            nodesItems = new ObservableCollection<NodeEvent>();
+            int id = test.id;
+            Node.addError("NodeEvent", nodesItems, id);
+
+        }
+
     }
 }

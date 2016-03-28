@@ -13,14 +13,14 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
-
+using App4.Model;
 // The User Control item template is documented at http://go.microsoft.com/fwlink/?LinkId=234236
 
 namespace App4
 {
     public sealed partial class Node_form : UserControl
     {
-        public Model.Node Node { get { return this.DataContext as Model.Node; } }
+        public Node Node { get { return this.DataContext as Node; } }
 
         public Node_form()
         {
