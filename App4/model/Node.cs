@@ -109,7 +109,7 @@ namespace App4.Model
             HttpClient client = new HttpClient();
             HttpResponseMessage response = client.GetAsync(uri).Result;
             JsonValue json = JsonValue.Parse(response.Content.ReadAsStringAsync().Result.ToString());
-            int id_pri = -1;
+            int id = -1;
             int onlineStatus = -1;
             string nodeType = "";
             double latitude = -1;
@@ -120,7 +120,7 @@ namespace App4.Model
             int smoke = -1;
             int wildfire_risk_level = -1;
             if (json.GetObject()["id"].ValueType != JsonValueType.Null)
-                id_pri = Int32.Parse(json.GetObject().GetNamedString("id"));
+                id = Int32.Parse(json.GetObject().GetNamedString("id"));
             if (json.GetObject()["node_type"].ValueType != JsonValueType.Null)
                 nodeType = json.GetObject().GetNamedString("node_type");
             if (json.GetObject()["online_status"].ValueType != JsonValueType.Null)
