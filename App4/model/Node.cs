@@ -12,12 +12,17 @@ namespace App4.Model
 {
     public class Node
     {
-        private string Topic = "Node";
+        public string Topic = "Node";
         public int id { get; set; }
         public string node_type { get; set; }
         public int online_status { get; set; }
         public double latitude { get; set; }
         public double longitude { get; set; }
+        public int risk_status { get; set; }
+        public double relative_humidity { get; set; }
+        public double temperature { get; set; }
+        public int smoke { get; set; }
+        public int wildfire_risk_level { get; set; }
 
         public Node()
         {
@@ -26,15 +31,25 @@ namespace App4.Model
             this.online_status = -1;
             this.latitude = -1;
             this.longitude = -1;
+            this.risk_status = -1;
+            this.relative_humidity = -1;
+            this.temperature = -1;
+            this.smoke = -1;
+            this.wildfire_risk_level = -1;
         }
 
-        public Node(int id, string node_type, int online_status, double latitude, double longitude)
+        public Node(int id, string node_type, int online_status, double latitude, double longitude, int risk_status, double relative_humidity, double temperature, int smoke, int wildfire_risk_level)
         {
             this.id = id;
             this.node_type = node_type;
             this.online_status = online_status;
             this.latitude = latitude;
             this.longitude = longitude;
+            this.risk_status = risk_status;
+            this.relative_humidity = relative_humidity;
+            this.temperature = temperature;
+            this.smoke = smoke;
+            this.wildfire_risk_level = wildfire_risk_level;
         }
 
         public static Node[] getArrayOdNode(string url)
@@ -51,6 +66,11 @@ namespace App4.Model
                 string nodeType = "";
                 double latitude = -1;
                 double longitude = -1;
+                int risk_status = -1;
+                double relative_humidity = -1;
+                double temperature = -1;
+                int smoke = -1;
+                int wildfire_risk_level = -1;
                 if (jsonArr.GetObjectAt(i)["id"].ValueType != JsonValueType.Null)
                     id = Int32.Parse(jsonArr.GetObjectAt(i).GetNamedString("id"));
                 if (jsonArr.GetObjectAt(i)["node_type"].ValueType != JsonValueType.Null)
@@ -61,7 +81,17 @@ namespace App4.Model
                     latitude = Double.Parse(jsonArr.GetObjectAt(i).GetNamedString("latitude"));
                 if (jsonArr.GetObjectAt(i)["longitude"].ValueType != JsonValueType.Null)
                     longitude = Double.Parse(jsonArr.GetObjectAt(i).GetNamedString("longitude"));
-                Node node = new Node(id, nodeType, onlineStatus, latitude, longitude);
+                if (jsonArr.GetObjectAt(i)["risk_status"].ValueType != JsonValueType.Null)
+                    risk_status = Int32.Parse(jsonArr.GetObjectAt(i).GetNamedString("risk_status"));
+                if (jsonArr.GetObjectAt(i)["relative_humidity"].ValueType != JsonValueType.Null)
+                    relative_humidity = Double.Parse(jsonArr.GetObjectAt(i).GetNamedString("relative_humidity"));
+                if (jsonArr.GetObjectAt(i)["temperature"].ValueType != JsonValueType.Null)
+                    temperature = Double.Parse(jsonArr.GetObjectAt(i).GetNamedString("temperature"));
+                if (jsonArr.GetObjectAt(i)["smoke"].ValueType != JsonValueType.Null)
+                    smoke = Int32.Parse(jsonArr.GetObjectAt(i).GetNamedString("smoke"));
+                if (jsonArr.GetObjectAt(i)["wildfire_risk_level"].ValueType != JsonValueType.Null)
+                    wildfire_risk_level = Int32.Parse(jsonArr.GetObjectAt(i).GetNamedString("wildfire_risk_level"));
+                Node node = new Node(id, nodeType, onlineStatus, latitude, longitude, risk_status, relative_humidity, temperature, smoke, wildfire_risk_level);
                 nodeArr.Add(node);
             }
             Node[] nodeReturn = new Node[nodeArr.Count];
@@ -84,6 +114,11 @@ namespace App4.Model
             string nodeType = "";
             double latitude = -1;
             double longitude = -1;
+            int risk_status = -1;
+            double relative_humidity = -1;
+            double temperature = -1;
+            int smoke = -1;
+            int wildfire_risk_level = -1;
             if (json.GetObject()["id"].ValueType != JsonValueType.Null)
                 id_pri = Int32.Parse(json.GetObject().GetNamedString("id"));
             if (json.GetObject()["node_type"].ValueType != JsonValueType.Null)
@@ -94,7 +129,17 @@ namespace App4.Model
                 latitude = Double.Parse(json.GetObject().GetNamedString("latitude"));
             if (json.GetObject()["longitude"].ValueType != JsonValueType.Null)
                 longitude = Double.Parse(json.GetObject().GetNamedString("longitude"));
-            Node node = new Node(id_pri, nodeType, onlineStatus, latitude, longitude);
+            if (json.GetObject()["risk_status"].ValueType != JsonValueType.Null)
+                risk_status = Int32.Parse(json.GetObject().GetNamedString("risk_status"));
+            if (json.GetObject()["relative_humidity"].ValueType != JsonValueType.Null)
+                relative_humidity = Double.Parse(json.GetObject().GetNamedString("relative_humidity"));
+            if (json.GetObject()["temperature"].ValueType != JsonValueType.Null)
+                temperature = Double.Parse(json.GetObject().GetNamedString("temperature"));
+            if (json.GetObject()["smoke"].ValueType != JsonValueType.Null)
+                smoke = Int32.Parse(json.GetObject().GetNamedString("smoke"));
+            if (json.GetObject()["wildfire_risk_level"].ValueType != JsonValueType.Null)
+                 wildfire_risk_level = Int32.Parse(json.GetObject().GetNamedString("wildfire_risk_level"));
+            Node node = new Node(id, nodeType, onlineStatus, latitude, longitude, risk_status, relative_humidity, temperature, smoke, wildfire_risk_level);
             return node;
         }
 
@@ -149,6 +194,35 @@ namespace App4.Model
             return status;
         }
 
+        
+
+        public static Node getNodeByCoordinate(double latitude, double longitude)
+        {
+            return getSingleOfNode("find_by_coordinate?latitude=" + latitude + "&longitude=" + longitude);
+        }
+
+        
+
+        //add list
+        public static void GetNodes(string topic, ObservableCollection<Node> nodesItems)
+        {
+            var allItems = getNodesItems();
+            var filteredNewsItems = allItems.Where(p => p.Topic == topic).ToList();
+            nodesItems.Clear();
+            filteredNewsItems.ForEach(p => nodesItems.Add(p));
+        }
+        private static List<Node> getNodesItems()
+        {
+            var nodes = new List<Node>();
+            Node[] node = Node.getAllNode();
+
+            foreach (Node no in node)
+            {
+                nodes.Add(no);
+            }
+            return nodes;
+        }
+
         public static NodeEvent[] getNodeEvent(int id)
         {
             ArrayList nodeRarr = new ArrayList();
@@ -156,7 +230,7 @@ namespace App4.Model
             HttpClient client = new HttpClient();
             HttpResponseMessage response = client.GetAsync(uri).Result;
             JsonArray jsonArr = JsonValue.Parse(response.Content.ReadAsStringAsync().Result.ToString()).GetArray();
-            for(uint i =0;i < jsonArr.Count;i++)
+            for (uint i = 0; i < jsonArr.Count; i++)
             {
                 int id_pri = -1;
                 int node_id = -1;
@@ -181,11 +255,32 @@ namespace App4.Model
             }
             NodeEvent[] ndReturn = new NodeEvent[nodeRarr.Count];
             int index = 0;
-            foreach(NodeEvent nd in nodeRarr)
+            foreach (NodeEvent nd in nodeRarr)
             {
                 ndReturn[index++] = nd;
             }
             return ndReturn;
+        }
+
+
+        //add error
+        public static void addError(string topic, ObservableCollection<NodeEvent> nodesItems, int nodeId)
+        {
+            var allItems = getNodesItems(nodeId);
+            var filteredNewsItems = allItems.Where(p => p.Topic == topic).ToList();
+            nodesItems.Clear();
+            filteredNewsItems.ForEach(p => nodesItems.Add(p));
+        }
+        private static List<NodeEvent> getNodesItems(int nodeId)
+        {
+            var nodes = new List<NodeEvent>();
+            NodeEvent[] node = Node.getNodeEvent(nodeId);
+
+            foreach (NodeEvent no in node)
+            {
+                nodes.Add(no);
+            }
+            return nodes;
         }
 
         public static NodeRegistration[] getNodeRegistration(int id)
@@ -223,28 +318,44 @@ namespace App4.Model
             }
             return ndReturn;
         }
-
-        //list
-        public static void GetNodes(string topic, ObservableCollection<Node> nodesItems)
+        //add Register
+        public static void addRegister(string topic, ObservableCollection<NodeRegistration> nodesItems, int nodeId)
         {
-            var allItems = getNodesItems();
-
+            var allItems = getNodesRegister(nodeId);
             var filteredNewsItems = allItems.Where(p => p.Topic == topic).ToList();
-
             nodesItems.Clear();
-
             filteredNewsItems.ForEach(p => nodesItems.Add(p));
         }
-        private static List<Node> getNodesItems()
+        private static List<NodeRegistration> getNodesRegister(int nodeId)
+        {
+            var nodes = new List<NodeRegistration>();
+            NodeRegistration[] node = Node.getNodeRegistration(nodeId);
+
+            foreach (NodeRegistration no in node)
+            {
+                nodes.Add(no);
+            }
+            return nodes;
+        }
+
+        //add General
+        /*public static void addGeneral(string topic, ObservableCollection<Node> nodesItems, int nodeId)
+        {
+            var allItems = getNodesGeneral(nodeId);
+            var filteredNewsItems = allItems.Where(p => p.Topic == topic).ToList();
+            nodesItems.Clear();
+            filteredNewsItems.ForEach(p => nodesItems.Add(p));
+        }
+        private static List<Node> getNodesGeneral(int nodeId)
         {
             var nodes = new List<Node>();
-            Node[] node = Node.getAllNode();
+            Node[] node = Node.getAllNode(nodeId);
 
             foreach (Node no in node)
             {
                 nodes.Add(no);
             }
             return nodes;
-        }
+        }*/
     }
 }

@@ -1,5 +1,4 @@
-
-using App4.Model;
+﻿using App4.Model;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -25,19 +24,17 @@ namespace App4
     /// </summary>
     public sealed partial class AddInfo2 : Page
     {
+        private string profile_pic = "";
         public AddInfo2()
         {
             this.InitializeComponent();
         }
-        private void textBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
 
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            profile_pic = (string)e.Parameter;
         }
 
-        private void textBlock_SelectionChanged(object sender, RoutedEventArgs e)
-        {
-
-        }
         public void clearForm()
         {
             name.Text = "";
@@ -55,7 +52,7 @@ namespace App4
             }
             else
             {
-                User user = new User(name.Text, Int32.Parse(ID.Text), Int32.Parse(Whistband.Text));
+                User user = new User(name.Text, Int32.Parse(ID.Text), profile_pic, Int32.Parse(Whistband.Text));
 
                 user.registerUser();
                 clearForm();

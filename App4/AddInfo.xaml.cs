@@ -19,6 +19,8 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
+using System.Runtime.Serialization;
+using App4.model;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -31,15 +33,14 @@ namespace App4
     {
         private StorageFile storeFile;
         private IRandomAccessStream stream;
+        private string profile_pic = "";
         public AddInfo()
         {
             this.InitializeComponent();
             ResetButton.Visibility = Visibility.Collapsed;
         }
-
-
-
-        protected override async void OnNavigatedTo(NavigationEventArgs e)
+ 
+        protected override void OnNavigatedTo(NavigationEventArgs e)
         {
 
         }
@@ -57,40 +58,9 @@ namespace App4
                 stream = await storeFile.OpenAsync(FileAccessMode.Read);
                 bimage.SetSource(stream);
                 CapturedPhoto.Source = bimage;
+                profile_pic = ImageConverter.ByteArrayToBase64(ImageConverter.BitmapToByteArray(stream));
             }
         }
-        /* private async void CapturePhoto_Click(object sender, RoutedEventArgs e)
-         {
-             try
-             {
-                 CameraCaptureUI dialog = new CameraCaptureUI();
-                 //create storage file in local app storge
-                 StorageFile file = await dialog.CaptureFileAsync(CameraCaptureUIMode.Photo);
-                 if (file != null)
-                 {
-                     //get photo as a BitmapImage
-                     BitmapImage bitmapImage = new BitmapImage();
-                     using (IRandomAccessStream fileStream = await file.OpenAsync(FileAccessMode.Read))
-                     {
-                         bitmapImage.SetSource(fileStream);
-                     }
-                     CapturedPhoto.Source = bitmapImage;
-                     ResetButton.Visibility = Visibility.Visible;
-
-                 }
-                 else
-                 {
-                     var dialog1 = new MessageDialog("Error!");
-                     await dialog1.ShowAsync();
-                 }
-             }
-             catch (Exception ex)
-             {
-                 var dialog1 = new MessageDialog("Error!");
-                 await dialog1.ShowAsync();
-             }
-         }
-         */
 
         //save
         private async void saveBtn_Click(object sender, RoutedEventArgs e)
@@ -154,9 +124,9 @@ namespace App4
 
         private void Next_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(AddInfo2));
+            this.Frame.Navigate(typeof(AddInfo2), profile_pic);
         }
 
-
+        
     }
 }
