@@ -9,6 +9,7 @@ using Windows.Data.Json;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
 
+
 namespace App4.Model
 {
     public class User
@@ -52,7 +53,7 @@ namespace App4.Model
             this.identifier = identifier;
             this.wristbandID = wristbandID;
         }
-        //add_list
+        //add_listUser_all
         public static void add(string topic, ObservableCollection<User> usersItems)
         {
             var allItems = getUsersItems();
@@ -64,8 +65,28 @@ namespace App4.Model
         {
             var users = new List<User>();
             //-------------------------------show
-            User[] user = User.getUserArounfNode(0);
+            User[] user = User.getAllUser();
             foreach(User us in user)
+            {
+                users.Add(us);
+            }
+            return users;
+        }
+
+        //add_UserbyNode
+        public static void addUserbyNode(string topic, ObservableCollection<User> usersItems,int nodeId)
+        {
+            var allItems = getUsersbyNode(nodeId);
+            var filteredNewsItems = allItems.Where(p => p.Topic == topic).ToList();
+            usersItems.Clear();
+            filteredNewsItems.ForEach(p => usersItems.Add(p));
+        }
+        private static List<User> getUsersbyNode(int nodeId)
+        {
+            var users = new List<User>();
+            //-------------------------------show
+            User[] user = User.getUserArounfNode(nodeId);
+            foreach (User us in user)
             {
                 users.Add(us);
             }

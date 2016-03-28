@@ -31,15 +31,30 @@ namespace App4
     public sealed partial class UserAround : Page
     {
         private ObservableCollection<User> usersItems;
+        
         public UserAround()
         {
             this.InitializeComponent();
-            usersItems = new ObservableCollection<User>();
-            User.add("Tourist", usersItems);
         }
+        //recieve Node id
+        
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            Node test = (Node)e.Parameter;
+            //txttest.Text = "Hi, " + test.id;
+            getNodeId(test);
+        }
+        private void getNodeId(Node test)
+        {
+            usersItems = new ObservableCollection<User>();
+            int id = test.id;
+            User.addUserbyNode("Tourist", usersItems, id);
+            
+        }
+
         private void GridView_UserClick(object sender, ItemClickEventArgs e)
         {
-            this.Frame.Navigate(typeof(map));
+           // this.Frame.Navigate(typeof(map));
 
         }
         // private void ButtonPopToast_Click(object sender, RoutedEventArgs e)
@@ -76,11 +91,7 @@ namespace App4
                 }
             });
         }
-        protected override void OnNavigatedTo(NavigationEventArgs e)
-        {
-            Node test = (Node)e.Parameter;
-            txttest.Text = "Hi, " + test.id;
-        }
+       
     }
 }
 

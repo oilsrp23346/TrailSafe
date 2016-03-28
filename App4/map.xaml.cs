@@ -125,8 +125,7 @@ namespace App4
             Node ndEqual = null;
 
             Node node = Node.getNodeByCoordinate(la, lo);
-            
-          
+
             this.Frame.Navigate(typeof(menuNode), node);
 
             /*

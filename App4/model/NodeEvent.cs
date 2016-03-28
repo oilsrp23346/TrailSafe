@@ -8,12 +8,12 @@ namespace App4.model
 {
     public class NodeEvent
     {
-        private int id { get; set; }
-        private int node_id { get; set; }
-        private int type { get; set; }
-        private string detail { get; set; }
-        private string sys_info { get; set; }
-        private string created_at { get; set; }
+        public int id { get; set; }
+        public int node_id { get; set; }
+        public int type { get; set; }
+        public string detail { get; set; }
+        public string sys_info { get; set; }
+        public string created_at { get; set; }
 
         //errorEvent
         public NodeEvent()

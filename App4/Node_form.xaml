@@ -6,7 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    d:DesignWidth="220" Height="196">
+    d:DesignWidth="220" Height="138">
 
     <Grid Name="MainPanel" Background="White" Margin="15,0,5,10" Height="Auto" Width="Auto" >
         <Grid.RowDefinitions>
@@ -14,8 +14,7 @@
             <RowDefinition Height="Auto"  />
             <RowDefinition Height="Auto"  />
             <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
+
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="174*" />
@@ -49,42 +48,33 @@
         </VisualStateManager.VisualStateGroups>
 
 
-        <TextBlock Grid.Row="1" Text="id: " VerticalAlignment="Center" Height="20" Margin="11,6,9.667,5" FontWeight="Bold" FontFamily="Arial" FontSize="18" />
+        <TextBlock Grid.Row="1" Text="id           : " VerticalAlignment="Center" Height="20" Margin="11,11,9.667,10" FontWeight="Bold" FontFamily="times new roman" FontSize="18" />
         <TextBlock Text="{x:Bind Node.id}"
-                   Margin="10"
+                    Foreground="DarkGray"
+                   Margin="10.333,10,9.667,10"
                        Name="HeadlineTextBlock"
                        TextWrapping="Wrap" 
                        FontWeight="Bold"
-                        FontFamily="Arial" 
+                        FontFamily="times new roman" 
                         FontSize="12"
                        Grid.Row="1" Grid.Column="1" />
-        <TextBlock Grid.Row="2" Text="Node type: " VerticalAlignment="Center" Height="20" Margin="11,14,9.667,13.667" FontFamily="Arial" FontSize="12"/>
+        <TextBlock Grid.Row="2" Text="Node type     : " VerticalAlignment="Center" Height="20" Margin="11,14,9.667,13.667" FontFamily="times new roman" FontSize="12"/>
         <TextBlock Text="{x:Bind Node.node_type}"
-                       Margin="10"
+                    Foreground="DarkGray"
+                       Margin="10.333,10,9.667,9.667"
                        Name="HeadlineTextBlock2"
                        TextWrapping="Wrap" 
-                        FontFamily="Arial" FontSize="12"
+                        FontFamily="times new roman" FontSize="12"
                        Grid.Row="2" Grid.Column="1"/>
-        <TextBlock Grid.Row="3" Text="Status: " VerticalAlignment="Center" Height="20" Margin="11,8.333,9.667,9.333" FontFamily="Arial" FontSize="12" />
+        <TextBlock Grid.Row="3"  Text="Status            : " VerticalAlignment="Center" Height="20" Margin="11,8.333,9.667,9.333" FontFamily="times new roman" FontSize="12" />
         <TextBlock Text="{x:Bind Node.online_status}" 
-                       Margin="5"
+                    Foreground="DarkGray"
+                       Margin="5.333,5.333,4.667,4.333"
                        Name="HeadlineTextBlock3"
                        TextWrapping="Wrap"  
-                        FontFamily="Arial" FontSize="12"
+                        FontFamily="times new roman" FontSize="12"
                        Grid.Row="3" Grid.Column="1"/>
-        <TextBlock Grid.Row="4" Text="Latitude: " VerticalAlignment="Center" Height="20" Margin="11,4.667,9.667,5.333" FontFamily="Arial" FontSize="12"/>
-        <TextBlock Text="{x:Bind Node.latitude}" 
-                   Margin="5"
-                       Name="HeadlineTextBlock4"
-                       TextWrapping="Wrap"
-                    FontFamily="Arial" FontSize="12"
-                       Grid.Row="4" Grid.Column="1"/>
-        <TextBlock Grid.Row="5" Text="Longitude: " VerticalAlignment="Center" Height="20" Margin="11,4.667,9.667,5.333" FontFamily="Arial" FontSize="12"/>
-        <TextBlock Text="{x:Bind Node.longitude}" 
-                   Margin="5"
-                       Name="HeadlineTextBlock5"
-                       FontFamily="Arial" FontSize="12"
-                       TextWrapping="Wrap" 
-                       Grid.Row="5" Grid.Column="1"/>
+
+
     </Grid>
 </UserControl>

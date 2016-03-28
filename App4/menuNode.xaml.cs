@@ -20,42 +20,45 @@ using App4.Model;
 
 namespace App4
 {
+
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
+
+
     public sealed partial class menuNode : Page
     {
+
         public menuNode()
         {
             this.InitializeComponent();
         }
         private void genInfo_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(UserinNode), nodeId);
+            this.Frame.Navigate(typeof(UserinNode), node);
         }   
         private void useraround_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(UserAround), nodeId);
+            this.Frame.Navigate(typeof(UserAround), node);
         }
 
         private void errorInfo_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(ErrorInfo), nodeId);
+            this.Frame.Navigate(typeof(ErrorInfo), node);
         }
 
         private void registerInfo_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(RegisterInfo), nodeId);
+            this.Frame.Navigate(typeof(RegisterInfo), node);
         }
         //get latitude from map 
-        Node nodeId = null;
-
+        Node node = null;
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
 
-             nodeId = (Node)e.Parameter;
+             node = (Node)e.Parameter;
            
-            txtLat.Text = "Hi, " + e.Parameter;
+            txtLat.Text = "Hi, " + node.id;
             /*if (la == 16.831196)
             // if (e.Parameter is Node)
             {
