@@ -119,6 +119,18 @@
                                        Margin="20,0,0,0" />
                         </StackPanel>
                     </ListBoxItem>
+                    <ListBoxItem Name="socket">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock
+                                Text="&#xE704;"
+                                FontFamily="Segoe MDL2 Assets"
+                                FontSize="20" />
+                            <TextBlock Text="Socket"
+                                       FontSize="18"
+                                       Margin="20,0,0,0" />
+                        </StackPanel>
+                    </ListBoxItem>
+                    
                 </ListBox>
             </SplitView.Pane>
 
