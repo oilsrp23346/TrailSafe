@@ -52,7 +52,14 @@
                 </VisualState>
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
-        <TextBlock Grid.Row="0" Grid.Column="1" Text="Node Id" VerticalAlignment="Center" Height="20" FontFamily="times new roman" FontSize="12" Margin="0,7,0,6.333" Grid.ColumnSpan="2"/>
+        <TextBlock Grid.Row="0"
+                   Grid.Column="1" 
+                   Text="Node Id"
+                   VerticalAlignment="Center"
+                   FontFamily="times new roman" 
+                   FontSize="12" 
+                   Margin="0,7,0,6.333"
+                   Grid.ColumnSpan="2"/>
         <TextBlock Text="{x:Bind Node.id}"
                     Foreground="Black"
                    VerticalAlignment="Center"
@@ -60,13 +67,19 @@
                    TextWrapping="Wrap" 
                    FontFamily="times new roman" 
                    FontSize="12"
-                   Margin="10,0,0,0"
+                   Margin="10,7,0,6.333"
                    Grid.Row="0" 
                    Grid.Column="2" 
-                   Height="24" 
-                   Grid.ColumnSpan="2"/>
+                   Height="20"/>
 
-        <TextBlock Grid.Row="1" Grid.Column="1" Text="Node type" VerticalAlignment="Center" Height="20" FontFamily="times new roman" FontSize="12" Margin="0,8.667,0,8.333" Grid.ColumnSpan="2"/>
+        <TextBlock Grid.Row="1" 
+                   Grid.Column="1" 
+                   Text="Node type"
+                   VerticalAlignment="Center"
+                   FontFamily="times new roman"
+                   FontSize="12" 
+                   Margin="0,8.667,0,8.333" 
+                   Grid.ColumnSpan="2"/>
         <TextBlock Text="{x:Bind Node.node_type}"
                     Foreground="Black"
                    VerticalAlignment="Center"
@@ -75,22 +88,26 @@
                    FontFamily="times new roman" 
                    FontSize="12"
                    Grid.Row="1" Grid.Column="2" 
-                   Height="14"
                     Margin="10,0,0,0"/>
         <TextBlock Grid.Row="2" Grid.Column="1" Text="Status" VerticalAlignment="Center" Height="20" FontFamily="times new roman" FontSize="12" Margin="0,11.667,0,0.333" Grid.ColumnSpan="2" />
         <TextBlock Text="{x:Bind Node.online_status}"
-                   VerticalAlignment="Center"
                     Foreground="Black"
                     Name="HeadlineTextBlock3"
                     TextWrapping="Wrap"  
                     FontFamily="times new roman" 
                    FontSize="12"
-                   Grid.Row="2" 
+                   Grid.Row="1" 
                    Grid.Column="2"
-                   Height="28" 
-                    Margin="10,0,0,0" 
+                    Margin="10,36.667,0,1.333" 
                    Grid.RowSpan="2"/>
-        <TextBlock Grid.Row="3" Grid.Column="1" Text="Risk status" VerticalAlignment="Center" Height="20" FontFamily="times new roman" FontSize="12" Margin="0,7.667,0,6.333" Grid.ColumnSpan="2" />
+        <TextBlock Grid.Row="3"
+                   Grid.Column="1"
+                   Text="Risk status"
+                   VerticalAlignment="Center"
+                   FontFamily="times new roman"
+                   FontSize="12"
+                   Margin="0,7.667,0,6.333" 
+                   Grid.ColumnSpan="2" />
         <TextBlock Text="{x:Bind Node.risk_status}"
                     Foreground="Black"
                    VerticalAlignment="Center"
@@ -100,9 +117,15 @@
                         FontSize="12"
                        Grid.Row="3"
                    Grid.Column="2"
-                   Height="28"
                    Margin="10,0,0,0" />
-        <TextBlock Grid.Row="4" Grid.Column="1" Text="Relative Humidity" VerticalAlignment="Center" Height="20" FontFamily="times new roman" FontSize="12" Margin="0,7.667,0,6.667" Grid.ColumnSpan="2"/>
+        <TextBlock Grid.Row="4"
+                   Grid.Column="1"
+                   Text="Relative Humidity"
+                   VerticalAlignment="Center" 
+                   FontFamily="times new roman"
+                   FontSize="12" 
+                   Margin="0,7.667,0,6.667"
+                   Grid.ColumnSpan="2"/>
         <TextBlock Text="{x:Bind Node.relative_humidity}"
                    Foreground="Black"
                    VerticalAlignment="Center"
@@ -111,32 +134,61 @@
                    FontFamily="times new roman" 
                    FontSize="12"
                    Grid.Row="4" Grid.Column="2" 
-                   Height="28" 
                     Margin="10,0,0,0"/>
-        <TextBlock Grid.Row="5" Grid.Column="1" Text="Temperature" VerticalAlignment="Center" Height="20" FontFamily="times new roman" FontSize="12" Margin="0,7.333,0,6.667" Grid.ColumnSpan="2" />
-        <TextBlock Text="{x:Bind Node.temperature}" 
-                    Foreground="Black"
+        <TextBlock Grid.Row="5"
+                   Grid.Column="1"
+                   Text="Temperature"
                    VerticalAlignment="Center"
-                       Name="HeadlineTextBlock6"
-                       TextWrapping="Wrap"  
-                        FontFamily="times new roman" FontSize="12"
-                       Grid.Row="5" Grid.Column="2" Height="28"  Margin="10,0,0,0"/>
-        <TextBlock Grid.Row="6" Grid.Column="1" Text="Smoke" VerticalAlignment="Center" Height="20" FontFamily="times new roman" FontSize="12" Margin="0,7.333,0,7.667" Grid.ColumnSpan="2" />
+                   FontFamily="times new roman"
+                   FontSize="12"
+                   Margin="0,7.333,0,6.667" 
+                   Grid.ColumnSpan="2" />
+        <TextBlock Text="{x:Bind Node.temperature}" 
+                   Foreground="Black"
+                   VerticalAlignment="Center"
+                   Name="HeadlineTextBlock6"
+                   TextWrapping="Wrap"  
+                   FontFamily="times new roman"
+                   FontSize="12"
+                   Grid.Row="5" 
+                   Grid.Column="2"
+                   Margin="10,0,0,0"/>
+        <TextBlock Grid.Row="6"
+                   Grid.Column="1"
+                   Text="Smoke"
+                   VerticalAlignment="Center"
+                   FontFamily="times new roman"
+                   FontSize="12"
+                   Margin="0,7.333,0,7.667"
+                   Grid.ColumnSpan="2" />
         <TextBlock Text="{x:Bind Node.smoke}" 
                     Foreground="Black"
                    VerticalAlignment="Center"
-                       Name="HeadlineTextBlock7"
-                       TextWrapping="Wrap"  
-                        FontFamily="times new roman" FontSize="12"
-                       Grid.Row="6" Grid.Column="2" Height="28"  Margin="10,0,0,0"/>
-        <TextBlock Grid.Row="7" Grid.Column="1" Text="Wildfire risk level" VerticalAlignment="Center" Height="20" FontFamily="times new roman" FontSize="12" Margin="0,8.333,0,7" Grid.ColumnSpan="2" />
+                   Name="HeadlineTextBlock7"
+                   TextWrapping="Wrap"  
+                   FontFamily="times new roman"
+                   FontSize="12"
+                   Grid.Row="6" 
+                   Grid.Column="2"
+                   Margin="10,0,0,0"/>
+        <TextBlock Grid.Row="7"
+                   Grid.Column="1"
+                   Text="Wildfire risk level"
+                   VerticalAlignment="Center" 
+                   FontFamily="times new roman"
+                   FontSize="12" 
+                   Margin="0,8.333,0,7" 
+                   Grid.ColumnSpan="2" />
         <TextBlock Text="{x:Bind Node.wildfire_risk_level}" 
-                    Foreground="Black"
+                   Foreground="Black"
                    VerticalAlignment="Center"
-                       Name="HeadlineTextBlock8"
-                       TextWrapping="Wrap"  
-                        FontFamily="times new roman" FontSize="12"
-                       Grid.Row="7" Grid.Column="2" Height="28" Margin="10,0,0,0"/>
+                   Name="HeadlineTextBlock8"
+                   TextWrapping="Wrap"  
+                   FontFamily="times new roman"
+                   FontSize="12"
+                   Grid.Row="7" 
+                   Grid.Column="2" 
+                   Margin="10,0,0,0"/>
 
     </Grid>
 </UserControl>

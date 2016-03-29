@@ -27,6 +27,5 @@ namespace App4
             this.InitializeComponent();
             this.DataContextChanged += (s, e) => Bindings.Update();
         }
-
     }
 }
