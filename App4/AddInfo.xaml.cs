@@ -19,6 +19,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
+using App4.model;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -31,17 +32,12 @@ namespace App4
     {
         private StorageFile storeFile;
         private IRandomAccessStream stream;
+        private string profile_pic = "";
+
         public AddInfo()
         {
             this.InitializeComponent();
             ResetButton.Visibility = Visibility.Collapsed;
-        }
-
-
-
-        protected override async void OnNavigatedTo(NavigationEventArgs e)
-        {
-
         }
 
         private async void CapturePhoto_Click(object sender, RoutedEventArgs e)
@@ -57,6 +53,7 @@ namespace App4
                 stream = await storeFile.OpenAsync(FileAccessMode.Read);
                 bimage.SetSource(stream);
                 CapturedPhoto.Source = bimage;
+                profile_pic = ImageConverter.ByteArrayToBase64(ImageConverter.BitmapToByteArray(stream));
             }
         }
         /* private async void CapturePhoto_Click(object sender, RoutedEventArgs e)
@@ -92,37 +89,8 @@ namespace App4
          }
          */
 
-        //save
-        private async void saveBtn_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                FileSavePicker fs = new FileSavePicker();
-                fs.FileTypeChoices.Add("Image", new List<string>() { ".jpeg" });
-                fs.DefaultFileExtension = ".jpeg";
-                fs.SuggestedFileName = "Image" + DateTime.Today.ToString();
-                //fs.SuggestedStartLocation = PickerLocationId.PicturesLibrary;
-                //fs.SuggestedSaveFile = storeFile;
-                //Saving the file
-                //var s = await fs.PickSaveFileAsync();
-                //if (s != null)
-                //{
-                using (var dataReader = new DataReader(stream.GetInputStreamAt(0)))
-                {
-                    await dataReader.LoadAsync((uint)stream.Size);
-                    byte[] buffer = new byte[(int)stream.Size];
-                    dataReader.ReadBytes(buffer);
-                    // await FileIO.WriteBytesAsync(s, buffer);
-                    GetPic(buffer);
-                }
-                // }
-            }
-            catch (Exception ex)
-            {
-                var messageDialog = new MessageDialog(ex.ToString());
-                await messageDialog.ShowAsync();
-            }
-        }
+
+        
         private byte[] GetPic(byte[] buffer)
         {
             return buffer;
@@ -148,13 +116,12 @@ namespace App4
         {
             ResetButton.Visibility = Visibility.Collapsed;
             CapturedPhoto.Source = new BitmapImage(new Uri(this.BaseUri, "Assets/placeholder-sdk.png"));
-
         }
 
 
         private void Next_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(AddInfo2));
+            this.Frame.Navigate(typeof(AddInfo2), profile_pic);
         }
 
 

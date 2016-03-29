@@ -22,14 +22,14 @@
             <ColumnDefinition Width="27*" />
         </Grid.ColumnDefinitions>
 
-        <TextBlock Grid.Row="1" Text="Name: " VerticalAlignment="Center" Height="20" Margin="0,30,0,22" />
-        <TextBox Grid.Row="1" Grid.Column="1" Margin="0,30,0,10" Name="name" />
+        <TextBlock Grid.Row="1" Text="Name: " VerticalAlignment="Center" Height="20" Margin="20,30,0,22" />
+        <TextBox PlaceholderText="Fullname..."  Grid.Row="1" Grid.Column="1" Margin="0,30,0,10" Name="name" />
 
-        <TextBlock Grid.Row="2" Text="ID: " VerticalAlignment="Center" Height="20" Margin="0,0,0,22" />
-        <TextBox Grid.Row="2" Grid.Column="1" Margin="0,0,0,10" Name="ID" />
+        <TextBlock Grid.Row="2" Text="ID: " VerticalAlignment="Center" Height="20" Margin="20,0,0,22" />
+        <TextBox Grid.Row="2" Grid.Column="1" PlaceholderText="Your identifier's namber..." Margin="0,0,0,10" Name="ID" />
 
-        <TextBlock Grid.Row="3" Text="Wristband's ID: " VerticalAlignment="Center" Height="20" Margin="0,0,0,22" />
-        <TextBox Grid.Row="3" Grid.Column="1" Margin="0,0,0,10" Name="Whistband"/>
+        <TextBlock Grid.Row="3" Text="Wristband's ID: " VerticalAlignment="Center" Height="20" Margin="20,0,0,22" />
+        <TextBox Grid.Row="3" Grid.Column="1"  Margin="0,0,0,10" Name="Whistband"/>
 
         <Button Grid.Row="4" Grid.Column="1" Content="Save" Height="32" Width="51" Click="save_Click" />
 

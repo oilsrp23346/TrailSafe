@@ -14,7 +14,7 @@ namespace App4.Model
 {
     public class User
     {
-       private string Topic = "Tourist";
+        private string Topic = "Tourist";
         // private string text;
         // private int v1;
         // private int v2;
@@ -22,7 +22,7 @@ namespace App4.Model
         public int id { get; set; }
         public string name { get; set; }
         public int identifier { get; set; }
-        public int profilePic { get; set; }
+        public string profilePic { get; set; }
         public int status { get; set; }
         public int wristbandID { get; set; }
 
@@ -32,12 +32,12 @@ namespace App4.Model
             this.id = -1;
             this.name = "";
             this.identifier = -1;
-            this.profilePic = -1;
+            this.profilePic = "";
             this.status = -1;
             this.wristbandID = -1;
         }
 
-        public User(int id, string name, int identifier, int profilePic, int status, int wristbandID)
+        public User(int id, string name, int identifier, string profilePic, int status, int wristbandID)
         {
             this.id = id;
             this.name = name;
@@ -47,12 +47,14 @@ namespace App4.Model
             this.wristbandID = wristbandID;
         }
 
-        public User(string name, int identifier, int wristbandID)
-         {
+        public User(string name, int identifier, string profilePic, int wristbandID)
+        {
             this.name = name;
             this.identifier = identifier;
+            this.profilePic = profilePic;
             this.wristbandID = wristbandID;
         }
+
         //add_listUser_all
         public static void add(string topic, ObservableCollection<User> usersItems)
         {
@@ -105,7 +107,7 @@ namespace App4.Model
                 int id = -1;
                 string name = "";
                 int identifier = -1;
-                int profilePic = -1;
+                string profilePic = "";
                 int status = -1;
                 int wristbandID = -1;
                 if (jsonArr.GetObjectAt(i)["id"].ValueType != JsonValueType.Null)
@@ -115,7 +117,7 @@ namespace App4.Model
                 if (jsonArr.GetObjectAt(i)["identifier"].ValueType != JsonValueType.Null)
                     identifier = Int32.Parse(jsonArr.GetObjectAt(i).GetNamedString("identifier"));
                 if (jsonArr.GetObjectAt(i)["profile_pic"].ValueType != JsonValueType.Null)
-                    profilePic = Int32.Parse(jsonArr.GetObjectAt(i).GetNamedString("profile_pic"));
+                    profilePic = jsonArr.GetObjectAt(i).GetNamedString("profile_pic");
                 if (jsonArr.GetObjectAt(i)["status"].ValueType != JsonValueType.Null)
                     status = Int32.Parse(jsonArr.GetObjectAt(i).GetNamedString("status"));
                 if (jsonArr.GetObjectAt(i)["wristband_id"].ValueType != JsonValueType.Null)
@@ -141,7 +143,7 @@ namespace App4.Model
             int id_pri = -1;
             string name = "";
             int identifier = -1;
-            int profilePic = -1;
+            string profilePic = "";
             int status = -1;
             int wristbandID = -1;
             if (json.GetObject()["id"].ValueType != JsonValueType.Null)
@@ -151,7 +153,7 @@ namespace App4.Model
             if (json.GetObject()["identifier"].ValueType != JsonValueType.Null)
                 identifier = Int32.Parse(json.GetObject().GetNamedString("identifier"));
             if (json.GetObject()["profile_pic"].ValueType != JsonValueType.Null)
-                profilePic = Int32.Parse(json.GetObject().GetNamedString("profile_pic"));
+                profilePic = json.GetObject().GetNamedString("profile_pic");
             if (json.GetObject()["status"].ValueType != JsonValueType.Null)
                 status = Int32.Parse(json.GetObject().GetNamedString("status"));
             if (json.GetObject()["wristband_id"].ValueType != JsonValueType.Null)

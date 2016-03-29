@@ -38,25 +38,54 @@
 
         <!--<Image Name="MyImage" Source="{x:Bind User.profilePic}" />-->
         <RelativePanel Margin="10,10,10,10"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" >
+            <TextBlock Text="Detail : "
+                       Name="HeadlineTextBlock"
+                       FontFamily="Times New Roman"
+                       FontSize="16"
+                       Width="80"
+                       HorizontalAlignment="Stretch"
+                       Margin="10,0,0,0"/>
             <TextBlock Text="{x:Bind Node.detail}"
-                       Name="HeadlineTextBlock" 
+                       Name="HeadlineTextBlock1" 
                        FontFamily="Times New Roman"
                        FontSize="16" 
-                       HorizontalAlignment="Stretch"/>
-            <TextBlock Text="{x:Bind Node.sys_info}"
+                       RelativePanel.RightOf ="HeadlineTextBlock"
+                       HorizontalAlignment="Stretch"
+                       Margin="10,0,0,0"/>
+            <TextBlock Text="Exception : "
                        Name="HeadlineTextBlock2"
-                      RelativePanel.Below="HeadlineTextBlock"
+                       FontFamily="Times New Roman"
+                       FontSize="16"
+                       RelativePanel.Below ="HeadlineTextBlock"
+                       Width="80"
+                       HorizontalAlignment="Stretch"
+                       Margin="10,0,0,0"/>
+            <TextBlock Text="{x:Bind Node.sys_info}"
+                       Name="HeadlineTextBlock3"
+                      RelativePanel.Below="HeadlineTextBlock1"
+                       RelativePanel.RightOf="HeadlineTextBlock2"
                        TextWrapping="Wrap"
                        FontFamily="Times New Roman"
                        FontSize="16" 
-                        HorizontalAlignment="Stretch"/>
+                        HorizontalAlignment="Stretch"
+                        Margin="10,0,0,0"/>
+            <TextBlock Text="Exception : "
+                       Name="HeadlineTextBlock4"
+                       FontFamily="Times New Roman"
+                       FontSize="16"
+                       RelativePanel.Below ="HeadlineTextBlock2"
+                       Width="80"
+                       HorizontalAlignment="Stretch"
+                       Margin="10,0,0,0"/>
             <TextBlock Text="{x:Bind Node.created_at}" 
-                       Name="HeadlineTextBlock3"
-                      RelativePanel.Below="HeadlineTextBlock2"
+                       Name="HeadlineTextBlock5"
+                      RelativePanel.Below="HeadlineTextBlock3"
+                       RelativePanel.RightOf="HeadlineTextBlock2"
                        TextWrapping="Wrap" 
                        FontFamily="Times New Roman"
                        FontSize="16" 
-                       HorizontalAlignment="Stretch"/>
+                       HorizontalAlignment="Stretch"
+                        Margin="10,0,0,0"/>
         </RelativePanel>
     </Grid>
 </UserControl>

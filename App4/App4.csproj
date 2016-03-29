@@ -116,6 +116,7 @@
     <Compile Include="List_formRegister.xaml.cs">
       <DependentUpon>List_formRegister.xaml</DependentUpon>
     </Compile>
+    <Compile Include="model\ImageConverter.cs" />
     <Compile Include="model\NodeEvent.cs" />
     <Compile Include="model\NodeRegistration.cs" />
     <Compile Include="RegisterInfo.xaml.cs">
