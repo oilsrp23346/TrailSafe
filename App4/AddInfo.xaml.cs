@@ -76,14 +76,13 @@ namespace App4
                FileSavePicker fs = new FileSavePicker();
                fs.FileTypeChoices.Add("Image", new List<string>() { ".png" });
                fs.DefaultFileExtension = ".png";
-               fs.SuggestedSaveFile = storeFile;
                
-                fs.SuggestedFileName = "Image" + DateTime.Today.ToString(); //suggest fie name
+               fs.SuggestedFileName = "Image" + DateTime.Today.ToString(); //suggest fie name
                  // to PC
-                  fs.SuggestedStartLocation = PickerLocationId.ComputerFolder;
-                  fs.SuggestedSaveFile = storeFile;
+               fs.SuggestedStartLocation = PickerLocationId.PicturesLibrary;
+               fs.SuggestedSaveFile = storeFile;
                  //Saving the file
-                 var s = await fs.PickSaveFileAsync();
+               var s = await fs.PickSaveFileAsync();
 
                 // obtain permissions
 
