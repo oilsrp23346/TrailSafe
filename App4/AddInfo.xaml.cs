@@ -20,6 +20,7 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 using App4.model;
+using Windows.Storage.AccessCache;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -33,6 +34,7 @@ namespace App4
         private StorageFile storeFile;
         private IRandomAccessStream stream;
         private string profile_pic = "";
+        private byte[] b;
 
         public AddInfo()
         {
@@ -44,16 +46,79 @@ namespace App4
         {
             CameraCaptureUI capture = new CameraCaptureUI();
             capture.PhotoSettings.Format = CameraCaptureUIPhotoFormat.Jpeg;
-            capture.PhotoSettings.CroppedAspectRatio = new Size(3, 5);
+            capture.PhotoSettings.CroppedAspectRatio = new Size(4, 5);
             capture.PhotoSettings.MaxResolution = CameraCaptureUIMaxPhotoResolution.HighestAvailable;
             storeFile = await capture.CaptureFileAsync(CameraCaptureUIMode.Photo);
+            //show up picture
             if (storeFile != null)
             {
                 BitmapImage bimage = new BitmapImage();
                 stream = await storeFile.OpenAsync(FileAccessMode.Read);
                 bimage.SetSource(stream);
-                CapturedPhoto.Source = bimage;
-                profile_pic = ImageConverter.ByteArrayToBase64(ImageConverter.BitmapToByteArray(stream));
+                CapturedPhoto.Source = bimage;//CapturedPhoto is Image block
+            }
+            
+            using (var dataReader = new DataReader(stream.GetInputStreamAt(0)))
+            {
+                await dataReader.LoadAsync((uint)stream.Size);
+                byte[] buffer = new byte[(int)stream.Size];
+                dataReader.ReadBytes(buffer);
+                profile_pic = ImageConverter.ByteArrayToBase64(buffer);
+                b = ImageConverter.Base64ToByteArray(profile_pic);
+            }
+        }
+
+        //save
+        private async void saveBtn_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+               FileSavePicker fs = new FileSavePicker();
+               fs.FileTypeChoices.Add("Image", new List<string>() { ".png" });
+               fs.DefaultFileExtension = ".png";
+               fs.SuggestedSaveFile = storeFile;
+               
+                fs.SuggestedFileName = "Image" + DateTime.Today.ToString(); //suggest fie name
+                 // to PC
+                  fs.SuggestedStartLocation = PickerLocationId.ComputerFolder;
+                  fs.SuggestedSaveFile = storeFile;
+                 //Saving the file
+                 var s = await fs.PickSaveFileAsync();
+
+                // obtain permissions
+
+               /* var fs = new StreamWriter(new FileStream(@"C:\\oil.png", FileMode.Create));
+                fs.Write(b);
+                
+
+                var picker = new FolderPicker();
+                picker.SuggestedStartLocation = PickerLocationId.Unspecified;
+                var pfolder = await picker.PickSingleFolderAsync();
+                StorageApplicationPermissions.FutureAccessList.Add(pfolder);
+                //create file in desired folder
+                var folder = await StorageFolder.GetFolderFromPathAsync("/UserPic");
+                var file = await folder.CreateFileAsync("Pic1.png");
+                using (var writer = await file.OpenStreamForWriteAsync())
+                {
+                    await writer.WriteAsync(new byte[100], 0, 0);
+                }
+                */
+                if (s != null)
+                {
+                //
+                    using (var dataReader = new DataReader(stream.GetInputStreamAt(0)))
+                    {
+                        await dataReader.LoadAsync((uint)stream.Size);
+                        byte[] buffer = new byte[(int)stream.Size];
+                        dataReader.ReadBytes(buffer);
+                    
+                    }
+                 }
+            }
+            catch (Exception ex)
+            {
+                var messageDialog = new MessageDialog(ex.ToString());
+                await messageDialog.ShowAsync();
             }
         }
         /* private async void CapturePhoto_Click(object sender, RoutedEventArgs e)
@@ -90,11 +155,8 @@ namespace App4
          */
 
 
-        
-        private byte[] GetPic(byte[] buffer)
-        {
-            return buffer;
-        }
+
+       
 
         private async Task loadPic(byte[] buffer)
         {

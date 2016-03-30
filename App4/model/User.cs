@@ -70,6 +70,7 @@ namespace App4.Model
             User[] user = User.getAllUser();
             foreach(User us in user)
             {
+                us.profilePic = "image/placeholder-sdk.png";
                 users.Add(us);
             }
             return users;

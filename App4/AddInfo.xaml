@@ -16,6 +16,7 @@
         <StackPanel Orientation="Horizontal" Margin="0,30,0,0" Grid.Row="0" HorizontalAlignment="Center">
             <Button x:Name="CaptureButton" Content="Capture Photo" Margin="0,0,10,0" Click="CapturePhoto_Click"/>
             <Button x:Name="ResetButton"  Content="Reset" Margin="0,0,10,0" Click="Reset_Click"/>
+            <Button x:Name="saveBtn" Content="Save" Margin="0,0,10,0" Click="saveBtn_Click"></Button>
             <Button x:Name="NextButton"  Content="Next" Margin="0,0,10,0" Click="Next_Click"/>
         </StackPanel>
 
