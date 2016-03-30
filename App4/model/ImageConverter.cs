@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.Storage.Streams;
+using Windows.UI.Xaml.Media.Imaging;
 
 namespace App4.model
 {
@@ -25,6 +26,14 @@ namespace App4.model
         {
             byte[] buffer = Convert.FromBase64String(base64);
             return buffer;
+        }
+
+        public static BitmapImage byteArrayToBitmap(byte[] bytes)
+        {
+            BitmapImage bimage = new BitmapImage();
+
+
+            return bimage;
         }
     }
 }

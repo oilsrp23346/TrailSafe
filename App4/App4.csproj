@@ -93,6 +93,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="project.json" />
+    <None Include="XMLSchema1.xsd">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AddInfo.xaml.cs">
@@ -119,6 +122,7 @@
     <Compile Include="model\ImageConverter.cs" />
     <Compile Include="model\NodeEvent.cs" />
     <Compile Include="model\NodeRegistration.cs" />
+    <Compile Include="model\ToastService.cs" />
     <Compile Include="RegisterInfo.xaml.cs">
       <DependentUpon>RegisterInfo.xaml</DependentUpon>
     </Compile>

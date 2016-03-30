@@ -9,11 +9,7 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Button
-                x:Name="ButtonPopToast"
-                Content="Pop Toast"
-                HorizontalAlignment="Stretch"
-                Click="ButtonPopToast_Click"/>
+
 
         <TextBlock x:Name="txttest" HorizontalAlignment="Left" Margin="254,10,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
 

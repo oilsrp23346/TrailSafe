@@ -8,23 +8,22 @@ using Windows.UI.Popups;
 using Windows.Data.Json;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
-
+using Newtonsoft.Json;
+using Windows.UI.Xaml.Media.Imaging;
+using App4.model;
 
 namespace App4.Model
 {
     public class User
     {
         private string Topic = "Tourist";
-        // private string text;
-        // private int v1;
-        // private int v2;
-        //public string Topic { get; set; }
         public int id { get; set; }
         public string name { get; set; }
         public int identifier { get; set; }
         public string profilePic { get; set; }
         public int status { get; set; }
         public int wristbandID { get; set; }
+        public BitmapImage bitmap { get; set; }
 
         public User()
         {
@@ -35,6 +34,7 @@ namespace App4.Model
             this.profilePic = "";
             this.status = -1;
             this.wristbandID = -1;
+            this.bitmap = null;
         }
 
         public User(int id, string name, int identifier, string profilePic, int status, int wristbandID)
@@ -47,6 +47,16 @@ namespace App4.Model
             this.wristbandID = wristbandID;
         }
 
+        public User(int id, string name, int identifier, string profilePic, int status, int wristbandID, BitmapImage bitmap)
+        {
+            this.id = id;
+            this.name = name;
+            this.identifier = identifier;
+            this.profilePic = profilePic;
+            this.status = status;
+            this.wristbandID = wristbandID;
+            this.bitmap = bitmap;
+        }
         public User(string name, int identifier, string profilePic, int wristbandID)
         {
             this.name = name;
@@ -70,7 +80,7 @@ namespace App4.Model
             User[] user = User.getAllUser();
             foreach(User us in user)
             {
-                us.profilePic = "image/placeholder-sdk.png";
+               // us.bitmap = ImageConverter.byArrayToBitmap ImageConverter.Base64ToByteArray(us.profilePic);
                 users.Add(us);
             }
             return users;
@@ -166,10 +176,17 @@ namespace App4.Model
         //save
         public async void registerUser()
         {
-            Uri geturi = new Uri("http://207.46.230.196/user/register?name=" + this.name + "&identifier=" + this.identifier + "&profile-picture=" + this.profilePic + "&wristband-id=" + this.wristbandID);
+            Dictionary<string, string> parameters = new Dictionary<string, string>();
+            parameters.Add("name", name);
+            parameters.Add("identifier", identifier.ToString());
+            parameters.Add("wristband-id", wristbandID.ToString());
+            parameters.Add("profile-picture", profilePic);
+
+            string json = JsonConvert.SerializeObject(parameters);
+            Uri geturi = new Uri("http://207.46.230.196/user/register");
             HttpClient client = new HttpClient();
             string message = "";
-            HttpResponseMessage response = await client.GetAsync(geturi);
+            HttpResponseMessage response = await client.PostAsync(geturi, new StringContent(json, System.Text.Encoding.UTF8, "application/json"));
             if (response.IsSuccessStatusCode)
             {
                 message = "Register complete!.";

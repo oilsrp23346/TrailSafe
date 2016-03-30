@@ -14,6 +14,8 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using App4.Model;
+using App4.model;
+using Windows.UI.Notifications;
 
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
@@ -56,5 +58,13 @@ namespace App4
             nodeID.Text = "NODE : " + node.id;
             base.OnNavigatedTo(e);
         }
-    }
+
+        private void notify_Click(object sender, RoutedEventArgs e)
+        {
+            var xmlDoc = ToastService.CreateToast();
+            var notifier = ToastNotificationManager.CreateToastNotifier();
+            var toast = new ToastNotification(xmlDoc);
+            notifier.Show(toast);
+        }
+    }  
 }
