@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.Storage.Streams;
@@ -10,10 +12,15 @@ namespace App4.model
 {
     public class ImageConverter
     {
-        public static byte[] BitmapToByteArray(IRandomAccessStream stream)
+        public static async Task<byte[]> BitmapToByteArray(IRandomAccessStream stream)
         {
-            byte[] buffer = new byte[(int)stream.Size];
-            return buffer;
+            using (var dataReader = new DataReader(stream.GetInputStreamAt(0)))
+            {
+                await dataReader.LoadAsync((uint)stream.Size);
+                byte[] buffer = new byte[(int)stream.Size];
+                dataReader.ReadBytes(buffer);
+                return buffer;
+            }
         }
 
         public static string ByteArrayToBase64(byte[] buffer)
@@ -28,11 +35,19 @@ namespace App4.model
             return buffer;
         }
 
-        public static BitmapImage byteArrayToBitmap(byte[] bytes)
+        public static async Task<BitmapImage> byteArrayToBitmapImage(byte[] arr)
         {
+            var randomAccessStream = new InMemoryRandomAccessStream();
+            using (var writer = new DataWriter(randomAccessStream))
+            {
+                writer.WriteBytes(arr);
+                await writer.StoreAsync();
+                await writer.FlushAsync();
+                writer.DetachStream();
+            }
+            randomAccessStream.Seek(0);
             BitmapImage bimage = new BitmapImage();
-
-
+            bimage.SetSource(randomAccessStream);
             return bimage;
         }
     }

@@ -46,7 +46,7 @@ namespace App4
         {
             CameraCaptureUI capture = new CameraCaptureUI();
             capture.PhotoSettings.Format = CameraCaptureUIPhotoFormat.Jpeg;
-            capture.PhotoSettings.CroppedAspectRatio = new Size(4, 5);
+            capture.PhotoSettings.CroppedAspectRatio = new Size(18, 13);
             capture.PhotoSettings.MaxResolution = CameraCaptureUIMaxPhotoResolution.HighestAvailable;
             storeFile = await capture.CaptureFileAsync(CameraCaptureUIMode.Photo);
             //show up picture
@@ -64,7 +64,7 @@ namespace App4
                 byte[] buffer = new byte[(int)stream.Size];
                 dataReader.ReadBytes(buffer);
                 profile_pic = ImageConverter.ByteArrayToBase64(buffer);
-                b = ImageConverter.Base64ToByteArray(profile_pic);
+                BitmapImage b = ImageConverter.byteArrayToBitmapImage(ImageConverter.Base64ToByteArray(profile_pic)).Result;
             }
         }
 

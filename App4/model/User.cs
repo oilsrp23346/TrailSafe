@@ -80,8 +80,8 @@ namespace App4.Model
             User[] user = User.getAllUser();
             foreach(User us in user)
             {
-               // us.bitmap = ImageConverter.byArrayToBitmap ImageConverter.Base64ToByteArray(us.profilePic);
-                users.Add(us);
+               us.bitmap = ImageConverter.byteArrayToBitmapImage(ImageConverter.Base64ToByteArray(us.profilePic)).Result;
+               users.Add(us);
             }
             return users;
         }
