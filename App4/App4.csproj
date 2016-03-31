@@ -119,6 +119,9 @@
     <Compile Include="List_formRegister.xaml.cs">
       <DependentUpon>List_formRegister.xaml</DependentUpon>
     </Compile>
+    <Compile Include="LostTourist.xaml.cs">
+      <DependentUpon>LostTourist.xaml</DependentUpon>
+    </Compile>
     <Compile Include="model\ImageConverter.cs" />
     <Compile Include="model\NodeEvent.cs" />
     <Compile Include="model\NodeRegistration.cs" />
@@ -128,6 +131,9 @@
     </Compile>
     <Compile Include="Socket.xaml.cs">
       <DependentUpon>Socket.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Unregister.xaml.cs">
+      <DependentUpon>Unregister.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserAround.xaml.cs">
       <DependentUpon>UserAround.xaml</DependentUpon>
@@ -212,11 +218,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="LostTourist.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="RegisterInfo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Socket.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Unregister.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

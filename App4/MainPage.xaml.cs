@@ -55,9 +55,14 @@ namespace App4
                 MyFrame.Navigate(typeof(ShowNode));
                 TitleTextBlock.Text = "Node Information";
             }
-            else if (addTourist.IsSelected) {
+            else if (Register.IsSelected) {
                 MyFrame.Navigate(typeof(AddInfo));
                 TitleTextBlock.Text = "Tourist Information";
+            }
+            else if (Unregister.IsSelected)
+            {
+                MyFrame.Navigate(typeof(Unregister));
+                TitleTextBlock.Text = "Unregister";
             }
             else if (map.IsSelected)
             {

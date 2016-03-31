@@ -1,0 +1,32 @@
+﻿<Page
+    x:Class="App4.Unregister"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:App4"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Margin="10,0,0,0" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="146*" />
+            <ColumnDefinition Width="177*" />
+            <ColumnDefinition Width="27*" />
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Grid.Row="1" Text="Wristband's ID: " VerticalAlignment="Center" Height="20" Margin="20,0,0,22" />
+        <TextBox Grid.Row="1" Grid.Column="1"  Margin="0,0,0,10" Name="Whistband"/>
+
+        <Button Grid.Row="2" Grid.Column="1" Content="Unregister" Height="32" Width="106" Click="unregister_Click" />
+
+    </Grid>
+
+</Page>

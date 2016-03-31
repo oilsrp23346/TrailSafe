@@ -75,39 +75,55 @@
             <SplitView.Pane>
                 <ListBox SelectionMode="Single" 
                          SelectionChanged="ListBox_SelectionChanged">
+                   
                     <ListBoxItem Name="home">
                         <StackPanel Orientation="Horizontal">
                             <TextBlock 
-                                Text="&#xE80F;"
+                                Text="&#xE779;"
                                 FontFamily="Segoe MDL2 Assets" 
                                 FontSize="20" />
-                            <TextBlock Text="Home" 
+                            <TextBlock Text="Tourist List" 
                                        FontSize="18" 
                                        Margin="20,0,0,0" />
                         </StackPanel>
                     </ListBoxItem>
+                    
                     <ListBoxItem Name="node">
                         <StackPanel Orientation="Horizontal">
                             <TextBlock 
                                 Text="&#xE80A;"
                                 FontFamily="Segoe MDL2 Assets" 
                                 FontSize="20" />
-                            <TextBlock Text="Node" 
+                            <TextBlock Text="Node List" 
                                        FontSize="18" 
                                        Margin="20,0,0,0" />
                         </StackPanel>
                     </ListBoxItem>
-                    <ListBoxItem Name="addTourist">
+                    
+                    <ListBoxItem Name="Register">
                         <StackPanel Orientation="Horizontal">
                             <TextBlock 
-                                Text="&#xE1E2;"
+                                Text="&#xE8B8;"
                                 FontFamily="Segoe MDL2 Assets" 
                                 FontSize="20" />
-                            <TextBlock Text="Add Tourist" 
+                            <TextBlock Text="Register" 
                                        FontSize="18" 
                                        Margin="20,0,0,0" />
                         </StackPanel>
                     </ListBoxItem>
+
+                    <ListBoxItem Name="Unregister">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock
+                                Text="&#xE8F8;"
+                                FontFamily="Segoe MDL2 Assets"
+                                FontSize="20" />
+                            <TextBlock Text="Unregister"
+                                       FontSize="18"
+                                       Margin="20,0,0,0" />
+                        </StackPanel>
+                    </ListBoxItem>
+                    
                     <ListBoxItem Name="map">
                         <StackPanel Orientation="Horizontal">
                             <TextBlock 
@@ -125,12 +141,12 @@
                                 Text="&#xE704;"
                                 FontFamily="Segoe MDL2 Assets"
                                 FontSize="20" />
-                            <TextBlock Text="Socket"
+                            <TextBlock Text="Set up node"
                                        FontSize="18"
                                        Margin="20,0,0,0" />
                         </StackPanel>
                     </ListBoxItem>
-                    
+
                 </ListBox>
             </SplitView.Pane>
 
