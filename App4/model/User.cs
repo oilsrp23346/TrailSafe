@@ -211,7 +211,7 @@ namespace App4.Model
         }
         public static async void unRegisterUser(int id)
         {
-            Uri uri = new Uri("http://207.46.230.196/user/unregister?user-id=" + id);
+            Uri uri = new Uri("http://207.46.230.196/user/unregister?device-id=" + id);
             HttpClient client = new HttpClient();
             HttpResponseMessage response = await client.GetAsync(uri);
             string message = "";
@@ -231,5 +231,15 @@ namespace App4.Model
          {
            return getArrayOfUser("find_by_node?device-id=" + device_id);
          }
+
+        public static User[] getActiveUser()
+        {
+            return getArrayOfUser("get_active_users");
+        }
+
+        public static User[] getLostUser()
+        {
+            return getArrayOfUser("get_lost_users");
+        }
     }
 }
