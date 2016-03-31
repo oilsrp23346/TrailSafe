@@ -151,7 +151,7 @@
                     <ListBoxItem Name="LostTourist">
                         <StackPanel Orientation="Horizontal">
                             <TextBlock
-                                Text="&#xE704;"
+                                Text="&#xE8CF;"
                                 FontFamily="Segoe MDL2 Assets"
                                 FontSize="20" />
                             <TextBlock Text="Lost Tourist"
