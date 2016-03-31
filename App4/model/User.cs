@@ -9,11 +9,8 @@ using Windows.Data.Json;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
 using Newtonsoft.Json;
-<<<<<<< 0e9dbf7f46cb130fada8e9f11f020c6b20bcd098
 using Windows.UI.Xaml.Media.Imaging;
 using App4.model;
-=======
->>>>>>> [#13]update function registerUser.
 
 namespace App4.Model
 {
@@ -50,8 +47,7 @@ namespace App4.Model
             this.wristbandID = wristbandID;
         }
 
-<<<<<<< 0e9dbf7f46cb130fada8e9f11f020c6b20bcd098
-        public User(int id, string name, int identifier, string profilePic, int status, int wristbandID, BitmapImage bitmap)
+        public User(int id, string name, double identifier, string profilePic, int status, int wristbandID, BitmapImage bitmap)
         {
             this.id = id;
             this.name = name;
@@ -61,10 +57,8 @@ namespace App4.Model
             this.wristbandID = wristbandID;
             this.bitmap = bitmap;
         }
-        public User(string name, int identifier, string profilePic, int wristbandID)
-=======
+
         public User(string name, double identifier, string profilePic, int wristbandID)
->>>>>>> [#13]update function registerUser.
         {
             this.name = name;
             this.identifier = identifier;
