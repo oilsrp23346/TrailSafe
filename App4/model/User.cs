@@ -90,6 +90,30 @@ namespace App4.Model
             }
             return users;
         }
+        public static User[] getLostUser()
+        {
+            return getArrayOfUser("get_lost_users");
+        }
+        //add_Lost user
+        public static void addLostTourist(string topic, ObservableCollection<User> usersItems)
+        {
+            var allItems = getLost();
+            var filteredNewsItems = allItems.Where(p => p.Topic == topic).ToList();
+            usersItems.Clear();
+            filteredNewsItems.ForEach(p => usersItems.Add(p));
+        }
+        private static List<User> getLost()
+        {
+            var users = new List<User>();
+            //-------------------------------show
+            User[] user = User.getLostUser(); 
+            foreach (User us in user)
+            {
+                us.bitmap = ImageConverter.byteArrayToBitmapImage(ImageConverter.Base64ToByteArray(us.profilePic)).Result;
+                users.Add(us);
+            }
+            return users;
+        }
 
         //add_UserbyNode
         public static void addUserbyNode(string topic, ObservableCollection<User> usersItems,int nodeId)

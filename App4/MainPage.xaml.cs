@@ -74,6 +74,11 @@ namespace App4
                 MyFrame.Navigate(typeof(Socket));
                 TitleTextBlock.Text = "Socket";
             }
+            else if (LostTourist.IsSelected)
+            {
+                MyFrame.Navigate(typeof(LostTourist));
+                TitleTextBlock.Text = "LostTourist";
+            }
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)

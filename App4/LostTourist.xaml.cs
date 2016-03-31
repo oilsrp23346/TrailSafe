@@ -1,4 +1,6 @@
-﻿using System;
+﻿using App4.Model;
+using System.Collections.ObjectModel;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -22,9 +24,19 @@ namespace App4
     /// </summary>
     public sealed partial class LostTourist : Page
     {
+        private ObservableCollection<User> usersItems;
         public LostTourist()
         {
             this.InitializeComponent();
+            usersItems = new ObservableCollection<User>();
+            User.addLostTourist("Tourist", usersItems);
+        }
+        private void GridView_UserClick(object sender, ItemClickEventArgs e)
+        {
+            this.Frame.Navigate(typeof(map));
+
+            //var node = (Node)e.ClickedItem;
+            //ResultTextBlock.Text = "You Selected--->>" + cars.Category + "--->>Model_ " + cars.Model;
         }
     }
 }
