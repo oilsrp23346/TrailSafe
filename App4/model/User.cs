@@ -9,8 +9,11 @@ using Windows.Data.Json;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
 using Newtonsoft.Json;
+<<<<<<< 0e9dbf7f46cb130fada8e9f11f020c6b20bcd098
 using Windows.UI.Xaml.Media.Imaging;
 using App4.model;
+=======
+>>>>>>> [#13]update function registerUser.
 
 namespace App4.Model
 {
@@ -19,7 +22,7 @@ namespace App4.Model
         private string Topic = "Tourist";
         public int id { get; set; }
         public string name { get; set; }
-        public int identifier { get; set; }
+        public double identifier { get; set; }
         public string profilePic { get; set; }
         public int status { get; set; }
         public int wristbandID { get; set; }
@@ -37,7 +40,7 @@ namespace App4.Model
             this.bitmap = null;
         }
 
-        public User(int id, string name, int identifier, string profilePic, int status, int wristbandID)
+        public User(int id, string name, double identifier, string profilePic, int status, int wristbandID)
         {
             this.id = id;
             this.name = name;
@@ -47,6 +50,7 @@ namespace App4.Model
             this.wristbandID = wristbandID;
         }
 
+<<<<<<< 0e9dbf7f46cb130fada8e9f11f020c6b20bcd098
         public User(int id, string name, int identifier, string profilePic, int status, int wristbandID, BitmapImage bitmap)
         {
             this.id = id;
@@ -58,6 +62,9 @@ namespace App4.Model
             this.bitmap = bitmap;
         }
         public User(string name, int identifier, string profilePic, int wristbandID)
+=======
+        public User(string name, double identifier, string profilePic, int wristbandID)
+>>>>>>> [#13]update function registerUser.
         {
             this.name = name;
             this.identifier = identifier;
@@ -94,6 +101,7 @@ namespace App4.Model
             usersItems.Clear();
             filteredNewsItems.ForEach(p => usersItems.Add(p));
         }
+
         private static List<User> getUsersbyNode(int nodeId)
         {
             var users = new List<User>();
@@ -117,7 +125,7 @@ namespace App4.Model
             {
                 int id = -1;
                 string name = "";
-                int identifier = -1;
+                double identifier = -1;
                 string profilePic = "";
                 int status = -1;
                 int wristbandID = -1;
@@ -126,7 +134,7 @@ namespace App4.Model
                 if (jsonArr.GetObjectAt(i)["name"].ValueType != JsonValueType.Null)
                     name = jsonArr.GetObjectAt(i).GetNamedString("name");
                 if (jsonArr.GetObjectAt(i)["identifier"].ValueType != JsonValueType.Null)
-                    identifier = Int32.Parse(jsonArr.GetObjectAt(i).GetNamedString("identifier"));
+                    identifier = Double.Parse(jsonArr.GetObjectAt(i).GetNamedString("identifier"));
                 if (jsonArr.GetObjectAt(i)["profile_pic"].ValueType != JsonValueType.Null)
                     profilePic = jsonArr.GetObjectAt(i).GetNamedString("profile_pic");
                 if (jsonArr.GetObjectAt(i)["status"].ValueType != JsonValueType.Null)
@@ -153,7 +161,7 @@ namespace App4.Model
             JsonValue json = JsonValue.Parse(response.Content.ReadAsStringAsync().Result.ToString());
             int id_pri = -1;
             string name = "";
-            int identifier = -1;
+            double identifier = -1;
             string profilePic = "";
             int status = -1;
             int wristbandID = -1;
@@ -162,7 +170,7 @@ namespace App4.Model
             if (json.GetObject()["name"].ValueType != JsonValueType.Null)
                 name = json.GetObject().GetNamedString("name");
             if (json.GetObject()["identifier"].ValueType != JsonValueType.Null)
-                identifier = Int32.Parse(json.GetObject().GetNamedString("identifier"));
+                identifier = Double.Parse(json.GetObject().GetNamedString("identifier"));
             if (json.GetObject()["profile_pic"].ValueType != JsonValueType.Null)
                 profilePic = json.GetObject().GetNamedString("profile_pic");
             if (json.GetObject()["status"].ValueType != JsonValueType.Null)
@@ -229,6 +237,5 @@ namespace App4.Model
          {
            return getArrayOfUser("find_by_node?device-id=" + device_id);
          }
-
     }
 }
