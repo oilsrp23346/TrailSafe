@@ -22,7 +22,7 @@ using Windows.Devices.Geolocation;
 using Windows.UI.Popups;
 using Windows.Data.Json;
 using Newtonsoft.Json;
-using System.Net.NetworkInformation;
+using System.Net;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -45,39 +45,58 @@ namespace App4
         }
         public async void tcpConnection(LocalHostItem selectedLocalHost, int port, double latitude, double longitude)
         {
-            try
+            Exception exception = null;
+            int count = 0;
+            for (int i = 0; i < 2; i++)
             {
-                //Create the StreamSocket and establish a connection to the echo server.
-                StreamSocket socket = new StreamSocket();
+                string ip = "";
+                switch (i)
+                {
+                    case 0: ip = "192.168.1.1"; break;
+                    case 1: ip = "192.168.2.1"; break;
+                }
+                try
+                {
+                    //Create the StreamSocket and establish a connection to the echo server.
+                    StreamSocket socket = new StreamSocket();
 
-                //The server hostname that we will be establishing a connection to. We will be running the server and client locally,
-                //so we will use localhost as the hostname.
-                HostName serverHost = new HostName("192.168.1.1");
-                adapter = selectedLocalHost.LocalHost.IPInformation.NetworkAdapter;
+                    //The server hostname that we will be establishing a connection to. We will be running the server and client locally,
+                    //so we will use localhost as the hostname.
+                    HostName serverHost = new HostName(ip);
+                    adapter = selectedLocalHost.LocalHost.IPInformation.NetworkAdapter;
 
-                //Every protocol typically has a standard port number. For example HTTP is typically 80, FTP is 20 and 21, etc.
-                //For the echo server/client application we will use a random port 1337.
-                string serverPort = port.ToString();
-                await socket.ConnectAsync(serverHost, serverPort);//, SocketProtectionLevel., adapter);
-                
-                //Write data to the echo server.
-                Stream streamOut = socket.OutputStream.AsStreamForWrite();
-                StreamWriter writer = new StreamWriter(streamOut);
-                GeoLoacation location = new GeoLoacation("130", "Send coordinate", latitude, longitude);
-                string request = "{\"process-code\": \"" + location.process_code + "\",\"process-description\": \"" + location.process_description + "\",\"latitude\":" + location.latitude + ",\"longitude\":" + location.longitude + "}";
-                await writer.WriteLineAsync(request);
-                await writer.FlushAsync();
+                    //Every protocol typically has a standard port number. For example HTTP is typically 80, FTP is 20 and 21, etc.
+                    //For the echo server/client application we will use a random port 1337.
+                    string serverPort = port.ToString();
+                    await socket.ConnectAsync(serverHost, serverPort);//, SocketProtectionLevel., adapter);
 
-                //Read data from the echo server.
-                Stream streamIn = socket.InputStream.AsStreamForRead();
-                StreamReader reader = new StreamReader(streamIn);
-                string response = await reader.ReadLineAsync();
-                var messageDialog = new MessageDialog(response);
-                await messageDialog.ShowAsync(); 
+                    //Write data to the echo server.
+                    Stream streamOut = socket.OutputStream.AsStreamForWrite();
+                    StreamWriter writer = new StreamWriter(streamOut);
+                    GeoLoacation location = new GeoLoacation("130", "Send coordinate", latitude, longitude);
+                    string request = "{\"process-code\": \"" + location.process_code + "\",\"process-description\": \"" + location.process_description + "\",\"latitude\":" + location.latitude + ",\"longitude\":" + location.longitude + "}";
+                    await writer.WriteLineAsync(request);
+                    await writer.FlushAsync();
+
+                    //Read data from the echo server.
+                    Stream streamIn = socket.InputStream.AsStreamForRead();
+                    StreamReader reader = new StreamReader(streamIn);
+                    string response = await reader.ReadLineAsync();
+                    var messageDialog = new MessageDialog(response);
+                    await messageDialog.ShowAsync();
+                }
+                catch (Exception e)
+                {
+                    count++;
+                    if(count == 2)
+                    {
+                        exception = e;
+                    }
+                }
             }
-            catch (Exception e)
+            if (count == 2)
             {
-                var messageDialog = new MessageDialog(e.ToString());
+                var messageDialog = new MessageDialog(exception.ToString());
                 await messageDialog.ShowAsync();
             }
         }
@@ -100,7 +119,7 @@ namespace App4
         {
             localHostItems.Clear();
             AdapterList.ItemsSource = localHostItems;
-            AdapterList.DisplayMemberPath = "DisplayString";      
+            AdapterList.DisplayMemberPath = "DisplayString";
             foreach (HostName localHostInfo in NetworkInformation.GetHostNames())
             {
                 if (localHostInfo.IPInformation != null)
@@ -114,17 +133,6 @@ namespace App4
         private void connClick(object sender, RoutedEventArgs e)
         {
             LocalHostItem selectedLocalHost = (LocalHostItem)AdapterList.SelectedItem;
-            /*StreamSocketListener listener = new StreamSocketListener();
-            listener.ConnectionReceived += SocketListener_ConnectionReceived;
-            listener.Control.KeepAlive = false;
-            try
-            {
-                await listener.BindEndpointAsync(selectedLocalHost.LocalHost, "22112");
-            }
-            catch(Exception ex)
-            {
-                //
-            }*/
             tcpConnection(selectedLocalHost, 12345, latitude, longitude);
         }
 
@@ -145,7 +153,7 @@ namespace App4
                 //With this 2 lines of code, the app is able to write on a Text Label the Latitude and the Longitude, given by {{Icode|geoposition}}
                 geolocation.Text = "GPS:" + geoposition.Coordinate.Point.Position.Latitude.ToString("0.0000") + ", " + geoposition.Coordinate.Point.Position.Longitude.ToString("0.0000");
                 latitude = Math.Round(geoposition.Coordinate.Point.Position.Latitude, 4);
-                longitude = Math.Round(geoposition.Coordinate.Point.Position.Longitude,4 );
+                longitude = Math.Round(geoposition.Coordinate.Point.Position.Longitude, 4);
             }
             //If an error is catch 2 are the main causes: the first is that you forgot to include ID_CAP_LOCATION in your app manifest. 
             //The second is that the user doesn't turned on the Location Services
@@ -154,6 +162,11 @@ namespace App4
                 var messageDialog = new MessageDialog(ex.ToString());
                 await messageDialog.ShowAsync();
             }
+        }
+
+        private void AdapterList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+           
         }
 
         private void enableConnection(object sender, SelectionChangedEventArgs e)
@@ -200,7 +213,7 @@ namespace App4
         public double latitude { get; set; }
         public double longitude { get; set; }
 
-        public GeoLoacation(string process_code, string process_description ,double latitude, double longitude)
+        public GeoLoacation(string process_code, string process_description, double latitude, double longitude)
         {
             this.process_code = process_code;
             this.process_description = process_description;

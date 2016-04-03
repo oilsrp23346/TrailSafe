@@ -14,6 +14,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using App4.Model;
+using Windows.ApplicationModel.Background;
 
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
@@ -28,6 +29,7 @@ namespace App4
         public MainPage()
         {
             this.InitializeComponent();
+            lostTouristNotification();
         }
 
         private void HambergerButton_Click(object sender, RoutedEventArgs e)
@@ -55,14 +57,9 @@ namespace App4
                 MyFrame.Navigate(typeof(ShowNode));
                 TitleTextBlock.Text = "Node Information";
             }
-            else if (Register.IsSelected) {
+            else if (addTourist.IsSelected) {
                 MyFrame.Navigate(typeof(AddInfo));
                 TitleTextBlock.Text = "Tourist Information";
-            }
-            else if (Unregister.IsSelected)
-            {
-                MyFrame.Navigate(typeof(Unregister));
-                TitleTextBlock.Text = "Unregister";
             }
             else if (map.IsSelected)
             {
@@ -74,17 +71,60 @@ namespace App4
                 MyFrame.Navigate(typeof(Socket));
                 TitleTextBlock.Text = "Socket";
             }
-            else if (LostTourist.IsSelected)
-            {
-                MyFrame.Navigate(typeof(LostTourist));
-                TitleTextBlock.Text = "LostTourist";
-            }
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             //home.IsSelected = true;
             socket.IsSelected = true;
+        }
+
+        private async void lostTouristNotification()
+        {
+            var access = await BackgroundExecutionManager.RequestAccessAsync();
+            bool taskRegistered = false;
+
+            switch (access)
+            {
+                case BackgroundAccessStatus.Unspecified:
+                    break;
+                case BackgroundAccessStatus.AllowedMayUseActiveRealTimeConnectivity:
+                    break;
+                case BackgroundAccessStatus.AllowedWithAlwaysOnRealTimeConnectivity:
+                    break;
+                case BackgroundAccessStatus.Denied:
+                    break;
+                default:
+                    break;
+            }
+
+            var task = new BackgroundTaskBuilder
+            {
+                Name = "lostTouristNotification",
+                TaskEntryPoint = typeof(BackgroundTask.MyBackgroundTask).ToString()
+            };
+
+            var trigger = new ApplicationTrigger();
+           // TimeTrigger time = new TimeTrigger(2, false);
+        
+            task.SetTrigger(trigger);
+            
+
+            foreach (var t in BackgroundTaskRegistration.AllTasks)
+            {
+                if (t.Value.Name == "lostTouristNotification")
+                {
+                    taskRegistered = true;
+                    break;
+                }
+            }
+            if(!taskRegistered)
+            {
+                await BackgroundExecutionManager.RequestAccessAsync();
+                task.Register();
+            }
+            
+            await trigger.RequestAsync();
         }
     }
 }

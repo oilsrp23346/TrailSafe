@@ -119,21 +119,14 @@
     <Compile Include="List_formRegister.xaml.cs">
       <DependentUpon>List_formRegister.xaml</DependentUpon>
     </Compile>
-    <Compile Include="LostTourist.xaml.cs">
-      <DependentUpon>LostTourist.xaml</DependentUpon>
-    </Compile>
     <Compile Include="model\ImageConverter.cs" />
     <Compile Include="model\NodeEvent.cs" />
     <Compile Include="model\NodeRegistration.cs" />
-    <Compile Include="model\ToastService.cs" />
     <Compile Include="RegisterInfo.xaml.cs">
       <DependentUpon>RegisterInfo.xaml</DependentUpon>
     </Compile>
     <Compile Include="Socket.xaml.cs">
       <DependentUpon>Socket.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Unregister.xaml.cs">
-      <DependentUpon>Unregister.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserAround.xaml.cs">
       <DependentUpon>UserAround.xaml</DependentUpon>
@@ -218,19 +211,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="LostTourist.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="RegisterInfo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Socket.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Unregister.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -287,6 +272,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="UserPic\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BackgroundTask\BackgroundTask.csproj">
+      <Project>{6173ea7d-568b-487f-9ffc-c4d10feb7836}</Project>
+      <Name>BackgroundTask</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

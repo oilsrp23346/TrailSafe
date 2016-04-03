@@ -61,10 +61,10 @@ namespace App4
 
         private void notify_Click(object sender, RoutedEventArgs e)
         {
-            var xmlDoc = ToastService.CreateToast();
+            /*var xmlDoc = ToastService.CreateToast();
             var notifier = ToastNotificationManager.CreateToastNotifier();
             var toast = new ToastNotification(xmlDoc);
-            notifier.Show(toast);
+            notifier.Show(toast);*/
         }
     }  
 }

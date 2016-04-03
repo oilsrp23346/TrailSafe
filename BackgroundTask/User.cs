@@ -1,20 +1,18 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-using System.Net.Http;
-using Windows.UI.Popups;
 using Windows.Data.Json;
-using System.Collections.ObjectModel;
-using System.Collections.Generic;
-using Newtonsoft.Json;
+using Windows.UI.Popups;
 using Windows.UI.Xaml.Media.Imaging;
-using App4.model;
+using Newtonsoft.Json;
 
-namespace App4.Model
+namespace BackgroundTask
 {
-    public class User
+    public sealed class User
     {
         private string Topic = "Tourist";
         public int id { get; set; }
@@ -24,6 +22,7 @@ namespace App4.Model
         public int status { get; set; }
         public int wristbandID { get; set; }
         public BitmapImage bitmap { get; set; }
+        public object JsonConvert { get; private set; }
 
         public User()
         {
@@ -66,47 +65,6 @@ namespace App4.Model
             this.wristbandID = wristbandID;
         }
 
-        //add_listUser_all
-        public static void add(string topic, ObservableCollection<User> usersItems)
-        {
-            var allItems = getUsersItems();
-            var filteredNewsItems = allItems.Where(p => p.Topic == topic).ToList();
-            usersItems.Clear();
-            filteredNewsItems.ForEach(p => usersItems.Add(p));
-        }
-        private static List<User> getUsersItems()
-        {
-            var users = new List<User>();
-            //-------------------------------show
-            User[] user = User.getAllUser();
-            foreach(User us in user)
-            {
-               us.bitmap = ImageConverter.byteArrayToBitmapImage(ImageConverter.Base64ToByteArray(us.profilePic)).Result;
-               users.Add(us);
-            }
-            return users;
-        }
-
-        //add_UserbyNode
-        public static void addUserbyNode(string topic, ObservableCollection<User> usersItems,int nodeId)
-        {
-            var allItems = getUsersbyNode(nodeId);
-            var filteredNewsItems = allItems.Where(p => p.Topic == topic).ToList();
-            usersItems.Clear();
-            filteredNewsItems.ForEach(p => usersItems.Add(p));
-        }
-
-        private static List<User> getUsersbyNode(int nodeId)
-        {
-            var users = new List<User>();
-            //-------------------------------show
-            User[] user = User.getUserArounfNode(nodeId);
-            foreach (User us in user)
-            {
-                users.Add(us);
-            }
-            return users;
-        }
 
         public static User[] getArrayOfUser(string url)
         {
@@ -184,7 +142,7 @@ namespace App4.Model
             parameters.Add("wristband-id", wristbandID.ToString());
             parameters.Add("profile-picture", profilePic);
 
-            string json = JsonConvert.SerializeObject(parameters);
+            string json = Newtonsoft.Json.JsonConvert.SerializeObject(parameters);
             Uri geturi = new Uri("http://207.46.230.196/user/register");
             HttpClient client = new HttpClient();
             string message = "";
@@ -217,7 +175,7 @@ namespace App4.Model
             string message = "";
             if (response.IsSuccessStatusCode)
             {
-                 message = "Successful unregister user!";
+                message = "Successful unregister user!";
             }
             else
             {
@@ -227,10 +185,10 @@ namespace App4.Model
             await messageDialog.ShowAsync();
         }
 
-         public static User[] getUserArounfNode(int device_id)
-         {
-           return getArrayOfUser("find_by_node?device-id=" + device_id);
-         }
+        public static User[] getUserArounfNode(int device_id)
+        {
+            return getArrayOfUser("find_by_node?device-id=" + device_id);
+        }
 
         public static User[] getActiveUser()
         {

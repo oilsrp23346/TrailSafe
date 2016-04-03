@@ -21,6 +21,7 @@ using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 using App4.model;
 using Windows.Storage.AccessCache;
+using Windows.ApplicationModel.Background;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -71,7 +72,9 @@ namespace App4
         //save
         private async void saveBtn_Click(object sender, RoutedEventArgs e)
         {
-            try
+
+  
+            /*try
             {
                FileSavePicker fs = new FileSavePicker();
                fs.FileTypeChoices.Add("Image", new List<string>() { ".png" });
@@ -102,7 +105,7 @@ namespace App4
                     await writer.WriteAsync(new byte[100], 0, 0);
                 }
                 */
-                if (s != null)
+              /*  if (s != null)
                 {
                 //
                     using (var dataReader = new DataReader(stream.GetInputStreamAt(0)))
@@ -118,7 +121,7 @@ namespace App4
             {
                 var messageDialog = new MessageDialog(ex.ToString());
                 await messageDialog.ShowAsync();
-            }
+            }*/
         }
         /* private async void CapturePhoto_Click(object sender, RoutedEventArgs e)
          {
