@@ -337,6 +337,34 @@ namespace App4.Model
             }
             return nodes;
         }
+        public static async void warnNode(int id)
+        {
+            Uri uri = new Uri("http://207.46.230.196/node/warn_node?device-id=" + id);
+            HttpClient client = new HttpClient();
+            await client.GetAsync(uri);
+        }
+
+        public static async void warnAllNode()
+        {
+            Uri uri = new Uri("http://207.46.230.196/node/warn_all_nodes");
+            HttpClient client = new HttpClient();
+            await client.GetAsync(uri);
+        }
+
+        public static async void cancelWarningNode(int id)
+        {
+            Uri uri = new Uri("http://207.46.230.196/node/cancel_warning_node?device-id=" + id);
+            HttpClient client = new HttpClient();
+            await client.GetAsync(uri);
+        }
+
+        public static async void cancelWarningAllNode()
+        {
+            Uri uri = new Uri("http://207.46.230.196/node/cancel_warning_all_nodes");
+            HttpClient client = new HttpClient();
+            await client.GetAsync(uri);
+        }
+
 
         //add General
         /*public static void addGeneral(string topic, ObservableCollection<Node> nodesItems, int nodeId)

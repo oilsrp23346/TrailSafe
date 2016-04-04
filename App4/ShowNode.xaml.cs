@@ -33,13 +33,21 @@ namespace App4
             nodesItems = new ObservableCollection<Node>();
             Node.GetNodes("Node", nodesItems);
         }
-
+        Node node = null;
         //link to map include Node's id 
         private void GridView_NodeClick(object sender, ItemClickEventArgs e)
         {
-            Node node = (Node)e.ClickedItem;
+            node = (Node)e.ClickedItem;
             this.Frame.Navigate(typeof(menuNode), node);
 
+        }
+        private void notifyAll_Click(object sender, RoutedEventArgs e)
+        {
+            Node.warnAllNode();
+        }
+        private void unnotifyAll_Click(object sender, RoutedEventArgs e)
+        {
+            Node.cancelWarningAllNode();
         }
     }
 }

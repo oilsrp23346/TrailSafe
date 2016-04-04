@@ -8,9 +8,14 @@
     xmlns:data="using:App4.Model"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid Background="{ThemeResource SystemControlHighlightAltListAccentLowBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="122*"/>
+            <RowDefinition Height="15*"/>
+            <RowDefinition Height="15*"/>
+        </Grid.RowDefinitions>
         <SplitView Name="MySplitView" 
-                   Grid.Row="1" 
+                   Grid.Row="0" 
                    DisplayMode="CompactOverlay" 
                    OpenPaneLength="50" 
                    CompactPaneLength="45" >
@@ -30,5 +35,7 @@
                 </GridView>
             </SplitView.Content>
         </SplitView>
+        <Button x:Name="warningAll" Content="Warning" FontSize="20" HorizontalAlignment="Stretch"  VerticalAlignment="Bottom" Margin="10,10,10,0" Grid.Row="1" Height="50" Click="notifyAll_Click" Background="LightSeaGreen" Foreground="White"/>
+        <Button x:Name="unwarningAll" Content="Cancel Warning" FontSize="20" HorizontalAlignment="Stretch"  VerticalAlignment="Top" Margin="10,10,10,0" Grid.Row="2" Height="50" Click="unnotifyAll_Click" Background="Gray" Foreground="White"/>
     </Grid>
 </Page>

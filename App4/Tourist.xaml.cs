@@ -34,7 +34,7 @@ namespace App4
          }
         private void GridView_UserClick(object sender, ItemClickEventArgs e)
         {
-            this.Frame.Navigate(typeof(map));
+            //this.Frame.Navigate(typeof(map));
 
             //var node = (Node)e.ClickedItem;
             //ResultTextBlock.Text = "You Selected--->>" + cars.Category + "--->>Model_ " + cars.Model;

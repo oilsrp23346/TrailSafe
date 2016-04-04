@@ -83,8 +83,8 @@ namespace App4
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            //home.IsSelected = true;
-            socket.IsSelected = true;
+            home.IsSelected = true;
+            //socket.IsSelected = true;
         }
     }
 }

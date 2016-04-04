@@ -14,7 +14,6 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using App4.Model;
-using App4.model;
 using Windows.UI.Notifications;
 
 
@@ -61,10 +60,15 @@ namespace App4
 
         private void notify_Click(object sender, RoutedEventArgs e)
         {
-            var xmlDoc = ToastService.CreateToast();
+            Node.warnNode(node.id);
+            /*var xmlDoc = ToastService.CreateToast();
             var notifier = ToastNotificationManager.CreateToastNotifier();
             var toast = new ToastNotification(xmlDoc);
-            notifier.Show(toast);
+            notifier.Show(toast);*/
         }
+        private void unnotify_Click(object sender, RoutedEventArgs e)
+        {
+            Node.cancelWarningNode(node.id);
+        }       
     }  
 }
