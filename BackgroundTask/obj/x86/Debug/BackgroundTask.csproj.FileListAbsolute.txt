@@ -1,0 +1,37 @@
+C:\Users\oat_vm\Desktop\Develop\BackgroundTask\bin\x86\Debug\BackgroundTask.winmd
+C:\Users\oat_vm\Desktop\Develop\BackgroundTask\bin\x86\Debug\BackgroundTask.pdb
+C:\Users\oat_vm\Desktop\Develop\BackgroundTask\bin\x86\Debug\BackgroundTask.pri
+C:\Users\oat_vm\Desktop\Develop\BackgroundTask\obj\x86\Debug\BackgroundTask.csprojResolveAssemblyReference.cache
+C:\Users\oat_vm\Desktop\Develop\BackgroundTask\obj\x86\Debug\BackgroundTask.winmd
+C:\Users\oat_vm\Desktop\Develop\BackgroundTask\obj\x86\Debug\BackgroundTask.pdb
+C:\Users\oat_vm\Desktop\Develop\BackgroundTask\obj\x86\Debug\BackgroundTask.winmdobj
+C:\Users\oat_vm\Desktop\Develop\BackgroundTask\obj\x86\Debug\BackgroundTask.compile.pdb
+C:\Users\oat_vm\Desktop\Develop\BackgroundTask\obj\x86\Debug\priconfig.xml
+C:\Users\oat_vm\Desktop\Develop\BackgroundTask\obj\x86\Debug\priconfig.xml.intermediate
+C:\Users\oat_vm\Desktop\Develop\BackgroundTask\obj\x86\Debug\layout.resfiles
+C:\Users\oat_vm\Desktop\Develop\BackgroundTask\obj\x86\Debug\layout.resfiles.intermediate
+C:\Users\oat_vm\Desktop\Develop\BackgroundTask\obj\x86\Debug\resources.resfiles
+C:\Users\oat_vm\Desktop\Develop\BackgroundTask\obj\x86\Debug\resources.resfiles.intermediate
+C:\Users\oat_vm\Desktop\Develop\BackgroundTask\obj\x86\Debug\pri.resfiles
+C:\Users\oat_vm\Desktop\Develop\BackgroundTask\obj\x86\Debug\pri.resfiles.intermediate
+C:\Users\oat_vm\Desktop\Develop\BackgroundTask\obj\x86\Debug\qualifiers.txt
+C:\Users\oat_vm\Desktop\Develop\BackgroundTask\obj\x86\Debug\qualifiers.txt.intermediate
+C:\Users\oat_vm\Desktop\Develop\BackgroundTask\obj\x86\Debug\MultipleQualifiersPerDimensionFound.txt
+C:\Users\siriporn\Documents\GitHub\Trail Safe\TrailSafe\BackgroundTask\bin\x86\Debug\BackgroundTask.winmd
+C:\Users\siriporn\Documents\GitHub\Trail Safe\TrailSafe\BackgroundTask\bin\x86\Debug\BackgroundTask.pdb
+C:\Users\siriporn\Documents\GitHub\Trail Safe\TrailSafe\BackgroundTask\bin\x86\Debug\BackgroundTask.pri
+C:\Users\siriporn\Documents\GitHub\Trail Safe\TrailSafe\BackgroundTask\obj\x86\Debug\BackgroundTask.winmd
+C:\Users\siriporn\Documents\GitHub\Trail Safe\TrailSafe\BackgroundTask\obj\x86\Debug\BackgroundTask.pdb
+C:\Users\siriporn\Documents\GitHub\Trail Safe\TrailSafe\BackgroundTask\obj\x86\Debug\BackgroundTask.winmdobj
+C:\Users\siriporn\Documents\GitHub\Trail Safe\TrailSafe\BackgroundTask\obj\x86\Debug\BackgroundTask.compile.pdb
+C:\Users\siriporn\Documents\GitHub\Trail Safe\TrailSafe\BackgroundTask\obj\x86\Debug\priconfig.xml
+C:\Users\siriporn\Documents\GitHub\Trail Safe\TrailSafe\BackgroundTask\obj\x86\Debug\priconfig.xml.intermediate
+C:\Users\siriporn\Documents\GitHub\Trail Safe\TrailSafe\BackgroundTask\obj\x86\Debug\layout.resfiles
+C:\Users\siriporn\Documents\GitHub\Trail Safe\TrailSafe\BackgroundTask\obj\x86\Debug\layout.resfiles.intermediate
+C:\Users\siriporn\Documents\GitHub\Trail Safe\TrailSafe\BackgroundTask\obj\x86\Debug\resources.resfiles
+C:\Users\siriporn\Documents\GitHub\Trail Safe\TrailSafe\BackgroundTask\obj\x86\Debug\resources.resfiles.intermediate
+C:\Users\siriporn\Documents\GitHub\Trail Safe\TrailSafe\BackgroundTask\obj\x86\Debug\pri.resfiles
+C:\Users\siriporn\Documents\GitHub\Trail Safe\TrailSafe\BackgroundTask\obj\x86\Debug\pri.resfiles.intermediate
+C:\Users\siriporn\Documents\GitHub\Trail Safe\TrailSafe\BackgroundTask\obj\x86\Debug\qualifiers.txt
+C:\Users\siriporn\Documents\GitHub\Trail Safe\TrailSafe\BackgroundTask\obj\x86\Debug\qualifiers.txt.intermediate
+C:\Users\siriporn\Documents\GitHub\Trail Safe\TrailSafe\BackgroundTask\obj\x86\Debug\MultipleQualifiersPerDimensionFound.txt

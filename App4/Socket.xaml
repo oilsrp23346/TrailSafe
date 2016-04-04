@@ -7,7 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Margin="10,0,0,0" Background="{ThemeResource SystemControlHighlightAltListAccentLowBrush}">
+    <Grid Margin="10,0,0,0" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
@@ -27,7 +27,7 @@
         -->
         <TextBlock Name="geolocation" FontSize="16" Grid.Row="1" HorizontalAlignment="Stretch" Height="36" Margin="0,50"  />
         <Button Name="getGPS"  Content="Get GPS location"  Grid.Row="2"  Height="76" Margin="10,50,0,10" Click="getGPS_click" HorizontalAlignment="Stretch" Background="LightGreen"/>
-        <Button  IsEnabled="False"  Height="111" Name="connect_btn" Grid.Row="3" HorizontalAlignment="Stretch"  Click="connClick" Margin="102,11,91,10" Width="157" Background="LightSeaGreen" Foreground="White" >Send GPS Location</Button>
+        <Button  IsEnabled="False"  Height="100" Name="connect_btn" Grid.Row="3" HorizontalAlignment="Stretch"  Click="connClick"  Background="LightSeaGreen" Foreground="White" >Send GPS Location</Button>
 
 
         <!--<TextBlock Grid.Row="3" Text="Response Msg: " Grid.ColumnSpan="2" Margin="0,0,174.667,0" />
