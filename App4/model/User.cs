@@ -82,7 +82,7 @@ namespace App4.Model
         {
             var users = new List<User>();
             //-------------------------------show
-            User[] user = User.getAllUser();
+            User[] user = User.getActiveUser();
             foreach(User us in user)
             {
                us.bitmap = ImageConverter.byteArrayToBitmapImage(ImageConverter.Base64ToByteArray(us.profilePic)).Result;
@@ -264,6 +264,62 @@ namespace App4.Model
         {
             return getArrayOfUser("get_active_users");
         }
+        public static Node[] getNearbyNode(int user_id)
+        {
+            ArrayList nodeArr = new ArrayList();
+            Uri uri = new Uri("http://207.46.230.196/user/find_nearby_node?user-id=" + user_id);
+            HttpClient client = new HttpClient();
+            HttpResponseMessage response = client.GetAsync(uri).Result;
+            JsonArray jsonArr = JsonValue.Parse(response.Content.ReadAsStringAsync().Result.ToString()).GetArray();
+            for (uint i = 0; i < jsonArr.Count; i++)
+            {
+                int id = -1;
+                int onlineStatus = -1;
+                string nodeType = "";
+                double latitude = -1;
+                double longitude = -1;
+                int risk_status = -1;
+                double relative_humidity = -1;
+                double temperature = -1;
+                int smoke = -1;
+                int wildfire_risk_level = -1;
+                if (jsonArr.GetObjectAt(i)["id"].ValueType != JsonValueType.Null)
+                    id = Int32.Parse(jsonArr.GetObjectAt(i).GetNamedString("id"));
+                if (jsonArr.GetObjectAt(i)["node_type"].ValueType != JsonValueType.Null)
+                    nodeType = jsonArr.GetObjectAt(i).GetNamedString("node_type");
+                if (jsonArr.GetObjectAt(i)["online_status"].ValueType != JsonValueType.Null)
+                    onlineStatus = Int32.Parse(jsonArr.GetObjectAt(i).GetNamedString("online_status"));
+                if (jsonArr.GetObjectAt(i)["latitude"].ValueType != JsonValueType.Null)
+                    latitude = Double.Parse(jsonArr.GetObjectAt(i).GetNamedString("latitude"));
+                if (jsonArr.GetObjectAt(i)["longitude"].ValueType != JsonValueType.Null)
+                    longitude = Double.Parse(jsonArr.GetObjectAt(i).GetNamedString("longitude"));
+                if (jsonArr.GetObjectAt(i)["risk_status"].ValueType != JsonValueType.Null)
+                    risk_status = Int32.Parse(jsonArr.GetObjectAt(i).GetNamedString("risk_status"));
+                if (jsonArr.GetObjectAt(i)["relative_humidity"].ValueType != JsonValueType.Null)
+                    relative_humidity = Double.Parse(jsonArr.GetObjectAt(i).GetNamedString("relative_humidity"));
+                if (jsonArr.GetObjectAt(i)["temperature"].ValueType != JsonValueType.Null)
+                    temperature = Double.Parse(jsonArr.GetObjectAt(i).GetNamedString("temperature"));
+                if (jsonArr.GetObjectAt(i)["smoke"].ValueType != JsonValueType.Null)
+                    smoke = Int32.Parse(jsonArr.GetObjectAt(i).GetNamedString("smoke"));
+                if (jsonArr.GetObjectAt(i)["wildfire_risk_level"].ValueType != JsonValueType.Null)
+                    wildfire_risk_level = Int32.Parse(jsonArr.GetObjectAt(i).GetNamedString("wildfire_risk_level"));
+                Node node = new Node(id, nodeType, onlineStatus, latitude, longitude, risk_status, relative_humidity, temperature, smoke, wildfire_risk_level);
+                nodeArr.Add(node);
+            }
+            Node[] nodeReturn = new Node[nodeArr.Count];
+            int index = 0;
+            foreach (Node node in nodeArr)
+            {
+                nodeReturn[index++] = node;
+            }
+            return nodeReturn;
+        }
 
+        public static async void responseEmergency(int wristband_id)
+        {
+            Uri uri = new Uri("http://207.46.230.196/wristband/response_emergency?device-id=" + wristband_id);
+            HttpClient client = new HttpClient();
+            await client.GetAsync(uri);
+        }
     }
 }

@@ -24,8 +24,9 @@ namespace App4
     /// </summary>
     public sealed partial class Tourist : Page
     {
+        private User user = null;
 
-         private ObservableCollection<User> usersItems;
+        private ObservableCollection<User> usersItems;
          public Tourist() 
          {
              this.InitializeComponent();
@@ -34,10 +35,9 @@ namespace App4
          }
         private void GridView_UserClick(object sender, ItemClickEventArgs e)
         {
-            //this.Frame.Navigate(typeof(map));
-
-            //var node = (Node)e.ClickedItem;
-            //ResultTextBlock.Text = "You Selected--->>" + cars.Category + "--->>Model_ " + cars.Model;
+            user = (User)e.ClickedItem;
+            this.Frame.Navigate(typeof(map), User.getNearbyNode(user.id));
+            
         }
     }
 }

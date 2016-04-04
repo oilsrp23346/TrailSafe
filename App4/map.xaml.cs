@@ -31,8 +31,10 @@ namespace App4
     /// </summary>
     public sealed partial class map : Page
     {
-        
+
         RandomAccessStreamReference mapIconStreamReference;
+        Node[] node = null;
+
         public map()
         {
             this.InitializeComponent();
@@ -41,7 +43,7 @@ namespace App4
         }
 
 
-        
+
         private void MyMap_Loaded(object sender, RoutedEventArgs e)
         {
 
@@ -59,9 +61,9 @@ namespace App4
             //node 0 1 2 3
             foreach (Node no in Node.getAllNode())
             {
-                BasicGeoposition snPosition = new BasicGeoposition() { Latitude = no.latitude, Longitude = no.longitude  };
+                BasicGeoposition snPosition = new BasicGeoposition() { Latitude = no.latitude, Longitude = no.longitude };
                 Geopoint snPoint = new Geopoint(snPosition);
-                
+
                 // Create a MapIcon.
                 MapIcon mapIcon1 = new MapIcon();
                 mapIcon1.Location = snPoint;
@@ -69,12 +71,12 @@ namespace App4
                 mapIcon1.Title = no.id.ToString();
                 mapIcon1.Image = mapIconStreamReference;
                 mapIcon1.ZIndex = 0;
-                
+
                 // Add the MapIcon to the map.
-                myMap.MapElements.Add(mapIcon1); 
+                myMap.MapElements.Add(mapIcon1);
             }
-            
-           
+
+
             myMap.Center = snCentermap;
             myMap.ZoomLevel = 12;
 
@@ -84,8 +86,8 @@ namespace App4
             //node 3 :16.764741,102.304295
             //center : 16.734522,102.285402
             //line
-            double centerLatitude1 = 16.734522;double centerLongitude1 = 102.285402;
-            double centerLatitude2 = 16.789774;double centerLongitude2 = 102.235653;
+            double centerLatitude1 = 16.734522; double centerLongitude1 = 102.285402;
+            double centerLatitude2 = 16.789774; double centerLongitude2 = 102.235653;
             double centerLatitude3 = 16.831196; double centerLongitude3 = 102.244084;
             double centerLatitude4 = 16.791274; double centerLongitude4 = 102.275468;
             double centerLatitude5 = 16.764741; double centerLongitude5 = 102.304295;
@@ -115,7 +117,7 @@ namespace App4
 
         private void MyMap_MapElementClick(MapControl sender, MapElementClickEventArgs args)
         {
-         
+
             MapIcon myClickedIcon = args.MapElements.FirstOrDefault(mapIcon => mapIcon is MapIcon) as MapIcon;
             double la = myClickedIcon.Location.Position.Latitude;
             double lo = myClickedIcon.Location.Position.Longitude;
@@ -124,50 +126,32 @@ namespace App4
 
             this.Frame.Navigate(typeof(menuNode), node);
 
-            /*
 
-            foreach (Node nodeid in Node.getAllNode())
-            {
-                int id = nodeid.id;          
-                this.Frame.Navigate(typeof(menuNode), la);
-            }
+        }
 
-             foreach (User user in User.getAllUser())
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            if (e.Parameter != null)
             {
-                User[] us = User.getUserArounfNode(0);
-                int id = user.id;
-                string name = user.name;
-                int identifier = user.identifier;
-                int profilePic = user.profilePic;
-                int status = user.status;
-                int wristbandID = user.wristbandID;
-                //Window.Current.Content = new User(id,name, identifier, profilePic, status, wristbandID);
-                this.Frame.Navigate(typeof(menuNode),id);
+                node = (Node[])e.Parameter;
+                myMap.CenterChanged += MyMap_CenterChanged;
+                myMap.ZoomLevelChanged += MyMap_ZoomLevelChanged;
+                myMap.IsEnabled = true;
+                base.OnNavigatedTo(e);
             }
+        }
 
-            if (la == 16.789774)
-            {
-                User[] userAr =  User.getUserArounfNode(0);
-                this.Frame.Navigate(typeof(menuNode));
-            }
-            else if (la == 16.831196)
-            {
-                this.Frame.Navigate(typeof(menuNode));
-            }
-            else if (la == 16.791274)
-            {
-                this.Frame.Navigate(typeof(menuNode));
-            }
-            else if (la == 16.764741)
-            {
-                this.Frame.Navigate(typeof(menuNode));
-            }
-            */
+        private void MyMap_CenterChanged(MapControl sender, object args)
+        {
+            BasicGeoposition Center = new BasicGeoposition() { Latitude = node[0].latitude, Longitude = node[0].longitude};
+            Geopoint snCentermap = new Geopoint(Center);
+            myMap.Center = snCentermap;
+       
+        }
 
-            // foreach (Node no2 in Node.getAllNode())
-            // {
-            //     MessageDialog ms = new MessageDialog("ID : "+no.id + "Status : " + no.online_status); 
-            // }
+        private void MyMap_ZoomLevelChanged(MapControl sender, object args)
+        {
+            myMap.ZoomLevel = 20;
         }
     }
 }
