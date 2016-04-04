@@ -49,6 +49,7 @@ namespace App4
                 MessageDialog ms = new MessageDialog("Please fill the box below.");
                 await ms.ShowAsync();
                 clearForm();
+                this.Frame.Navigate(typeof(Tourist));
             }
             else
             {

@@ -41,43 +41,61 @@ namespace App4
         public Socket()
         {
             this.InitializeComponent();
-            PopulateAdapterList();
         }
-        public async void tcpConnection(LocalHostItem selectedLocalHost, int port, double latitude, double longitude)
+        public async void tcpConnection(int port, double latitude, double longitude)
         {
-            try
+            Exception exception = null;
+            int count = 0;
+            for (int i = 0; i < 2; i++)
             {
-                //Create the StreamSocket and establish a connection to the echo server.
-                StreamSocket socket = new StreamSocket();
+                string ip = "";
+                switch (i)
+                {
+                    case 0: ip = "192.168.1.1"; break;
+                    case 1: ip = "192.168.2.1"; break;
+                }
+                try
+                {
+                    //Create the StreamSocket and establish a connection to the echo server.
+                    StreamSocket socket = new StreamSocket();
 
-                //The server hostname that we will be establishing a connection to. We will be running the server and client locally,
-                //so we will use localhost as the hostname.
-                HostName serverHost = new HostName("192.168.1.1");
-                adapter = selectedLocalHost.LocalHost.IPInformation.NetworkAdapter;
+                    //The server hostname that we will be establishing a connection to. We will be running the server and client locally,
+                    //so we will use localhost as the hostname.
+                    HostName serverHost = new HostName(ip);
+                    
 
-                //Every protocol typically has a standard port number. For example HTTP is typically 80, FTP is 20 and 21, etc.
-                //For the echo server/client application we will use a random port 1337.
-                string serverPort = port.ToString();
-                await socket.ConnectAsync(serverHost, serverPort);//, SocketProtectionLevel., adapter);
-                
-                //Write data to the echo server.
-                Stream streamOut = socket.OutputStream.AsStreamForWrite();
-                StreamWriter writer = new StreamWriter(streamOut);
-                GeoLoacation location = new GeoLoacation("130", "Send coordinate", latitude, longitude);
-                string request = "{\"process-code\": \"" + location.process_code + "\",\"process-description\": \"" + location.process_description + "\",\"latitude\":" + location.latitude + ",\"longitude\":" + location.longitude + "}";
-                await writer.WriteLineAsync(request);
-                await writer.FlushAsync();
+                    //Every protocol typically has a standard port number. For example HTTP is typically 80, FTP is 20 and 21, etc.
+                    //For the echo server/client application we will use a random port 1337.
+                    string serverPort = port.ToString();
+                    await socket.ConnectAsync(serverHost, serverPort);//, SocketProtectionLevel., adapter);
 
-                //Read data from the echo server.
-                Stream streamIn = socket.InputStream.AsStreamForRead();
-                StreamReader reader = new StreamReader(streamIn);
-                string response = await reader.ReadLineAsync();
-                var messageDialog = new MessageDialog(response);
-                await messageDialog.ShowAsync(); 
+                    //Write data to the echo server.
+                    Stream streamOut = socket.OutputStream.AsStreamForWrite();
+                    StreamWriter writer = new StreamWriter(streamOut);
+                    GeoLoacation location = new GeoLoacation("130", "Send coordinate", latitude, longitude);
+                    string request = "{\"process-code\": \"" + location.process_code + "\",\"process-description\": \"" + location.process_description + "\",\"latitude\":" + location.latitude + ",\"longitude\":" + location.longitude + "}";
+                    await writer.WriteLineAsync(request);
+                    await writer.FlushAsync();
+
+                    //Read data from the echo server.
+                    Stream streamIn = socket.InputStream.AsStreamForRead();
+                    StreamReader reader = new StreamReader(streamIn);
+                    string response = await reader.ReadLineAsync();
+                    var messageDialog = new MessageDialog(response);
+                    await messageDialog.ShowAsync();
+                }
+                catch (Exception e)
+                {
+                    count++;
+                    if (count == 2)
+                    {
+                        exception = e;
+                    }
+                }
             }
-            catch (Exception e)
+            if (count == 2)
             {
-                var messageDialog = new MessageDialog(e.ToString());
+                var messageDialog = new MessageDialog(exception.ToString());
                 await messageDialog.ShowAsync();
             }
         }
@@ -96,44 +114,18 @@ namespace App4
             await writer.FlushAsync();
         }
 
-        private void PopulateAdapterList()
-        {
-            localHostItems.Clear();
-            AdapterList.ItemsSource = localHostItems;
-            AdapterList.DisplayMemberPath = "DisplayString";      
-            foreach (HostName localHostInfo in NetworkInformation.GetHostNames())
-            {
-                if (localHostInfo.IPInformation != null)
-                {
-                    LocalHostItem adapterItem = new LocalHostItem(localHostInfo);
-                    localHostItems.Add(adapterItem);
-                }
-            }
-        }
+        
 
         private void connClick(object sender, RoutedEventArgs e)
         {
-            LocalHostItem selectedLocalHost = (LocalHostItem)AdapterList.SelectedItem;
-            /*StreamSocketListener listener = new StreamSocketListener();
-            listener.ConnectionReceived += SocketListener_ConnectionReceived;
-            listener.Control.KeepAlive = false;
-            try
-            {
-                await listener.BindEndpointAsync(selectedLocalHost.LocalHost, "22112");
-            }
-            catch(Exception ex)
-            {
-                //
-            }*/
-            tcpConnection(selectedLocalHost, 12345, latitude, longitude);
+            tcpConnection(12345, latitude, longitude);
         }
 
         private async void getGPS_click(object sender, RoutedEventArgs e)
         {
             Geolocator geolocator = new Geolocator();
             geolocator.DesiredAccuracyInMeters = 50;
-            PopulateAdapterList();
-            AdapterList.IsEnabled = true;
+            connect_btn.IsEnabled = true;
 
             try
             {
