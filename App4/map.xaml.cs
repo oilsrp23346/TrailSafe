@@ -61,12 +61,12 @@ namespace App4
             {
                 BasicGeoposition snPosition = new BasicGeoposition() { Latitude = no.latitude, Longitude = no.longitude  };
                 Geopoint snPoint = new Geopoint(snPosition);
-
+                
                 // Create a MapIcon.
                 MapIcon mapIcon1 = new MapIcon();
                 mapIcon1.Location = snPoint;
                 mapIcon1.NormalizedAnchorPoint = new Point(0.5, 1.0);
-                mapIcon1.Title = no.node_type;
+                mapIcon1.Title = no.id.ToString();
                 mapIcon1.Image = mapIconStreamReference;
                 mapIcon1.ZIndex = 0;
                 
@@ -119,9 +119,6 @@ namespace App4
             MapIcon myClickedIcon = args.MapElements.FirstOrDefault(mapIcon => mapIcon is MapIcon) as MapIcon;
             double la = myClickedIcon.Location.Position.Latitude;
             double lo = myClickedIcon.Location.Position.Longitude;
-            // this.Frame.Navigate(typeof(menuNode), la);
-
-            Node ndEqual = null;
 
             Node node = Node.getNodeByCoordinate(la, lo);
 
