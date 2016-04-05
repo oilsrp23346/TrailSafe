@@ -73,23 +73,35 @@ namespace App4.Model
         //add_listUser_all
         public static void add(string topic, ObservableCollection<User> usersItems)
         {
+            try { 
             var allItems = getUsersItems();
             var filteredNewsItems = allItems.Where(p => p.Topic == topic).ToList();
             usersItems.Clear();
             filteredNewsItems.ForEach(p => usersItems.Add(p));
+            }
+            catch(Exception e) {
+               
+            }
         }
         private static List<User> getUsersItems()
         {
+            try { 
             var users = new List<User>();
-            //-------------------------------show
-            User[] user = User.getActiveUser();
-            foreach(User us in user)
-            {
-               us.bitmap = ImageConverter.byteArrayToBitmapImage(ImageConverter.Base64ToByteArray(us.profilePic)).Result;
-               users.Add(us);
+                //-------------------------------show
+                User[] user = User.getActiveUser();
+                foreach (User us in user)
+                {
+                    us.bitmap = ImageConverter.byteArrayToBitmapImage(ImageConverter.Base64ToByteArray(us.profilePic)).Result;
+                    users.Add(us);
+                }
+                return users;
             }
-            return users;
+            catch (Exception e)
+            {
+                return null;
+            }
         }
+
         public static User[] getLostUser()
         {
             return getArrayOfUser("get_lost_users");
@@ -106,13 +118,17 @@ namespace App4.Model
         {
             var users = new List<User>();
             //-------------------------------show
-            User[] user = User.getLostUser(); 
-            foreach (User us in user)
+                User[] user = User.getLostUser();
+            if (user != null)
             {
-                us.bitmap = ImageConverter.byteArrayToBitmapImage(ImageConverter.Base64ToByteArray(us.profilePic)).Result;
-                users.Add(us);
+                foreach (User us in user)
+                {
+                    us.bitmap = ImageConverter.byteArrayToBitmapImage(ImageConverter.Base64ToByteArray(us.profilePic)).Result;
+                    users.Add(us);
+                }
             }
-            return users;
+                return users;
+            
         }
 
         //add_UserbyNode
@@ -137,41 +153,47 @@ namespace App4.Model
 
         public static User[] getArrayOfUser(string url)
         {
-            ArrayList userArr = new ArrayList();
-            Uri uri = new Uri("http://207.46.230.196/user/" + url);
-            HttpClient client = new HttpClient();
-            HttpResponseMessage response = client.GetAsync(uri).Result;
-            JsonArray jsonArr = JsonValue.Parse(response.Content.ReadAsStringAsync().Result.ToString()).GetArray();
-            for (uint i = 0; i < jsonArr.Count; i++)
-            {
-                int id = -1;
-                string name = "";
-                int identifier = -1;
-                string profilePic = "";
-                int status = -1;
-                int wristbandID = -1;
-                if (jsonArr.GetObjectAt(i)["id"].ValueType != JsonValueType.Null)
-                    id = Int32.Parse(jsonArr.GetObjectAt(i).GetNamedString("id"));
-                if (jsonArr.GetObjectAt(i)["name"].ValueType != JsonValueType.Null)
-                    name = jsonArr.GetObjectAt(i).GetNamedString("name");
-                if (jsonArr.GetObjectAt(i)["identifier"].ValueType != JsonValueType.Null)
-                    identifier = Int32.Parse(jsonArr.GetObjectAt(i).GetNamedString("identifier"));
-                if (jsonArr.GetObjectAt(i)["profile_pic"].ValueType != JsonValueType.Null)
-                    profilePic = jsonArr.GetObjectAt(i).GetNamedString("profile_pic");
-                if (jsonArr.GetObjectAt(i)["status"].ValueType != JsonValueType.Null)
-                    status = Int32.Parse(jsonArr.GetObjectAt(i).GetNamedString("status"));
-                if (jsonArr.GetObjectAt(i)["wristband_id"].ValueType != JsonValueType.Null)
-                    wristbandID = Int32.Parse(jsonArr.GetObjectAt(i).GetNamedString("wristband_id"));
-                User user = new User(id, name, identifier, profilePic, status, wristbandID);
-                userArr.Add(user);
+            try {
+                ArrayList userArr = new ArrayList();
+                Uri uri = new Uri("http://207.46.230.196/user/" + url);
+                HttpClient client = new HttpClient();
+                HttpResponseMessage response = client.GetAsync(uri).Result;
+                JsonArray jsonArr = JsonValue.Parse(response.Content.ReadAsStringAsync().Result.ToString()).GetArray();
+                for (uint i = 0; i < jsonArr.Count; i++)
+                {
+                    int id = -1;
+                    string name = "";
+                    int identifier = -1;
+                    string profilePic = "";
+                    int status = -1;
+                    int wristbandID = -1;
+                    if (jsonArr.GetObjectAt(i)["id"].ValueType != JsonValueType.Null)
+                        id = Int32.Parse(jsonArr.GetObjectAt(i).GetNamedString("id"));
+                    if (jsonArr.GetObjectAt(i)["name"].ValueType != JsonValueType.Null)
+                        name = jsonArr.GetObjectAt(i).GetNamedString("name");
+                    if (jsonArr.GetObjectAt(i)["identifier"].ValueType != JsonValueType.Null)
+                        identifier = Int32.Parse(jsonArr.GetObjectAt(i).GetNamedString("identifier"));
+                    if (jsonArr.GetObjectAt(i)["profile_pic"].ValueType != JsonValueType.Null)
+                        profilePic = jsonArr.GetObjectAt(i).GetNamedString("profile_pic");
+                    if (jsonArr.GetObjectAt(i)["status"].ValueType != JsonValueType.Null)
+                        status = Int32.Parse(jsonArr.GetObjectAt(i).GetNamedString("status"));
+                    if (jsonArr.GetObjectAt(i)["wristband_id"].ValueType != JsonValueType.Null)
+                        wristbandID = Int32.Parse(jsonArr.GetObjectAt(i).GetNamedString("wristband_id"));
+                    User user = new User(id, name, identifier, profilePic, status, wristbandID);
+                    userArr.Add(user);
+                }
+                User[] userReturn = new User[userArr.Count];
+                int index = 0;
+                foreach (User user in userArr)
+                {
+                    userReturn[index++] = user;
+                }
+                return userReturn;
             }
-            User[] userReturn = new User[userArr.Count];
-            int index = 0;
-            foreach (User user in userArr)
+            catch(Exception e)
             {
-                userReturn[index++] = user;
+                return null;
             }
-            return userReturn;
         }
 
         public static User getSingleOfUser(string url)
@@ -205,27 +227,33 @@ namespace App4.Model
         //save
         public async void registerUser()
         {
-            Dictionary<string, string> parameters = new Dictionary<string, string>();
-            parameters.Add("name", name);
-            parameters.Add("identifier", identifier.ToString());
-            parameters.Add("wristband-id", wristbandID.ToString());
-            parameters.Add("profile-picture", profilePic);
+            try {
+                Dictionary<string, string> parameters = new Dictionary<string, string>();
+                parameters.Add("name", name);
+                parameters.Add("identifier", identifier.ToString());
+                parameters.Add("wristband-id", wristbandID.ToString());
+                parameters.Add("profile-picture", profilePic);
 
-            string json = JsonConvert.SerializeObject(parameters);
-            Uri geturi = new Uri("http://207.46.230.196/user/register");
-            HttpClient client = new HttpClient();
-            string message = "";
-            HttpResponseMessage response = await client.PostAsync(geturi, new StringContent(json, System.Text.Encoding.UTF8, "application/json"));
-            if (response.IsSuccessStatusCode)
-            {
-                message = "Register complete!.";
+                string json = JsonConvert.SerializeObject(parameters);
+                Uri geturi = new Uri("http://207.46.230.196/user/register");
+                HttpClient client = new HttpClient();
+                string message = "";
+                HttpResponseMessage response = await client.PostAsync(geturi, new StringContent(json, System.Text.Encoding.UTF8, "application/json"));
+                if (response.IsSuccessStatusCode)
+                {
+                    message = "Register complete!.";
+                }
+                else
+                {
+                    message = "Failed to register!.";
+                }
+                var messageDialog = new MessageDialog(message);
+                await messageDialog.ShowAsync();
             }
-            else
+            catch (Exception e)
             {
-                message = "Failed to register!.";
+                
             }
-            var messageDialog = new MessageDialog(message);
-            await messageDialog.ShowAsync();
         }
 
         public static User[] getAllUser()
@@ -238,20 +266,26 @@ namespace App4.Model
         }
         public static async void unRegisterUser(int id)
         {
-            Uri uri = new Uri("http://207.46.230.196/user/unregister?device-id=" + id);
-            HttpClient client = new HttpClient();
-            HttpResponseMessage response = await client.GetAsync(uri);
-            string message = "";
-            if (response.IsSuccessStatusCode)
-            {
-                 message = "Successful unregister user!";
+            try {
+                Uri uri = new Uri("http://207.46.230.196/user/unregister?device-id=" + id);
+                HttpClient client = new HttpClient();
+                HttpResponseMessage response = await client.GetAsync(uri);
+                string message = "";
+                if (response.IsSuccessStatusCode)
+                {
+                    message = "Successful unregister user!";
+                }
+                else
+                {
+                    message = "Failed unregister user!";
+                }
+                var messageDialog = new MessageDialog(message);
+                await messageDialog.ShowAsync();
             }
-            else
+            catch (Exception e)
             {
-                message = "Failed unregister user!";
+                
             }
-            var messageDialog = new MessageDialog(message);
-            await messageDialog.ShowAsync();
         }
 
          public static User[] getUserArounfNode(int device_id)
@@ -266,60 +300,73 @@ namespace App4.Model
         }
         public static Node[] getNearbyNode(int user_id)
         {
-            ArrayList nodeArr = new ArrayList();
-            Uri uri = new Uri("http://207.46.230.196/user/find_nearby_node?user-id=" + user_id);
-            HttpClient client = new HttpClient();
-            HttpResponseMessage response = client.GetAsync(uri).Result;
-            JsonArray jsonArr = JsonValue.Parse(response.Content.ReadAsStringAsync().Result.ToString()).GetArray();
-            for (uint i = 0; i < jsonArr.Count; i++)
-            {
-                int id = -1;
-                int onlineStatus = -1;
-                string nodeType = "";
-                double latitude = -1;
-                double longitude = -1;
-                int risk_status = -1;
-                double relative_humidity = -1;
-                double temperature = -1;
-                int smoke = -1;
-                int wildfire_risk_level = -1;
-                if (jsonArr.GetObjectAt(i)["id"].ValueType != JsonValueType.Null)
-                    id = Int32.Parse(jsonArr.GetObjectAt(i).GetNamedString("id"));
-                if (jsonArr.GetObjectAt(i)["node_type"].ValueType != JsonValueType.Null)
-                    nodeType = jsonArr.GetObjectAt(i).GetNamedString("node_type");
-                if (jsonArr.GetObjectAt(i)["online_status"].ValueType != JsonValueType.Null)
-                    onlineStatus = Int32.Parse(jsonArr.GetObjectAt(i).GetNamedString("online_status"));
-                if (jsonArr.GetObjectAt(i)["latitude"].ValueType != JsonValueType.Null)
-                    latitude = Double.Parse(jsonArr.GetObjectAt(i).GetNamedString("latitude"));
-                if (jsonArr.GetObjectAt(i)["longitude"].ValueType != JsonValueType.Null)
-                    longitude = Double.Parse(jsonArr.GetObjectAt(i).GetNamedString("longitude"));
-                if (jsonArr.GetObjectAt(i)["risk_status"].ValueType != JsonValueType.Null)
-                    risk_status = Int32.Parse(jsonArr.GetObjectAt(i).GetNamedString("risk_status"));
-                if (jsonArr.GetObjectAt(i)["relative_humidity"].ValueType != JsonValueType.Null)
-                    relative_humidity = Double.Parse(jsonArr.GetObjectAt(i).GetNamedString("relative_humidity"));
-                if (jsonArr.GetObjectAt(i)["temperature"].ValueType != JsonValueType.Null)
-                    temperature = Double.Parse(jsonArr.GetObjectAt(i).GetNamedString("temperature"));
-                if (jsonArr.GetObjectAt(i)["smoke"].ValueType != JsonValueType.Null)
-                    smoke = Int32.Parse(jsonArr.GetObjectAt(i).GetNamedString("smoke"));
-                if (jsonArr.GetObjectAt(i)["wildfire_risk_level"].ValueType != JsonValueType.Null)
-                    wildfire_risk_level = Int32.Parse(jsonArr.GetObjectAt(i).GetNamedString("wildfire_risk_level"));
-                Node node = new Node(id, nodeType, onlineStatus, latitude, longitude, risk_status, relative_humidity, temperature, smoke, wildfire_risk_level);
-                nodeArr.Add(node);
+            try {
+                ArrayList nodeArr = new ArrayList();
+                Uri uri = new Uri("http://207.46.230.196/user/find_nearby_node?user-id=" + user_id);
+                HttpClient client = new HttpClient();
+                HttpResponseMessage response = client.GetAsync(uri).Result;
+                JsonArray jsonArr = JsonValue.Parse(response.Content.ReadAsStringAsync().Result.ToString()).GetArray();
+                for (uint i = 0; i < jsonArr.Count; i++)
+                {
+                    int id = -1;
+                    int onlineStatus = -1;
+                    string nodeType = "";
+                    double latitude = -1;
+                    double longitude = -1;
+                    int risk_status = -1;
+                    double relative_humidity = -1;
+                    double temperature = -1;
+                    int smoke = -1;
+                    int wildfire_risk_level = -1;
+                    if (jsonArr.GetObjectAt(i)["id"].ValueType != JsonValueType.Null)
+                        id = Int32.Parse(jsonArr.GetObjectAt(i).GetNamedString("id"));
+                    if (jsonArr.GetObjectAt(i)["node_type"].ValueType != JsonValueType.Null)
+                        nodeType = jsonArr.GetObjectAt(i).GetNamedString("node_type");
+                    if (jsonArr.GetObjectAt(i)["online_status"].ValueType != JsonValueType.Null)
+                        onlineStatus = Int32.Parse(jsonArr.GetObjectAt(i).GetNamedString("online_status"));
+                    if (jsonArr.GetObjectAt(i)["latitude"].ValueType != JsonValueType.Null)
+                        latitude = Double.Parse(jsonArr.GetObjectAt(i).GetNamedString("latitude"));
+                    if (jsonArr.GetObjectAt(i)["longitude"].ValueType != JsonValueType.Null)
+                        longitude = Double.Parse(jsonArr.GetObjectAt(i).GetNamedString("longitude"));
+                    if (jsonArr.GetObjectAt(i)["risk_status"].ValueType != JsonValueType.Null)
+                        risk_status = Int32.Parse(jsonArr.GetObjectAt(i).GetNamedString("risk_status"));
+                    if (jsonArr.GetObjectAt(i)["relative_humidity"].ValueType != JsonValueType.Null)
+                        relative_humidity = Double.Parse(jsonArr.GetObjectAt(i).GetNamedString("relative_humidity"));
+                    if (jsonArr.GetObjectAt(i)["temperature"].ValueType != JsonValueType.Null)
+                        temperature = Double.Parse(jsonArr.GetObjectAt(i).GetNamedString("temperature"));
+                    if (jsonArr.GetObjectAt(i)["smoke"].ValueType != JsonValueType.Null)
+                        smoke = Int32.Parse(jsonArr.GetObjectAt(i).GetNamedString("smoke"));
+                    if (jsonArr.GetObjectAt(i)["wildfire_risk_level"].ValueType != JsonValueType.Null)
+                        wildfire_risk_level = Int32.Parse(jsonArr.GetObjectAt(i).GetNamedString("wildfire_risk_level"));
+                    Node node = new Node(id, nodeType, onlineStatus, latitude, longitude, risk_status, relative_humidity, temperature, smoke, wildfire_risk_level);
+                    nodeArr.Add(node);
+
+                }
+                Node[] nodeReturn = new Node[nodeArr.Count];
+                int index = 0;
+                foreach (Node node in nodeArr)
+                {
+                    nodeReturn[index++] = node;
+                }
+                return nodeReturn;
             }
-            Node[] nodeReturn = new Node[nodeArr.Count];
-            int index = 0;
-            foreach (Node node in nodeArr)
+            catch (Exception e)
             {
-                nodeReturn[index++] = node;
+                return null;
             }
-            return nodeReturn;
         }
 
         public static async void responseEmergency(int wristband_id)
         {
-            Uri uri = new Uri("http://207.46.230.196/wristband/response_emergency?device-id=" + wristband_id);
-            HttpClient client = new HttpClient();
-            await client.GetAsync(uri);
+            try {
+                Uri uri = new Uri("http://207.46.230.196/wristband/response_emergency?device-id=" + wristband_id);
+                HttpClient client = new HttpClient();
+                await client.GetAsync(uri);
+            }
+            catch (Exception e)
+            {
+
+            }
         }
     }
 }

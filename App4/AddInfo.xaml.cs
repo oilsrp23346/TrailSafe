@@ -66,6 +66,7 @@ namespace App4
                 profile_pic = ImageConverter.ByteArrayToBase64(buffer);
                 BitmapImage b = ImageConverter.byteArrayToBitmapImage(ImageConverter.Base64ToByteArray(profile_pic)).Result;
             }
+            NextButton.IsEnabled = true;
         }
 
         //save

@@ -17,13 +17,17 @@ namespace BackgroundTask
             while (true)
             {
                 Task.Delay(15000).Wait();
+                 
                 User[] users = User.getAllUser();
-                foreach (User user in users)
+                if (users != null)
                 {
-                    if (user.status == 2)
+                    foreach (User user in users)
                     {
-                        SendToast(user.identifier.ToString());
-                        Task.Delay(5000).Wait();
+                        if (user.status == 2)
+                        {
+                            SendToast(user.identifier.ToString());
+                            Task.Delay(5000).Wait();
+                        }
                     }
                 }
             }

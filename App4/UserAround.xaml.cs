@@ -36,6 +36,7 @@ namespace App4
         {
             this.InitializeComponent();
         }
+
         //recieve Node id
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
@@ -43,26 +44,25 @@ namespace App4
             //txttest.Text = "Hi, " + test.id;
             getNodeId(test);
         }
+
         private void getNodeId(Node test)
         {
-            usersItems = new ObservableCollection<User>();
-            int id = test.id;
-            User.addUserbyNode("Tourist", usersItems, id);
-            
-        }
+            if (test != null)
+            {
+                usersItems = new ObservableCollection<User>();
+                int id = test.id;
+                User.addUserbyNode("Tourist", usersItems, id);
+            }
+       }
 
+        private User user = null;
         private void GridView_UserClick(object sender, ItemClickEventArgs e)
         {
-           // this.Frame.Navigate(typeof(map));
-
+            // this.Frame.Navigate(typeof(map));
+            user = (User)e.ClickedItem;
+            this.Frame.Navigate(typeof(map), User.getNearbyNode(user.id));
         }
-        // private void ButtonPopToast_Click(object sender, RoutedEventArgs e)
-        // {
-        //     ToastHelper.PopCustomToast(TextBoxPayload.Text);
-        // }
 
-       
-       
     }
 }
 

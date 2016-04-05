@@ -45,7 +45,6 @@
             <TextBlock Text="{x:Bind User.name}"
                        Name="HeadlineTextBlock"
                        RelativePanel.AlignTopWithPanel="True" 
-                       FontFamily="Times New Roman"
                        FontSize="16" 
                        TextWrapping="Wrap" />
             <TextBlock Text="{x:Bind User.wristbandID}"

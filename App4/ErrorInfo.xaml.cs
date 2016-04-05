@@ -35,15 +35,18 @@ namespace App4
        
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            test = (Node)e.Parameter;
-            getNodeId(test);
+            if (e.Parameter != null) {
+                test = (Node)e.Parameter;
+                getNodeId(test);
+            }
         }
         private void getNodeId(Node test)
         {
-            nodesItems = new ObservableCollection<NodeEvent>();
-            int id = test.id;
-            Node.addError("NodeEvent", nodesItems, id);
-
+            if (test != null) {
+                nodesItems = new ObservableCollection<NodeEvent>();
+                int id = test.id;
+                Node.addError("NodeEvent", nodesItems, id);
+            }
         }
 
     }

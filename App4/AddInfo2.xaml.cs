@@ -41,6 +41,11 @@ namespace App4
             ID.Text = "";
             Whistband.Text = "";
         }
+        public void clearIDForm()
+        {
+            ID.Text = "";
+            Whistband.Text = "";
+        }
 
         private async void save_Click(object sender, RoutedEventArgs e)
         {
@@ -48,15 +53,32 @@ namespace App4
             {
                 MessageDialog ms = new MessageDialog("Please fill the box below.");
                 await ms.ShowAsync();
-                clearForm();
-                this.Frame.Navigate(typeof(Tourist));
+                
             }
             else
             {
-                User user = new User(name.Text, Int32.Parse(ID.Text), profile_pic, Int32.Parse(Whistband.Text));
-                user.registerUser();
-                clearForm();
+                if (IsAllDigits(ID.Text) && IsAllDigits(Whistband.Text))
+                {
+                    User user = new User(name.Text, Int32.Parse(ID.Text), profile_pic, Int32.Parse(Whistband.Text));
+                    user.registerUser();
+                    clearIDForm();
+                    this.Frame.Navigate(typeof(Tourist));
+                }
+                else
+                {
+                    var messageDialog = new MessageDialog("Please fill number in ID and WristbandID");
+                    await messageDialog.ShowAsync();
+                }
             }
+        }
+        private bool IsAllDigits(string s)
+        {
+            foreach (char c in s)
+            {
+                if (!char.IsDigit(c))
+                    return false;
+            }
+            return true;
         }
     }
 }

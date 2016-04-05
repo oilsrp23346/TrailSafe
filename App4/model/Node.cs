@@ -54,13 +54,70 @@ namespace App4.Model
 
         public static Node[] getArrayOdNode(string url)
         {
-            ArrayList nodeArr = new ArrayList();
-            Uri uri = new Uri("http://207.46.230.196/node/" + url);
-            HttpClient client = new HttpClient();
-            HttpResponseMessage response = client.GetAsync(uri).Result;
-            JsonArray jsonArr = JsonValue.Parse(response.Content.ReadAsStringAsync().Result.ToString()).GetArray();
-            for (uint i = 0; i < jsonArr.Count; i++)
+            try
             {
+                ArrayList nodeArr = new ArrayList();
+                Uri uri = new Uri("http://207.46.230.196/node/" + url);
+                HttpClient client = new HttpClient();
+                HttpResponseMessage response = client.GetAsync(uri).Result;
+                JsonArray jsonArr = JsonValue.Parse(response.Content.ReadAsStringAsync().Result.ToString()).GetArray();
+                for (uint i = 0; i < jsonArr.Count; i++)
+                {
+                    int id = -1;
+                    int onlineStatus = -1;
+                    string nodeType = "";
+                    double latitude = -1;
+                    double longitude = -1;
+                    int risk_status = -1;
+                    double relative_humidity = -1;
+                    double temperature = -1;
+                    int smoke = -1;
+                    int wildfire_risk_level = -1;
+                    if (jsonArr.GetObjectAt(i)["id"].ValueType != JsonValueType.Null)
+                        id = Int32.Parse(jsonArr.GetObjectAt(i).GetNamedString("id"));
+                    if (jsonArr.GetObjectAt(i)["node_type"].ValueType != JsonValueType.Null)
+                        nodeType = jsonArr.GetObjectAt(i).GetNamedString("node_type");
+                    if (jsonArr.GetObjectAt(i)["online_status"].ValueType != JsonValueType.Null)
+                        onlineStatus = Int32.Parse(jsonArr.GetObjectAt(i).GetNamedString("online_status"));
+                    if (jsonArr.GetObjectAt(i)["latitude"].ValueType != JsonValueType.Null)
+                        latitude = Double.Parse(jsonArr.GetObjectAt(i).GetNamedString("latitude"));
+                    if (jsonArr.GetObjectAt(i)["longitude"].ValueType != JsonValueType.Null)
+                        longitude = Double.Parse(jsonArr.GetObjectAt(i).GetNamedString("longitude"));
+                    if (jsonArr.GetObjectAt(i)["risk_status"].ValueType != JsonValueType.Null)
+                        risk_status = Int32.Parse(jsonArr.GetObjectAt(i).GetNamedString("risk_status"));
+                    if (jsonArr.GetObjectAt(i)["relative_humidity"].ValueType != JsonValueType.Null)
+                        relative_humidity = Double.Parse(jsonArr.GetObjectAt(i).GetNamedString("relative_humidity"));
+                    if (jsonArr.GetObjectAt(i)["temperature"].ValueType != JsonValueType.Null)
+                        temperature = Double.Parse(jsonArr.GetObjectAt(i).GetNamedString("temperature"));
+                    if (jsonArr.GetObjectAt(i)["smoke"].ValueType != JsonValueType.Null)
+                        smoke = Int32.Parse(jsonArr.GetObjectAt(i).GetNamedString("smoke"));
+                    if (jsonArr.GetObjectAt(i)["wildfire_risk_level"].ValueType != JsonValueType.Null)
+                        wildfire_risk_level = Int32.Parse(jsonArr.GetObjectAt(i).GetNamedString("wildfire_risk_level"));
+                    Node node = new Node(id, nodeType, onlineStatus, latitude, longitude, risk_status, relative_humidity, temperature, smoke, wildfire_risk_level);
+                    nodeArr.Add(node);
+                }
+                Node[] nodeReturn = new Node[nodeArr.Count];
+                int index = 0;
+                foreach (Node node in nodeArr)
+                {
+                    nodeReturn[index++] = node;
+                }
+                return nodeReturn;
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+        }
+
+        public static Node getSingleOfNode(string url)
+        {
+            try
+            {
+                Uri uri = new Uri("http://207.46.230.196/node/" + url);
+                HttpClient client = new HttpClient();
+                HttpResponseMessage response = client.GetAsync(uri).Result;
+                JsonValue json = JsonValue.Parse(response.Content.ReadAsStringAsync().Result.ToString());
                 int id = -1;
                 int onlineStatus = -1;
                 string nodeType = "";
@@ -71,76 +128,33 @@ namespace App4.Model
                 double temperature = -1;
                 int smoke = -1;
                 int wildfire_risk_level = -1;
-                if (jsonArr.GetObjectAt(i)["id"].ValueType != JsonValueType.Null)
-                    id = Int32.Parse(jsonArr.GetObjectAt(i).GetNamedString("id"));
-                if (jsonArr.GetObjectAt(i)["node_type"].ValueType != JsonValueType.Null)
-                    nodeType = jsonArr.GetObjectAt(i).GetNamedString("node_type");
-                if (jsonArr.GetObjectAt(i)["online_status"].ValueType != JsonValueType.Null)
-                    onlineStatus = Int32.Parse(jsonArr.GetObjectAt(i).GetNamedString("online_status"));
-                if (jsonArr.GetObjectAt(i)["latitude"].ValueType != JsonValueType.Null)
-                    latitude = Double.Parse(jsonArr.GetObjectAt(i).GetNamedString("latitude"));
-                if (jsonArr.GetObjectAt(i)["longitude"].ValueType != JsonValueType.Null)
-                    longitude = Double.Parse(jsonArr.GetObjectAt(i).GetNamedString("longitude"));
-                if (jsonArr.GetObjectAt(i)["risk_status"].ValueType != JsonValueType.Null)
-                    risk_status = Int32.Parse(jsonArr.GetObjectAt(i).GetNamedString("risk_status"));
-                if (jsonArr.GetObjectAt(i)["relative_humidity"].ValueType != JsonValueType.Null)
-                    relative_humidity = Double.Parse(jsonArr.GetObjectAt(i).GetNamedString("relative_humidity"));
-                if (jsonArr.GetObjectAt(i)["temperature"].ValueType != JsonValueType.Null)
-                    temperature = Double.Parse(jsonArr.GetObjectAt(i).GetNamedString("temperature"));
-                if (jsonArr.GetObjectAt(i)["smoke"].ValueType != JsonValueType.Null)
-                    smoke = Int32.Parse(jsonArr.GetObjectAt(i).GetNamedString("smoke"));
-                if (jsonArr.GetObjectAt(i)["wildfire_risk_level"].ValueType != JsonValueType.Null)
-                    wildfire_risk_level = Int32.Parse(jsonArr.GetObjectAt(i).GetNamedString("wildfire_risk_level"));
+                if (json.GetObject()["id"].ValueType != JsonValueType.Null)
+                    id = Int32.Parse(json.GetObject().GetNamedString("id"));
+                if (json.GetObject()["node_type"].ValueType != JsonValueType.Null)
+                    nodeType = json.GetObject().GetNamedString("node_type");
+                if (json.GetObject()["online_status"].ValueType != JsonValueType.Null)
+                    onlineStatus = Int32.Parse(json.GetObject().GetNamedString("online_status"));
+                if (json.GetObject()["latitude"].ValueType != JsonValueType.Null)
+                    latitude = Double.Parse(json.GetObject().GetNamedString("latitude"));
+                if (json.GetObject()["longitude"].ValueType != JsonValueType.Null)
+                    longitude = Double.Parse(json.GetObject().GetNamedString("longitude"));
+                if (json.GetObject()["risk_status"].ValueType != JsonValueType.Null)
+                    risk_status = Int32.Parse(json.GetObject().GetNamedString("risk_status"));
+                if (json.GetObject()["relative_humidity"].ValueType != JsonValueType.Null)
+                    relative_humidity = Double.Parse(json.GetObject().GetNamedString("relative_humidity"));
+                if (json.GetObject()["temperature"].ValueType != JsonValueType.Null)
+                    temperature = Double.Parse(json.GetObject().GetNamedString("temperature"));
+                if (json.GetObject()["smoke"].ValueType != JsonValueType.Null)
+                    smoke = Int32.Parse(json.GetObject().GetNamedString("smoke"));
+                if (json.GetObject()["wildfire_risk_level"].ValueType != JsonValueType.Null)
+                    wildfire_risk_level = Int32.Parse(json.GetObject().GetNamedString("wildfire_risk_level"));
                 Node node = new Node(id, nodeType, onlineStatus, latitude, longitude, risk_status, relative_humidity, temperature, smoke, wildfire_risk_level);
-                nodeArr.Add(node);
+                return node;
             }
-            Node[] nodeReturn = new Node[nodeArr.Count];
-            int index = 0;
-            foreach (Node node in nodeArr)
+            catch (Exception e)
             {
-                nodeReturn[index++] = node;
+                return null;
             }
-            return nodeReturn;
-        }
-
-        public static Node getSingleOfNode(string url)
-        {
-            Uri uri = new Uri("http://207.46.230.196/node/" + url);
-            HttpClient client = new HttpClient();
-            HttpResponseMessage response = client.GetAsync(uri).Result;
-            JsonValue json = JsonValue.Parse(response.Content.ReadAsStringAsync().Result.ToString());
-            int id = -1;
-            int onlineStatus = -1;
-            string nodeType = "";
-            double latitude = -1;
-            double longitude = -1;
-            int risk_status = -1;
-            double relative_humidity = -1;
-            double temperature = -1;
-            int smoke = -1;
-            int wildfire_risk_level = -1;
-            if (json.GetObject()["id"].ValueType != JsonValueType.Null)
-                id = Int32.Parse(json.GetObject().GetNamedString("id"));
-            if (json.GetObject()["node_type"].ValueType != JsonValueType.Null)
-                nodeType = json.GetObject().GetNamedString("node_type");
-            if (json.GetObject()["online_status"].ValueType != JsonValueType.Null)
-                onlineStatus = Int32.Parse(json.GetObject().GetNamedString("online_status"));
-            if (json.GetObject()["latitude"].ValueType != JsonValueType.Null)
-                latitude = Double.Parse(json.GetObject().GetNamedString("latitude"));
-            if (json.GetObject()["longitude"].ValueType != JsonValueType.Null)
-                longitude = Double.Parse(json.GetObject().GetNamedString("longitude"));
-            if (json.GetObject()["risk_status"].ValueType != JsonValueType.Null)
-                risk_status = Int32.Parse(json.GetObject().GetNamedString("risk_status"));
-            if (json.GetObject()["relative_humidity"].ValueType != JsonValueType.Null)
-                relative_humidity = Double.Parse(json.GetObject().GetNamedString("relative_humidity"));
-            if (json.GetObject()["temperature"].ValueType != JsonValueType.Null)
-                temperature = Double.Parse(json.GetObject().GetNamedString("temperature"));
-            if (json.GetObject()["smoke"].ValueType != JsonValueType.Null)
-                smoke = Int32.Parse(json.GetObject().GetNamedString("smoke"));
-            if (json.GetObject()["wildfire_risk_level"].ValueType != JsonValueType.Null)
-                wildfire_risk_level = Int32.Parse(json.GetObject().GetNamedString("wildfire_risk_level"));
-            Node node = new Node(id, nodeType, onlineStatus, latitude, longitude, risk_status, relative_humidity, temperature, smoke, wildfire_risk_level);
-            return node;
         }
 
         public static Node[] getAllNode()
@@ -165,33 +179,48 @@ namespace App4.Model
 
         public static int[] getAllNodeStatus()
         {
-            ArrayList statusArr = new ArrayList();
-            Uri uri = new Uri("http://207.46.230.196/node/getallnodesstatus");
-            HttpClient client = new HttpClient();
-            HttpResponseMessage response = client.GetAsync(uri).Result;
-            JsonArray json = JsonValue.Parse(response.Content.ReadAsStringAsync().Result.ToString()).GetArray();
-            for (uint i = 0; i < json.Count; i++)
+            try
             {
-                int status = Int32.Parse(json.GetStringAt(i));
-                statusArr.Add(status);
+                ArrayList statusArr = new ArrayList();
+                Uri uri = new Uri("http://207.46.230.196/node/getallnodesstatus");
+                HttpClient client = new HttpClient();
+                HttpResponseMessage response = client.GetAsync(uri).Result;
+                JsonArray json = JsonValue.Parse(response.Content.ReadAsStringAsync().Result.ToString()).GetArray();
+                for (uint i = 0; i < json.Count; i++)
+                {
+                    int status = Int32.Parse(json.GetStringAt(i));
+                    statusArr.Add(status);
+                }
+                int[] statusReturn = new int[statusArr.Count];
+                int index = 0;
+                foreach (int status in statusArr)
+                {
+                    statusReturn[index++] = status;
+                }
+                return statusReturn;
             }
-            int[] statusReturn = new int[statusArr.Count];
-            int index = 0;
-            foreach (int status in statusArr)
+            catch (Exception e)
             {
-                statusReturn[index++] = status;
+                return null;
             }
-            return statusReturn;
+
         }
 
         public static int getNodeStatus(int id)
         {
-            Uri uri = new Uri("http://207.46.230.196/node/getstatus?device-id=" + id);
-            HttpClient client = new HttpClient();
-            HttpResponseMessage response = client.GetAsync(uri).Result;
-            JsonValue json = JsonValue.Parse(response.Content.ReadAsStringAsync().Result.ToString());
-            int status = (int)json.GetNumber();
-            return status;
+            try
+            {
+                Uri uri = new Uri("http://207.46.230.196/node/getstatus?device-id=" + id);
+                HttpClient client = new HttpClient();
+                HttpResponseMessage response = client.GetAsync(uri).Result;
+                JsonValue json = JsonValue.Parse(response.Content.ReadAsStringAsync().Result.ToString());
+                int status = (int)json.GetNumber();
+                return status;
+            }
+            catch (Exception e)
+            {
+                return -1;
+            }
         }
 
 
@@ -206,10 +235,16 @@ namespace App4.Model
         //add list
         public static void GetNodes(string topic, ObservableCollection<Node> nodesItems)
         {
-            var allItems = getNodesItems();
-            var filteredNewsItems = allItems.Where(p => p.Topic == topic).ToList();
-            nodesItems.Clear();
-            filteredNewsItems.ForEach(p => nodesItems.Add(p));
+            try {
+                var allItems = getNodesItems();
+                var filteredNewsItems = allItems.Where(p => p.Topic == topic).ToList();
+                nodesItems.Clear();
+                filteredNewsItems.ForEach(p => nodesItems.Add(p));
+            }
+            catch (Exception e)
+            {
+
+            }
         }
         private static List<Node> getNodesItems()
         {
@@ -225,41 +260,48 @@ namespace App4.Model
 
         public static NodeEvent[] getNodeEvent(int id)
         {
-            ArrayList nodeRarr = new ArrayList();
-            Uri uri = new Uri("http://207.46.230.196/node/error_log?device-id=" + id);
-            HttpClient client = new HttpClient();
-            HttpResponseMessage response = client.GetAsync(uri).Result;
-            JsonArray jsonArr = JsonValue.Parse(response.Content.ReadAsStringAsync().Result.ToString()).GetArray();
-            for (uint i = 0; i < jsonArr.Count; i++)
+            try
             {
-                int id_pri = -1;
-                int node_id = -1;
-                int type = -1;
-                string detail = "";
-                string sys_info = "";
-                string created_at = "";
-                if (jsonArr.GetObjectAt(i)["id"].ValueType != JsonValueType.Null)
-                    id_pri = Int32.Parse(jsonArr.GetObjectAt(i).GetNamedString("id"));
-                if (jsonArr.GetObjectAt(i)["node_id"].ValueType != JsonValueType.Null)
-                    node_id = Int32.Parse(jsonArr.GetObjectAt(i).GetNamedString("node_id"));
-                if (jsonArr.GetObjectAt(i)["type"].ValueType != JsonValueType.Null)
-                    type = Int32.Parse(jsonArr.GetObjectAt(i).GetNamedString("type"));
-                if (jsonArr.GetObjectAt(i)["detail"].ValueType != JsonValueType.Null)
-                    detail = jsonArr.GetObjectAt(i).GetNamedString("detail");
-                if (jsonArr.GetObjectAt(i)["sys_info"].ValueType != JsonValueType.Null)
-                    sys_info = jsonArr.GetObjectAt(i).GetNamedString("sys_info");
-                if (jsonArr.GetObjectAt(i)["created_at"].ValueType != JsonValueType.Null)
-                    created_at = jsonArr.GetObjectAt(i).GetNamedString("created_at");
-                NodeEvent nd = new NodeEvent(id_pri, node_id, type, detail, sys_info, created_at);
-                nodeRarr.Add(nd);
+                ArrayList nodeRarr = new ArrayList();
+                Uri uri = new Uri("http://207.46.230.196/node/error_log?device-id=" + id);
+                HttpClient client = new HttpClient();
+                HttpResponseMessage response = client.GetAsync(uri).Result;
+                JsonArray jsonArr = JsonValue.Parse(response.Content.ReadAsStringAsync().Result.ToString()).GetArray();
+                for (uint i = 0; i < jsonArr.Count; i++)
+                {
+                    int id_pri = -1;
+                    int node_id = -1;
+                    int type = -1;
+                    string detail = "";
+                    string sys_info = "";
+                    string created_at = "";
+                    if (jsonArr.GetObjectAt(i)["id"].ValueType != JsonValueType.Null)
+                        id_pri = Int32.Parse(jsonArr.GetObjectAt(i).GetNamedString("id"));
+                    if (jsonArr.GetObjectAt(i)["node_id"].ValueType != JsonValueType.Null)
+                        node_id = Int32.Parse(jsonArr.GetObjectAt(i).GetNamedString("node_id"));
+                    if (jsonArr.GetObjectAt(i)["type"].ValueType != JsonValueType.Null)
+                        type = Int32.Parse(jsonArr.GetObjectAt(i).GetNamedString("type"));
+                    if (jsonArr.GetObjectAt(i)["detail"].ValueType != JsonValueType.Null)
+                        detail = jsonArr.GetObjectAt(i).GetNamedString("detail");
+                    if (jsonArr.GetObjectAt(i)["sys_info"].ValueType != JsonValueType.Null)
+                        sys_info = jsonArr.GetObjectAt(i).GetNamedString("sys_info");
+                    if (jsonArr.GetObjectAt(i)["created_at"].ValueType != JsonValueType.Null)
+                        created_at = jsonArr.GetObjectAt(i).GetNamedString("created_at");
+                    NodeEvent nd = new NodeEvent(id_pri, node_id, type, detail, sys_info, created_at);
+                    nodeRarr.Add(nd);
+                }
+                NodeEvent[] ndReturn = new NodeEvent[nodeRarr.Count];
+                int index = 0;
+                foreach (NodeEvent nd in nodeRarr)
+                {
+                    ndReturn[index++] = nd;
+                }
+                return ndReturn;
             }
-            NodeEvent[] ndReturn = new NodeEvent[nodeRarr.Count];
-            int index = 0;
-            foreach (NodeEvent nd in nodeRarr)
+            catch (Exception e)
             {
-                ndReturn[index++] = nd;
+                return null;
             }
-            return ndReturn;
         }
 
 
@@ -339,30 +381,55 @@ namespace App4.Model
         }
         public static async void warnNode(int id)
         {
+            try { 
             Uri uri = new Uri("http://207.46.230.196/node/warn_node?device-id=" + id);
             HttpClient client = new HttpClient();
             await client.GetAsync(uri);
+            }
+            catch (Exception e)
+            {
+
+            }
         }
 
         public static async void warnAllNode()
         {
-            Uri uri = new Uri("http://207.46.230.196/node/warn_all_nodes");
-            HttpClient client = new HttpClient();
-            await client.GetAsync(uri);
+            try {
+                Uri uri = new Uri("http://207.46.230.196/node/warn_all_nodes");
+                HttpClient client = new HttpClient();
+                await client.GetAsync(uri);
+            }
+            catch (Exception e)
+            {
+
+            }
         }
 
         public static async void cancelWarningNode(int id)
         {
-            Uri uri = new Uri("http://207.46.230.196/node/cancel_warning_node?device-id=" + id);
-            HttpClient client = new HttpClient();
-            await client.GetAsync(uri);
+            try {
+                Uri uri = new Uri("http://207.46.230.196/node/cancel_warning_node?device-id=" + id);
+                HttpClient client = new HttpClient();
+                await client.GetAsync(uri);
+            }
+            catch (Exception e)
+            {
+
+            }
         }
 
         public static async void cancelWarningAllNode()
         {
-            Uri uri = new Uri("http://207.46.230.196/node/cancel_warning_all_nodes");
-            HttpClient client = new HttpClient();
-            await client.GetAsync(uri);
+            try
+            {
+                Uri uri = new Uri("http://207.46.230.196/node/cancel_warning_all_nodes");
+                HttpClient client = new HttpClient();
+                await client.GetAsync(uri);
+            }
+            catch (Exception e)
+            {
+
+            }
         }
 
 

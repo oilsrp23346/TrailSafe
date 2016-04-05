@@ -53,22 +53,25 @@ namespace App4
         Node node = null;
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-             node = (Node)e.Parameter;
-            nodeID.Text = "NODE : " + node.id;
-            base.OnNavigatedTo(e);
+            if (e.Parameter != null) {
+                node = (Node)e.Parameter;
+                nodeID.Text = "NODE : " + node.id;
+                base.OnNavigatedTo(e);
+            }
         }
 
         private void notify_Click(object sender, RoutedEventArgs e)
         {
-            Node.warnNode(node.id);
-            /*var xmlDoc = ToastService.CreateToast();
-            var notifier = ToastNotificationManager.CreateToastNotifier();
-            var toast = new ToastNotification(xmlDoc);
-            notifier.Show(toast);*/
+            if (node != null) {
+                Node.warnNode(node.id);
+            }
         }
         private void unnotify_Click(object sender, RoutedEventArgs e)
         {
-            Node.cancelWarningNode(node.id);
+            if (node != null)
+            {
+                Node.cancelWarningNode(node.id);
+            }
         }       
     }  
 }

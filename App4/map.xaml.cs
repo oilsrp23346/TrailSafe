@@ -59,24 +59,26 @@ namespace App4
             mapIcon2.ZIndex = 0;
             myMap.MapElements.Add(mapIcon2);
             //node 0 1 2 3
-            foreach (Node no in Node.getAllNode())
+            if (Node.getAllNode() != null)
             {
-                BasicGeoposition snPosition = new BasicGeoposition() { Latitude = no.latitude, Longitude = no.longitude };
-                Geopoint snPoint = new Geopoint(snPosition);
+                foreach (Node no in Node.getAllNode())
+                {
+                    BasicGeoposition snPosition = new BasicGeoposition() { Latitude = no.latitude, Longitude = no.longitude };
+                    Geopoint snPoint = new Geopoint(snPosition);
 
-                // Create a MapIcon.
-                MapIcon mapIcon1 = new MapIcon();
-                mapIcon1.Location = snPoint;
-                mapIcon1.NormalizedAnchorPoint = new Point(0.5, 1.0);
-                mapIcon1.Title = no.id.ToString();
-                mapIcon1.Image = mapIconStreamReference;
-                mapIcon1.ZIndex = 0;
+                    // Create a MapIcon.
+                    MapIcon mapIcon1 = new MapIcon();
+                    mapIcon1.Location = snPoint;
+                    mapIcon1.NormalizedAnchorPoint = new Point(0.5, 1.0);
+                    mapIcon1.Title = no.id.ToString();
+                    mapIcon1.Image = mapIconStreamReference;
+                    mapIcon1.ZIndex = 0;
 
-                // Add the MapIcon to the map.
-                myMap.MapElements.Add(mapIcon1);
+                    // Add the MapIcon to the map.
+                    myMap.MapElements.Add(mapIcon1);
+                }
             }
-
-
+            
             myMap.Center = snCentermap;
             myMap.ZoomLevel = 12;
 

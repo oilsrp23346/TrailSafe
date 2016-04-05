@@ -40,9 +40,11 @@ namespace App4
         }
         private void getNodeId(Node test)
         {
-            nodesItems = new ObservableCollection<NodeRegistration>();
-            int id = test.id;
-            Node.addRegister("NodeRegister", nodesItems, id);
+            if (test != null) {
+                nodesItems = new ObservableCollection<NodeRegistration>();
+                int id = test.id;
+                Node.addRegister("NodeRegister", nodesItems, id);
+            }
 
         }
 
