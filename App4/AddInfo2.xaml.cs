@@ -62,7 +62,6 @@ namespace App4
                     User user = new User(name.Text, Double.Parse(ID.Text), profile_pic, Int32.Parse(Whistband.Text));
                     user.registerUser();
                     clearIDForm();
-                    this.Frame.Navigate(typeof(Tourist));
                 }
                 else
                 {

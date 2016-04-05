@@ -42,18 +42,36 @@
 
         <Image Name="MyImage" Source="{x:Bind User.bitmap}" />
         <RelativePanel Grid.Row="1" Margin="10">
+            <TextBlock Text="Name : "
+                       Name="HeadlineName"
+                       RelativePanel.AlignTopWithPanel="True" 
+                       FontSize="16" 
+                       TextWrapping="Wrap" />
             <TextBlock Text="{x:Bind User.name}"
                        Name="HeadlineTextBlock"
                        RelativePanel.AlignTopWithPanel="True" 
+                       RelativePanel.RightOf="HeadlineName"
+                       FontSize="16" 
+                       TextWrapping="Wrap" />
+            <TextBlock Text="ID : "
+                       Name="HeadlineID"
+                       RelativePanel.Below="HeadlineName"
                        FontSize="16" 
                        TextWrapping="Wrap" />
             <TextBlock Text="{x:Bind User.wristbandID}"
                        Name="HeadlineTextBlock2"
-                       RelativePanel.Below="HeadlineTextBlock" 
+                       RelativePanel.RightOf="HeadlineWristbandID"
+                       RelativePanel.Below="HeadlineTextBlock3" 
+                       TextWrapping="Wrap" />
+            <TextBlock Text="WristbandID : "
+                       Name="HeadlineWristbandID"
+                       RelativePanel.Below="HeadlineID"
+                       FontSize="16" 
                        TextWrapping="Wrap" />
             <TextBlock Text="{x:Bind User.identifier}" 
                        Name="HeadlineTextBlock3"
-                       RelativePanel.Below="HeadlineTextBlock2" 
+                       RelativePanel.RightOf="HeadlineID"
+                       RelativePanel.Below="HeadlineTextBlock" 
                        TextWrapping="Wrap" />
         </RelativePanel>
     </Grid>
