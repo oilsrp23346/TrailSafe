@@ -17,12 +17,13 @@ C:\Users\oat_vm\Desktop\Develop\BackgroundTask\obj\x86\Debug\pri.resfiles.interm
 C:\Users\oat_vm\Desktop\Develop\BackgroundTask\obj\x86\Debug\qualifiers.txt
 C:\Users\oat_vm\Desktop\Develop\BackgroundTask\obj\x86\Debug\qualifiers.txt.intermediate
 C:\Users\oat_vm\Desktop\Develop\BackgroundTask\obj\x86\Debug\MultipleQualifiersPerDimensionFound.txt
+C:\Users\siriporn\Documents\GitHub\Trail Safe\TrailSafe\BackgroundTask\obj\x86\Debug\BackgroundTask.pdb
+C:\Users\siriporn\Documents\GitHub\Trail Safe\TrailSafe\BackgroundTask\obj\x86\Debug\BackgroundTask.winmdobj
 C:\Users\siriporn\Documents\GitHub\Trail Safe\TrailSafe\BackgroundTask\bin\x86\Debug\BackgroundTask.winmd
 C:\Users\siriporn\Documents\GitHub\Trail Safe\TrailSafe\BackgroundTask\bin\x86\Debug\BackgroundTask.pdb
 C:\Users\siriporn\Documents\GitHub\Trail Safe\TrailSafe\BackgroundTask\bin\x86\Debug\BackgroundTask.pri
+C:\Users\siriporn\Documents\GitHub\Trail Safe\TrailSafe\BackgroundTask\obj\x86\Debug\BackgroundTask.csprojResolveAssemblyReference.cache
 C:\Users\siriporn\Documents\GitHub\Trail Safe\TrailSafe\BackgroundTask\obj\x86\Debug\BackgroundTask.winmd
-C:\Users\siriporn\Documents\GitHub\Trail Safe\TrailSafe\BackgroundTask\obj\x86\Debug\BackgroundTask.pdb
-C:\Users\siriporn\Documents\GitHub\Trail Safe\TrailSafe\BackgroundTask\obj\x86\Debug\BackgroundTask.winmdobj
 C:\Users\siriporn\Documents\GitHub\Trail Safe\TrailSafe\BackgroundTask\obj\x86\Debug\BackgroundTask.compile.pdb
 C:\Users\siriporn\Documents\GitHub\Trail Safe\TrailSafe\BackgroundTask\obj\x86\Debug\priconfig.xml
 C:\Users\siriporn\Documents\GitHub\Trail Safe\TrailSafe\BackgroundTask\obj\x86\Debug\priconfig.xml.intermediate

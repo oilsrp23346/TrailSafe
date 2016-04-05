@@ -59,7 +59,7 @@ namespace App4
             {
                 if (IsAllDigits(ID.Text) && IsAllDigits(Whistband.Text))
                 {
-                    User user = new User(name.Text, Int32.Parse(ID.Text), profile_pic, Int32.Parse(Whistband.Text));
+                    User user = new User(name.Text, Double.Parse(ID.Text), profile_pic, Int32.Parse(Whistband.Text));
                     user.registerUser();
                     clearIDForm();
                     this.Frame.Navigate(typeof(Tourist));
